@@ -1,1 +1,147 @@
+@import "_variables";
 
+* {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    
+
+}
+html {
+    scroll-behavior: smooth;
+    border-top: solid 5px #572EE5;
+    border-bottom: solid 5px #572EE5;
+  }
+
+/* Mobile First HEADER breakpoint 320*/
+header{
+    width: 100vw;
+    margin: 15px;
+    nav{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+        .createButtom{
+            display: none;
+
+        }
+
+    }
+
+}
+/*Menu Hamburguesa*/
+.MenuHeader{
+    background-color:rgba(87,46,229,0.90);
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100px;
+    width: 100%;
+    padding-bottom: 100vw;
+        li:first-child{
+            margin-top: 17px;
+            
+        }
+        li{
+            background-color:transparent;
+            list-style: none;
+            text-align: center;
+            height: 60px;
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            a{
+            @extend %font-title;
+            text-decoration:none;
+            color: #FFFFFF;
+            font-size: 15px;
+            background-color:transparent;
+            }
+            div{
+                background-color: #FFFFFF;
+                height: 1px;
+                bottom: 7px;
+                width: 41px;
+                
+            }
+        }
+
+}
+.menuH::after{ 
+    content: url("/local/img/burger.svg")
+    
+}
+.MenuHambuerguesa{
+    .check{
+        display: none;
+    }
+}
+.check:checked ~ .MenuHeader{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 250px;
+}
+/* establecer cruz para cerrar menú hamburguesa
+ocultar primera imagen*/
+.check:checked ~ .menuH::before{
+        content: url("/local/img/close.svg")
+        
+    }
+
+/* Bloque 1 */
+.bloque1{
+    article{
+        width: 75vw;
+        display:block;
+        align-content: center;
+        h1{
+            @extend %font-title;
+            font-size: 25px;
+            color:#572EE5;
+            margin-bottom: 31px;
+            text-align: center;
+
+        }
+        img{
+            width: 85vw;
+            height: 85vw;
+        }
+
+    }
+}
+.bloque1-bottom{
+    h6{
+        @extend %font-title;
+
+    }
+    p{
+        @extend %font-medium;
+    }
+}
+/* Desktop 
+@media screen and (min-width: 321px) and (max-width: 740px){
+    header{
+        nav{
+            display: flex;
+    
+            ul{
+                display: flex;
+                li{
+                    text-decoration:none;
+                    list-style: none;
+                }
+            }
+            .createButtom{
+                display: inline-block;
+    
+            }
+    
+        }
+    
+    
+    }
+}
+
+*/

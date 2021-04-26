@@ -1,2 +1,22 @@
-$fontMain:     font-family: 'Montserrat', sans-serif;
-$fontSecundaty:font-family: 'Roboto', sans-serif;
+$fontMain: 'Montserrat', sans-serif;
+$fontSecundary: 'Roboto', sans-serif;
+
+%font-title {
+    font-family: $fontMain;
+    font-weight: 700;
+}
+
+%font-medium {
+    font-family: $fontMain;
+    font-weight: 400;
+}
+
+%font-title2{
+    font-family: $fontSecundary;
+    font-weight: 900;
+}
+
+%font-medium2{
+    font-family: $fontSecundary;
+    font-weight: 400;
+}

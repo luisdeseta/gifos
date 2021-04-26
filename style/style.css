@@ -1,1 +1,162 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+@charset "UTF-8";
+.MenuHeader li a, .bloque1 article h1, .bloque1-bottom h6 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+.bloque1-bottom p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+* {
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  border-top: solid 5px #572EE5;
+  border-bottom: solid 5px #572EE5;
+}
+
+/* Mobile First HEADER breakpoint 320*/
+header {
+  width: 100vw;
+  margin: 15px;
+}
+
+header nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header nav .createButtom {
+  display: none;
+}
+
+/*Menu Hamburguesa*/
+.MenuHeader {
+  background-color: rgba(87, 46, 229, 0.9);
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100px;
+  width: 100%;
+  padding-bottom: 100vw;
+}
+
+.MenuHeader li:first-child {
+  margin-top: 17px;
+}
+
+.MenuHeader li {
+  background-color: transparent;
+  list-style: none;
+  text-align: center;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.MenuHeader li a {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 15px;
+  background-color: transparent;
+}
+
+.MenuHeader li div {
+  background-color: #FFFFFF;
+  height: 1px;
+  bottom: 7px;
+  width: 41px;
+}
+
+.menuH::after {
+  content: url("/local/img/burger.svg");
+}
+
+.MenuHambuerguesa .check {
+  display: none;
+}
+
+.check:checked ~ .MenuHeader {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 250px;
+}
+
+/* establecer cruz para cerrar menú hamburguesa
+ocultar primera imagen*/
+.check:checked ~ .menuH::before {
+  content: url("/local/img/close.svg");
+}
+
+/* Bloque 1 */
+.bloque1 article {
+  width: 75vw;
+  display: block;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.bloque1 article h1 {
+  font-size: 25px;
+  color: #572EE5;
+  margin-bottom: 31px;
+  text-align: center;
+}
+
+.bloque1 article img {
+  width: 85vw;
+  height: 85vw;
+}
+
+/* Desktop 
+@media screen and (min-width: 321px) and (max-width: 740px){
+    header{
+        nav{
+            display: flex;
+    
+            ul{
+                display: flex;
+                li{
+                    text-decoration:none;
+                    list-style: none;
+                }
+            }
+            .createButtom{
+                display: inline-block;
+    
+            }
+    
+        }
+    
+    
+    }
+}
+
+*/
+/*# sourceMappingURL=style.css.map */
