@@ -1,0 +1,53 @@
+.bloque1 article h1, .bloque1 .bloque1-bottom h6 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+.bloque1 .bloque1-bottom p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+/* Armar fuentes dark */
+/* Bloque 1 */
+.bloque1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+}
+
+.bloque1 article h1 {
+  font-size: 25px;
+  color: #572EE5;
+  margin-bottom: 31px;
+  text-align: center;
+}
+
+.bloque1 article img {
+  max-width: 80vw;
+}
+
+.bloque1 .bloque1-bottom h6 {
+  font-size: 18px;
+  color: #572EE5;
+  text-align: center;
+}
+
+.bloque1 .bloque1-bottom p {
+  font-size: 16px;
+  color: #572EE5;
+  text-align: center;
+}
+
+.bloque1 #searchBox {
+  border-radius: 27px;
+  max-width: 80vw;
+}
+/*# sourceMappingURL=body.css.map */

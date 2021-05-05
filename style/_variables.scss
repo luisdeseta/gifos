@@ -1,6 +1,7 @@
 $fontMain: 'Montserrat', sans-serif;
 $fontSecundary: 'Roboto', sans-serif;
 
+
 %font-title {
     font-family: $fontMain;
     font-weight: 700;
@@ -20,3 +21,9 @@ $fontSecundary: 'Roboto', sans-serif;
     font-family: $fontSecundary;
     font-weight: 400;
 }
+%font-medium700{
+    font-family: $fontSecundary;
+    font-weight: 700;
+}
+
+/* Armar fuentes dark */

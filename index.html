@@ -5,30 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gifos</title>
-    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/style.css" id="theme">
     <!-- Fonts Google -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav>
-            <article>
-                <img class="logo" src="./img/logo-mobile.svg" alt="logo gifos">
+            <article class="logo">
+                <svg width="75px" height="49px" viewBox="0 0 53 49" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+                    <title>logo-mobile</title>
+                    <desc>Created with Sketch.</desc>
+                    <defs>
+                        <polygon id="path-1" points="0.837379272 0.943343486 48.5296106 0.943343486 48.5296106 20.459945 0.837379272 20.459945"></polygon>
+                    </defs>
+                    <g id="GIFOS" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="00-UI-Kit" transform="translate(-347.000000, -2463.000000)">
+                            <g id="logo-mobile" transform="translate(347.000000, 2463.000000)">
+                                <g id="Group-5">
+                                    <polygon id="Fill-1" fill="#5ED7C6" points="0 -0.0002 0 48.7913039 48.7915039 48.7913039 48.7915039 38.3359816 45.3063965 38.3359816 45.3063965 45.3061965 3.48510742 45.3061965 3.48510742 3.48490742 34.8510742 3.48490742 34.8510742 13.9402297 45.3063965 13.9402297 45.3063965 20.9111416 48.7915039 20.9111416 48.7915039 10.4551223 38.3361816 -0.0002"></polygon>
+                                    <g id="Group-4" transform="translate(7.000000, 16.000000)">
+                                        <mask id="mask-2" fill="white">
+                                            <use xlink:href="#path-1"></use>
+                                        </mask>
+                                        <g id="Clip-3"></g>
+                                        <text id="GIFOS" mask="url(#mask-2)" font-family="Roboto-Black, Roboto" font-size="16" font-weight="700" fill="#572EE5">
+                                            <tspan x="1" y="20">GIFOS</tspan>
+                                        </text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
             </article>
             <article class="MenuHambuerguesa">
                 <!-- Menu Hamburguesa-->
                     <input type="checkbox" class="check" id="checkMenuH">
                     <label for="checkMenuH" class="menuH"></label>
                     <ul class="MenuHeader">
-                        <li> <a href="#">Modo Nocturno</a> <div></div></li>
-                        <li> <a href="#">Favoritos</a></li>
-                        <li> <a href="#">Mis GIFOS</a></li>
+                        <li> <a href="#">Modo Nocturno</a><span></span></li>
+                        <li> <a href="#">Favoritos</a><span></span></li>
+                        <li> <a href="#">Mis GIFOS</a><span></span></li>
                     </ul>
                     
             </article>
-            <article>
-                <img class="createButtom" src="./img/button-crear-gifo.svg" alt="Boton crear gifo">
+            <article class="createButtom">
+                <img src="./img/button-crear-gifo.svg" alt="Boton crear gifo">
             </article>
 
         </nav>
@@ -37,9 +63,12 @@
     <main>
         <section class="bloque1">
             <article>
-                <h1>Inspírate, busca, guarda, y crea <br> los mejores GIFOS</h1> 
-                <img src="./img/ilustra_header.svg" alt="">
-                <form action="buscar"></form>
+                <h1>Inspírate, busca, guarda, y crea <br> los mejores <span>GIFOS</span></h1> 
+                <img src="./img/ilustra_header.svg" alt="Personas de Gifos saludando">
+                <form action="buscar">
+                    <input type="text" name="search" id="searchBox" placeholder="Buscar GIFOS y más">
+                    <label for="searchBox"></label>
+                </form>
             </article>
             <article class="bloque1-bottom">
                 <h6>Trending</h6>

@@ -1,32 +1,16 @@
 @charset "UTF-8";
-.MenuHeader li a, .bloque1 article h1, .bloque1-bottom h6 {
+.MenuHeader li a, .bloque1 article h1, .bloque1 .bloque1-bottom h6 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
 }
 
-.bloque1-bottom p {
+.bloque1 .bloque1-bottom p {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
 }
 
-* {
-  background-color: white;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  border-top: solid 5px #572EE5;
-  border-bottom: solid 5px #572EE5;
-}
-
+/* Armar fuentes dark */
 /* Mobile First HEADER breakpoint 320*/
-header {
-  width: 100vw;
-  margin: 15px;
-}
-
 header nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -41,10 +25,19 @@ header nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 0% 0% 5%;
 }
 
 header nav .createButtom {
   display: none;
+}
+
+header nav .logo {
+  padding: 5% 5% 0%;
+}
+
+header nav .MenuHambuerguesa {
+  padding: 5% 6% 0%;
 }
 
 /*Menu Hamburguesa*/
@@ -53,7 +46,7 @@ header nav .createButtom {
   display: none;
   position: absolute;
   left: 0;
-  top: 100px;
+  top: 90px;
   width: 100%;
   padding-bottom: 100vw;
 }
@@ -74,9 +67,9 @@ header nav .createButtom {
   -webkit-box-direction: normal;
       -ms-flex-flow: column wrap;
           flex-flow: column wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .MenuHeader li a {
@@ -86,15 +79,17 @@ header nav .createButtom {
   background-color: transparent;
 }
 
-.MenuHeader li div {
+.MenuHeader li span {
+  display: block;
+  position: relative;
   background-color: #FFFFFF;
   height: 1px;
-  bottom: 7px;
   width: 41px;
+  top: 15px;
 }
 
 .menuH::after {
-  content: url("/local/img/burger.svg");
+  content: url("/_Gifos/local/img/burger.svg");
 }
 
 .MenuHambuerguesa .check {
@@ -109,29 +104,13 @@ header nav .createButtom {
 }
 
 /* establecer cruz para cerrar menú hamburguesa
-ocultar primera imagen*/
+¿se puede simplificar estas lineas? ¿anidar?*/
 .check:checked ~ .menuH::before {
-  content: url("/local/img/close.svg");
+  content: url("/_Gifos/local/img/close.svg");
 }
 
-/* Bloque 1 */
-.bloque1 article {
-  width: 75vw;
-  display: block;
-  -ms-flex-line-pack: center;
-      align-content: center;
-}
-
-.bloque1 article h1 {
-  font-size: 25px;
-  color: #572EE5;
-  margin-bottom: 31px;
-  text-align: center;
-}
-
-.bloque1 article img {
-  width: 85vw;
-  height: 85vw;
+.check:checked ~ .menuH::after {
+  content: none;
 }
 
 /* Desktop 
@@ -159,4 +138,69 @@ ocultar primera imagen*/
 }
 
 */
+.MenuHeader li a, .bloque1 article h1, .bloque1 .bloque1-bottom h6 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+.bloque1 .bloque1-bottom p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+/* Armar fuentes dark */
+/* Bloque 1 */
+.bloque1 article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+}
+
+.bloque1 article h1 {
+  font-size: 25px;
+  color: #572EE5;
+  padding-bottom: 31px;
+  text-align: center;
+}
+
+.bloque1 article img {
+  max-width: 80vw;
+}
+
+.bloque1 .bloque1-bottom h6 {
+  font-size: 18px;
+  color: #572EE5;
+  text-align: center;
+}
+
+.bloque1 .bloque1-bottom p {
+  font-size: 16px;
+  color: #572EE5;
+  text-align: center;
+}
+
+.bloque1 #searchBox {
+  border-radius: 27px;
+  width: 80vw;
+  height: 50px;
+  outline: none;
+  border: 1px solid #572EE5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  scroll-behavior: smooth;
+  border-top: solid 5px #572EE5;
+}
 /*# sourceMappingURL=style.css.map */

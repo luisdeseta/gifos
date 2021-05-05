@@ -1,0 +1,113 @@
+/* Mobile First HEADER breakpoint 320*/
+header{
+    
+    nav{
+        
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0% 0% 5%;
+        .createButtom{
+            display: none;
+
+        }
+        .logo{
+            padding: 5% 5% 0%;
+        }
+        .MenuHambuerguesa{
+            padding: 5% 6% 0%;
+        }
+
+    }
+
+}
+/*Menu Hamburguesa*/
+.MenuHeader{
+    background-color:rgba(87,46,229,0.90);
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 90px;
+    width: 100%;
+    padding-bottom: 100vw;
+        li:first-child{
+            margin-top: 17px;
+            
+        }
+        li{
+            background-color:transparent;
+            list-style: none;
+            text-align: center;
+            height: 60px;
+            display: flex;
+            flex-flow: column wrap;
+            align-items: center;
+            a{
+            @extend %font-title;
+            text-decoration:none;
+            color: #FFFFFF;
+            font-size: 15px;
+            background-color:transparent;
+            }
+            span{
+                display: block;
+                position: relative;
+                background-color: #FFFFFF;
+                height: 1px;
+                width: 41px;
+                top: 15px;
+            }
+        }
+
+}
+.menuH::after{ 
+    content: url("/_Gifos/local/img/burger.svg")
+    
+}
+.MenuHambuerguesa{
+    .check{
+        display: none;
+    }
+}
+.check:checked ~ .MenuHeader{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 250px;
+}
+/* establecer cruz para cerrar menú hamburguesa
+¿se puede simplificar estas lineas? ¿anidar?*/
+.check:checked ~ .menuH::before{
+        content: url("/_Gifos/local/img/close.svg")
+        
+    }
+.check:checked ~ .menuH::after{
+        content:none
+        
+    }
+/* Desktop 
+@media screen and (min-width: 321px) and (max-width: 740px){
+    header{
+        nav{
+            display: flex;
+    
+            ul{
+                display: flex;
+                li{
+                    text-decoration:none;
+                    list-style: none;
+                }
+            }
+            .createButtom{
+                display: inline-block;
+    
+            }
+    
+        }
+    
+    
+    }
+}
+
+*/
