@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="theme">
     <header>
         <nav>
             <article class="logo">
@@ -42,12 +42,13 @@
                     </g>
                 </svg>
             </article>
+            <div class="stickySearchMenu"></div>
             <article class="MenuHambuerguesa">
                 <!-- Menu Hamburguesa-->
                     <input type="checkbox" class="check" id="checkMenuH">
                     <label for="checkMenuH" class="menuH"></label>
                     <ul class="MenuHeader">
-                        <li> <a href="#">Modo Nocturno</a><span></span></li>
+                        <li> <a id="darkSwitch" href="#">Modo Nocturno</a><span></span></li>
                         <li> <a href="#">Favoritos</a><span></span></li>
                         <li> <a href="#">Mis GIFOS</a><span></span></li>
                     </ul>
@@ -61,7 +62,7 @@
 
     </header>
     <main>
-        <section class="bloque1">
+        <section class="block1">
             <article>
                 <h1>Inspírate, busca, guarda, y crea <br> los mejores <span>GIFOS</span></h1> 
                 <img src="./img/ilustra_header.svg" alt="Personas de Gifos saludando">
@@ -70,19 +71,19 @@
                     <label for="searchBox"></label>
                 </form>
             </article>
-            <article class="bloque1-bottom">
+            <article class="block1-bottom">
                 <h6>Trending</h6>
                 <p>Reactions, Entertainment, Sports, Stickers, Artists</p>
             </article>
 
         </section>
-        <section>
-            <article>
+        <section class="block2">
+            <div>
                 <h3>Trending GIFOS</h3>
                 <p>Mira los últimos GIFO de nuestra comunidad.</p>
-            </article>
-            <article>
-                <div>
+            </div>
+            <div class="trendGifos">
+                <div class="buttonSliderRight">
                     <p><</p>
                 </div>
                 <div>
@@ -94,10 +95,10 @@
                 <div>
                     <img src="./img/test/test1.gif" alt="test3">
                 </div>
-                <div>
+                <div class="buttonSliderLeft">
                     <p>></p>
                 </div>
-            </article>
+            </div>
 
         </section>
         <section></section>

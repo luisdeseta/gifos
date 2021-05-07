@@ -1,10 +1,8 @@
 @import "variables";
 
 
-
-/* Bloque 1 */
-.bloque1{
-    
+/* Block 1 */
+.block1{
     article{
         display:flex;
         align-items: center;
@@ -18,11 +16,12 @@
 
         }
         img{
-            max-width: 80vw;
+            max-width: 80%;
         }
         
     }
-    .bloque1-bottom{
+    .block1-bottom{
+        padding: 35px 0px 90px;
         h6{
             @extend %font-title;
             font-size: 18px;
@@ -32,15 +31,45 @@
         p{
             @extend %font-medium;
             font-size: 16px;
+            line-height: 25px;
             color:#572EE5;
             text-align: center;
+            max-width: 60%;
         }
     }
     #searchBox{
         border-radius: 27px;
         width: 80vw;
+        max-width: 550px;
+        min-width: 200px;
         height: 50px;
         outline: none;
         border: 1px solid #572EE5;
+        background-color: var(--color_bg_primary);
+        
     }
+}
+
+.block2{
+    div{
+        display:flex;
+        align-items: center;
+        flex-flow: column wrap; 
+        h3{
+            @extend %font-title;
+            font-size: 20px;
+            color:#572EE5;
+            text-align: center; 
+        }
+         p{
+            @extend %font-medium;
+            font-size: 16px;
+            line-height: 23px;
+            color:#000000;
+            text-align: center;
+            max-width: 60%;
+        }
+
+    }
+
 }

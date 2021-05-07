@@ -1,15 +1,35 @@
 @charset "UTF-8";
-.MenuHeader li a, .bloque1 article h1, .bloque1 .bloque1-bottom h6 {
+/**
+Fonts Config
+*/
+.MenuHeader li a, .block1 article h1, .block1 .block1-bottom h6, .block2 div h3 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
 }
 
-.bloque1 .bloque1-bottom p {
+.block1 .block1-bottom p, .block2 div p {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
 }
 
-/* Armar fuentes dark */
+/* Dark mode styles */
+/* Light colors*/
+/* Dark colors*/
+.theme {
+  --color_bg_primary: #ffff;
+  --color_bg_secundary: #F3F5F8;
+  --color_txt_primary: #572EE5;
+  --color_txt_secundary: color_txt_secundary;
+}
+
+.theme--dark {
+  --color_bg_primary: #37383C;
+  --color_bg_secundary: #222326;
+  --color_bg_mobile--dark:color_bg_mobile--dark;
+  --color_txt_primary: #ffff;
+  --color_txt_secundary: color_txt_secundary--dark;
+}
+
 /* Mobile First HEADER breakpoint 320*/
 header nav {
   display: -webkit-box;
@@ -88,6 +108,10 @@ header nav .MenuHambuerguesa {
   top: 15px;
 }
 
+.menuH {
+  cursor: pointer;
+}
+
 .menuH::after {
   content: url("/_Gifos/local/img/burger.svg");
 }
@@ -138,19 +162,39 @@ header nav .MenuHambuerguesa {
 }
 
 */
-.MenuHeader li a, .bloque1 article h1, .bloque1 .bloque1-bottom h6 {
+/**
+Fonts Config
+*/
+.MenuHeader li a, .block1 article h1, .block1 .block1-bottom h6, .block2 div h3 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
 }
 
-.bloque1 .bloque1-bottom p {
+.block1 .block1-bottom p, .block2 div p {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
 }
 
-/* Armar fuentes dark */
-/* Bloque 1 */
-.bloque1 article {
+/* Dark mode styles */
+/* Light colors*/
+/* Dark colors*/
+.theme {
+  --color_bg_primary: #ffff;
+  --color_bg_secundary: #F3F5F8;
+  --color_txt_primary: #572EE5;
+  --color_txt_secundary: color_txt_secundary;
+}
+
+.theme--dark {
+  --color_bg_primary: #37383C;
+  --color_bg_secundary: #222326;
+  --color_bg_mobile--dark:color_bg_mobile--dark;
+  --color_txt_primary: #ffff;
+  --color_txt_secundary: color_txt_secundary--dark;
+}
+
+/* Block 1 */
+.block1 article {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -163,35 +207,71 @@ header nav .MenuHambuerguesa {
           flex-flow: column wrap;
 }
 
-.bloque1 article h1 {
+.block1 article h1 {
   font-size: 25px;
   color: #572EE5;
   padding-bottom: 31px;
   text-align: center;
 }
 
-.bloque1 article img {
-  max-width: 80vw;
+.block1 article img {
+  max-width: 80%;
 }
 
-.bloque1 .bloque1-bottom h6 {
+.block1 .block1-bottom {
+  padding: 35px 0px 90px;
+}
+
+.block1 .block1-bottom h6 {
   font-size: 18px;
   color: #572EE5;
   text-align: center;
 }
 
-.bloque1 .bloque1-bottom p {
+.block1 .block1-bottom p {
   font-size: 16px;
+  line-height: 25px;
+  color: #572EE5;
+  text-align: center;
+  max-width: 60%;
+}
+
+.block1 #searchBox {
+  border-radius: 27px;
+  width: 80vw;
+  max-width: 550px;
+  min-width: 200px;
+  height: 50px;
+  outline: none;
+  border: 1px solid #572EE5;
+  background-color: var(--color_bg_primary);
+}
+
+.block2 div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+}
+
+.block2 div h3 {
+  font-size: 20px;
   color: #572EE5;
   text-align: center;
 }
 
-.bloque1 #searchBox {
-  border-radius: 27px;
-  width: 80vw;
-  height: 50px;
-  outline: none;
-  border: 1px solid #572EE5;
+.block2 div p {
+  font-size: 16px;
+  line-height: 23px;
+  color: #000000;
+  text-align: center;
+  max-width: 60%;
 }
 
 * {
@@ -202,5 +282,6 @@ header nav .MenuHambuerguesa {
 body {
   scroll-behavior: smooth;
   border-top: solid 5px #572EE5;
+  background-color: var(--color_bg_primary);
 }
 /*# sourceMappingURL=style.css.map */

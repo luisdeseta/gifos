@@ -3,12 +3,12 @@
 @import "body";
 
 * {
-    
     margin: 0;
     padding: 0;
 }
 
 body {
     scroll-behavior: smooth;
-    border-top: solid 5px #572EE5;   
+    border-top: solid 5px #572EE5;
+    background-color: var(--color_bg_primary);   
   }
