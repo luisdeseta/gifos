@@ -1,3 +1,5 @@
+@import "_variables";
+
 /* Mobile First HEADER breakpoint 320*/
 header{
     
@@ -90,28 +92,48 @@ header{
         content:none
         
     }
-/* Desktop 
+/* Tablet 
 @media screen and (min-width: 321px) and (max-width: 740px){
-    header{
-        nav{
-            display: flex;
-    
-            ul{
-                display: flex;
-                li{
-                    text-decoration:none;
-                    list-style: none;
-                }
-            }
-            .createButtom{
-                display: inline-block;
-    
-            }
-    
+    .menuH{
+        display: none;
+    }
+ 
+}
+*/
+/* desktop */
+@media screen and (min-width: 321px) and (max-width: 1440px){
+    .menuH{
+        display: none;
+    }
+.MenuHeader{
+    display: flex;
+    flex-flow: row wrap;
+    background-color:transparent;
+    top: 0px;
+    left: 100px;
+    width: 100%;
+    padding-bottom: 100vw;
+    li:first-child{
+        margin-top: 0px;
+        
+    }
+    li{
+        background-color:transparent;
+        list-style: none;
+        text-align: center;
+        height: 60px;
+        display: flex;
+        flex-flow: row wrap;
+        a{
+            
+            text-decoration:none;
+            color: #0000;
+            font-size: 15px;
+            background-color:transparent;
         }
-    
-    
+        span{
+            display: none;
+        }
     }
 }
-
-*/
+}

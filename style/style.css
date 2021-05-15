@@ -30,6 +30,37 @@ Fonts Config
   --color_txt_secundary: color_txt_secundary--dark;
 }
 
+/**
+Fonts Config
+*/
+.MenuHeader li a, .block1 article h1, .block1 .block1-bottom h6, .block2 div h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+.block1 .block1-bottom p, .block2 div p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+/* Dark mode styles */
+/* Light colors*/
+/* Dark colors*/
+.theme {
+  --color_bg_primary: #ffff;
+  --color_bg_secundary: #F3F5F8;
+  --color_txt_primary: #572EE5;
+  --color_txt_secundary: color_txt_secundary;
+}
+
+.theme--dark {
+  --color_bg_primary: #37383C;
+  --color_bg_secundary: #222326;
+  --color_bg_mobile--dark:color_bg_mobile--dark;
+  --color_txt_primary: #ffff;
+  --color_txt_secundary: color_txt_secundary--dark;
+}
+
 /* Mobile First HEADER breakpoint 320*/
 header nav {
   display: -webkit-box;
@@ -137,31 +168,60 @@ header nav .MenuHambuerguesa {
   content: none;
 }
 
-/* Desktop 
+/* Tablet 
 @media screen and (min-width: 321px) and (max-width: 740px){
-    header{
-        nav{
-            display: flex;
-    
-            ul{
-                display: flex;
-                li{
-                    text-decoration:none;
-                    list-style: none;
-                }
-            }
-            .createButtom{
-                display: inline-block;
-    
-            }
-    
-        }
-    
-    
+    .menuH{
+        display: none;
     }
+ 
+}
+*/
+/* desktop */
+@media screen and (min-width: 321px) and (max-width: 1440px) {
+  .menuH {
+    display: none;
+  }
+  .MenuHeader {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    background-color: transparent;
+    top: 0px;
+    left: 100px;
+    width: 100%;
+    padding-bottom: 100vw;
+  }
+  .MenuHeader li:first-child {
+    margin-top: 0px;
+  }
+  .MenuHeader li {
+    background-color: transparent;
+    list-style: none;
+    text-align: center;
+    height: 60px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+  }
+  .MenuHeader li a {
+    text-decoration: none;
+    color: #0000;
+    font-size: 15px;
+    background-color: transparent;
+  }
+  .MenuHeader li span {
+    display: none;
+  }
 }
 
-*/
 /**
 Fonts Config
 */
