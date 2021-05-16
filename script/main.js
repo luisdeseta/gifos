@@ -7,11 +7,13 @@ darkButton.addEventListener("click", () =>{
     classArray.toggle("theme--dark");
 });
 
-const apiKey = "JO9qaDVGDEpF16a1uNsl7AEUnAjD9Yed"  //${apiKey}`
+//que poner en el reject?
+
+const apiKey = "JO9qaDVGDEpF16a1uNsl7AEUnAjD9Yed"  //${apiKey}
 //console.log(data.data[0].images.original.url))
-const trendingTxt = () =>{
+const test = () =>{
   return new Promise((resolve, reject)=>
-  fetch(`http://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit:3`)
+  fetch(`http://api.giphy.com/v1/gifs/trending?api_key=${apiKey}`)
     .then(response => response.json())
     .then(data => 
       document.querySelector(".trendingText").innerHTML =
@@ -22,4 +24,24 @@ const trendingTxt = () =>{
       )
   
   )};
-//trendingTxt()
+
+//busqueda
+// autocompletado
+
+const searchFill = () =>{
+  return new Promise((resolve, reject)=>
+  fetch(`http://api.giphy.com/v1/gifs/search/tags?api_key=${apiKey}&limit=4`)
+  .then(response => response.json())
+  .then(data => console.log(data))
+  //console.log(dat)
+  )
+}
+
+
+const inputListener = document.querySelector("#searchBox");
+const inputTiping = (i) =>{
+  if (i.charCode != "") {
+    
+    
+  }
+}
