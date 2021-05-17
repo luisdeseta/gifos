@@ -63,14 +63,21 @@
     </header>
     <main>
         <section class="block1">
-            <article>
+            <div>
                 <h1>Inspírate, busca, guarda, y crea <br> los mejores <span>GIFOS</span></h1> 
                 <img src="./img/ilustra_header.svg" alt="Personas de Gifos saludando">
-                <form action="buscar">
-                    <input type="text" name="search" id="searchBox" placeholder="   Buscar GIFOS y más">
-                    <label for="searchBox"></label>
-                </form>
-            </article>
+                <div id="searchBox">
+                    <i id="leftLogo"></i>
+
+                    <input type="search" id="inputSearch" name="search" placeholder="Buscar GIFOS y más">
+                    <ul id="autocomplete">
+
+
+                    </ul>
+                    <i id="rightLogo"></i>
+                </div>
+                
+            </div>
             <div class="searchResault">
     
                 <div class="buttonVerMas"></div>
@@ -115,6 +122,8 @@
             <p>© GIFOS 2020 All Rights Reserved.</p>
         </div>
     </footer>
-    <script src="./script/main.js"></script>
+    <script type="module" src="./script/main.js"></script>
+    
+    
 </body>
 </html>

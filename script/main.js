@@ -1,3 +1,5 @@
+import { getSearchEndP } from './getapi.js';
+
 /**dark theme button*/
 const darkButton = document.getElementById("darkSwitch");
 
@@ -7,41 +9,22 @@ darkButton.addEventListener("click", () =>{
     classArray.toggle("theme--dark");
 });
 
-//que poner en el reject?
-
-const apiKey = "JO9qaDVGDEpF16a1uNsl7AEUnAjD9Yed"  //${apiKey}
-//console.log(data.data[0].images.original.url))
-const test = () =>{
-  return new Promise((resolve, reject)=>
-  fetch(`http://api.giphy.com/v1/gifs/trending?api_key=${apiKey}`)
-    .then(response => response.json())
-    .then(data => 
-      document.querySelector(".trendingText").innerHTML =
-      `
-      <img src="${data.data[0].images.original.url}" alt="test1">
-      
-      `
-      )
-  
-  )};
-
 //busqueda
 // autocompletado
+const inputTextSearch = document.querySelector('#inputSearch')
+console.log(inputTextSearch.value)
 
-const searchFill = () =>{
-  return new Promise((resolve, reject)=>
-  fetch(`http://api.giphy.com/v1/gifs/search/tags?api_key=${apiKey}&limit=4`)
-  .then(response => response.json())
-  .then(data => console.log(data))
-  //console.log(dat)
-  )
-}
+const searchDo = () => {
+  alert("hola")  
+} 
 
 
-const inputListener = document.querySelector("#searchBox");
-const inputTiping = (i) =>{
-  if (i.charCode != "") {
-    
-    
-  }
-}
+const search = inputTextSearch.value;
+const offset = 5
+getSearchEndP(search, 12, offset)
+.then((res) => {
+  console.log(res)
+})
+.catch((err) =>{
+  console.warn('Error al hacer la petición', err)
+})

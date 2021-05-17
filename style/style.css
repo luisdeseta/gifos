@@ -2,7 +2,7 @@
 /**
 Fonts Config
 */
-.MenuHeader li a, .block1 article h1, .block1 .block1-bottom h6, .block2 div h3 {
+.MenuHeader li a, .block1 div h1, .block1 .block1-bottom h6, .block2 div h3 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
 }
@@ -33,7 +33,7 @@ Fonts Config
 /**
 Fonts Config
 */
-.MenuHeader li a, .block1 article h1, .block1 .block1-bottom h6, .block2 div h3 {
+.MenuHeader li a, .block1 div h1, .block1 .block1-bottom h6, .block2 div h3 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
 }
@@ -225,7 +225,7 @@ header nav .MenuHambuerguesa {
 /**
 Fonts Config
 */
-.MenuHeader li a, .block1 article h1, .block1 .block1-bottom h6, .block2 div h3 {
+.MenuHeader li a, .block1 div h1, .block1 .block1-bottom h6, .block2 div h3 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
 }
@@ -254,7 +254,7 @@ Fonts Config
 }
 
 /* Block 1 */
-.block1 article {
+.block1 div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -267,14 +267,14 @@ Fonts Config
           flex-flow: column wrap;
 }
 
-.block1 article h1 {
+.block1 div h1 {
   font-size: 25px;
   color: #572EE5;
   padding-bottom: 31px;
   text-align: center;
 }
 
-.block1 article img {
+.block1 div img {
   max-width: 80%;
 }
 
@@ -297,6 +297,13 @@ Fonts Config
 }
 
 .block1 #searchBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
   border-radius: 27px;
   width: 80vw;
   max-width: 550px;
@@ -305,6 +312,17 @@ Fonts Config
   outline: none;
   border: 1px solid #572EE5;
   background-color: var(--color_bg_primary);
+}
+
+.block1 #searchBox input {
+  border: none;
+  width: 90%;
+  height: 750%;
+  border-radius: 27px;
+}
+
+.block1 #searchBox li {
+  list-style: none;
 }
 
 .block2 div {
