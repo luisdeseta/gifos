@@ -181,6 +181,14 @@ header nav .MenuHambuerguesa {
   .menuH {
     display: none;
   }
+  header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
   .MenuHeader {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -199,7 +207,6 @@ header nav .MenuHambuerguesa {
     margin-top: 0px;
   }
   .MenuHeader li {
-    background-color: transparent;
     list-style: none;
     text-align: center;
     height: 60px;
@@ -210,12 +217,12 @@ header nav .MenuHambuerguesa {
     -webkit-box-direction: normal;
         -ms-flex-flow: row wrap;
             flex-flow: row wrap;
+    color: #0000;
   }
   .MenuHeader li a {
     text-decoration: none;
-    color: #0000;
+    color: #572EE5;
     font-size: 15px;
-    background-color: transparent;
   }
   .MenuHeader li span {
     display: none;
