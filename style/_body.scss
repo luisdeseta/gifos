@@ -56,8 +56,14 @@
             height: 750%;
             border-radius: 27px;
         }
-        li{
-            list-style: none;
+        ul{
+            border: 1px solid #572EE5;
+            padding-top: 10px;
+            li{
+                list-style: none;
+                color: #9CAFC3;
+
+            }
         }
         
     }

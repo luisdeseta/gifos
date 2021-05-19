@@ -89,13 +89,18 @@ header nav .logo {
 
 header nav .MenuHambuerguesa {
   padding: 5% 6% 0%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 /*Menu Hamburguesa*/
 .MenuHeader {
   background-color: rgba(87, 46, 229, 0.9);
   display: none;
-  position: absolute;
   top: 90px;
   width: 100%;
   padding-bottom: 100vw;
@@ -153,7 +158,7 @@ header nav .MenuHambuerguesa {
 .check:checked ~ .MenuHeader {
   display: block;
   position: absolute;
-  left: 0px;
+  right: 0px;
   width: 100%;
   height: 250px;
 }
@@ -181,49 +186,40 @@ header nav .MenuHambuerguesa {
   .menuH {
     display: none;
   }
-  header {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .MenuHeader {
+  header nav .MenuHambuerguesa .MenuHeader {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     background-color: transparent;
-    top: 0px;
     width: 100%;
     padding-bottom: 0vw;
   }
-  .MenuHeader li:first-child {
+  header nav .MenuHambuerguesa .MenuHeader li:first-child {
     margin-top: 0px;
   }
-  .MenuHeader li {
-    list-style: none;
-    text-align: center;
-    height: 60px;
+  header nav .MenuHambuerguesa .MenuHeader li {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
-    color: #0000;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    list-style: none;
+    height: 60px;
   }
-  .MenuHeader li a {
+  header nav .MenuHambuerguesa .MenuHeader li a {
     text-decoration: none;
     color: #572EE5;
     font-size: 15px;
   }
-  .MenuHeader li span {
+  header nav .MenuHambuerguesa .MenuHeader li span {
     display: none;
   }
 }
@@ -327,8 +323,14 @@ Fonts Config
   border-radius: 27px;
 }
 
-.block1 #searchBox li {
+.block1 #searchBox ul {
+  border: 1px solid #572EE5;
+  padding-top: 10px;
+}
+
+.block1 #searchBox ul li {
   list-style: none;
+  color: #9CAFC3;
 }
 
 .block2 div {
