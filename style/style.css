@@ -2,12 +2,12 @@
 /**
 Fonts Config
 */
-.MenuHeader li a, .block1 .searchSection h1, .block1 .block1-bottom h6, .searchResultSection h1, .block2 div h3 {
+.MenuHeader li a, .mainTitle, .spanGifos, .block-search .block-search-bottom h6, .blockTrend div h3 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
 }
 
-.block1 .block1-bottom p, .block2 div p {
+.block-search .block-search-bottom p, .blockTrend div p {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
 }
@@ -20,6 +20,7 @@ Fonts Config
   --color_bg_secundary: #F3F5F8;
   --color_txt_primary: #572EE5;
   --color_txt_secundary: color_txt_secundary;
+  --iconGlass: url("../img/icon-search.svg");
 }
 
 .theme--dark {
@@ -28,17 +29,18 @@ Fonts Config
   --color_bg_mobile--dark:color_bg_mobile--dark;
   --color_txt_primary: #ffff;
   --color_txt_secundary: color_txt_secundary--dark;
+  --iconGlass--dark: url("../img/icon-search-modo-noct.svg");
 }
 
 /**
 Fonts Config
 */
-.MenuHeader li a, .block1 .searchSection h1, .block1 .block1-bottom h6, .searchResultSection h1, .block2 div h3 {
+.MenuHeader li a, .mainTitle, .spanGifos, .block-search .block-search-bottom h6, .blockTrend div h3 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
 }
 
-.block1 .block1-bottom p, .block2 div p {
+.block-search .block-search-bottom p, .blockTrend div p {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
 }
@@ -51,6 +53,7 @@ Fonts Config
   --color_bg_secundary: #F3F5F8;
   --color_txt_primary: #572EE5;
   --color_txt_secundary: color_txt_secundary;
+  --iconGlass: url("../img/icon-search.svg");
 }
 
 .theme--dark {
@@ -59,6 +62,7 @@ Fonts Config
   --color_bg_mobile--dark:color_bg_mobile--dark;
   --color_txt_primary: #ffff;
   --color_txt_secundary: color_txt_secundary--dark;
+  --iconGlass--dark: url("../img/icon-search-modo-noct.svg");
 }
 
 /* Mobile First HEADER breakpoint 320*/
@@ -227,12 +231,12 @@ header nav .MenuHambuerguesa {
 /**
 Fonts Config
 */
-.MenuHeader li a, .block1 .searchSection h1, .block1 .block1-bottom h6, .searchResultSection h1, .block2 div h3 {
+.MenuHeader li a, .mainTitle, .spanGifos, .block-search .block-search-bottom h6, .blockTrend div h3 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
 }
 
-.block1 .block1-bottom p, .block2 div p {
+.block-search .block-search-bottom p, .blockTrend div p {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
 }
@@ -245,6 +249,7 @@ Fonts Config
   --color_bg_secundary: #F3F5F8;
   --color_txt_primary: #572EE5;
   --color_txt_secundary: color_txt_secundary;
+  --iconGlass: url("../img/icon-search.svg");
 }
 
 .theme--dark {
@@ -253,10 +258,23 @@ Fonts Config
   --color_bg_mobile--dark:color_bg_mobile--dark;
   --color_txt_primary: #ffff;
   --color_txt_secundary: color_txt_secundary--dark;
+  --iconGlass--dark: url("../img/icon-search-modo-noct.svg");
+}
+
+.mainTitle {
+  font-size: 25px;
+  color: #572EE5;
+  padding-bottom: 31px;
+  text-align: center;
+}
+
+.spanGifos {
+  font-size: 25px;
+  color: #50E3C2;
 }
 
 /* Block 1 */
-.block1 .searchSection {
+.block-search .searchSection {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -265,32 +283,58 @@ Fonts Config
           align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-flow: column wrap;
-          flex-flow: column wrap;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.block1 .searchSection h1 {
-  font-size: 25px;
-  color: #572EE5;
-  padding-bottom: 31px;
-  text-align: center;
+.block-search .searchSection img {
+  max-width: 70vw;
 }
 
-.block1 .searchSection img {
-  max-width: 80%;
+.block-search .searchSection .searchBox {
+  display: block;
+  border-radius: 27px;
+  border: 1px solid #572EE5;
+  background-color: var(--color_bg_primary);
+  width: 500px;
 }
 
-.block1 .block1-bottom {
+.block-search .searchSection .searchBox input {
+  border: none;
+  border-style: none;
+  border-radius: 27px;
+  padding: 5px 5px;
+  width: 85%;
+  height: 40px;
+}
+
+.block-search .searchSection .searchBox .ulSearch {
+  padding: 10px 0;
+}
+
+.block-search .searchSection .searchBox .ulSearch li {
+  padding: 5px 5px;
+  list-style: none;
+  color: #9CAFC3;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.block-search .searchSection .searchBox .ulSearch li i {
+  content: var(--iconGlass);
+}
+
+.block-search .block-search-bottom {
   padding: 35px 0px 90px;
 }
 
-.block1 .block1-bottom h6 {
+.block-search .block-search-bottom h6 {
   font-size: 18px;
   color: #572EE5;
   text-align: center;
 }
 
-.block1 .block1-bottom p {
+.block-search .block-search-bottom p {
   font-size: 16px;
   line-height: 25px;
   color: #572EE5;
@@ -298,67 +342,8 @@ Fonts Config
   max-width: 60%;
 }
 
-.block1 #searchBox {
-  display: block;
-  width: 80vw;
-  max-width: 550px;
-  min-width: 200px;
-  height: 50px;
-  outline: none;
-  border-radius: 27px;
-  border: 1px solid #572EE5;
-  background-color: var(--color_bg_primary);
-}
-
-.block1 #searchBox input {
-  border: none;
-  border-style: none;
-  padding: 0 25px;
-  width: 100%;
-  height: 50%;
-  border: none;
-  outline: none;
-  border-radius: 27px;
-  background-color: var(--color_bg_primary);
-}
-
-.block1 #searchBox ul {
-  display: block;
-  border: 1px solid #572EE5;
-  padding-top: 10px;
-}
-
-.block1 #searchBox ul li:first-child {
-  padding-top: 10px;
-}
-
-.block1 #searchBox ul li {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
-  list-style: none;
-  color: #9CAFC3;
-}
-
-.block1 #searchBox ul li a {
-  text-decoration: none;
-  font-size: 16px;
-  color: #9CAFC3;
-}
-
 .searchResultSection {
   padding: 0 50px 0;
-}
-
-.searchResultSection h1 {
-  font-size: 25px;
-  color: #572EE5;
-  padding-bottom: 31px;
-  text-align: center;
 }
 
 .searchResultSection .searchContainer {
@@ -373,19 +358,79 @@ Fonts Config
           column-gap: 10px;
 }
 
-.searchResultSection .searchContainer .searchResult-gif {
+.searchResultSection .searchContainer .searchResault-gif {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.searchResultSection .searchContainer .searchResult-gif img {
-  width: 200px;
+.searchResultSection .searchContainer .searchResault-gif img {
+  width: 260px;
+  height: 200px;
 }
 
-.block2 div {
+.searchResultSection .searchContainer .searchResault-gif .divHover {
+  position: relative;
+  opacity: 0.6;
+  background-color: #572EE5;
+  width: 260px;
+  height: 200px;
+  top: -200px;
+  left: 0px;
+}
+
+.searchResultSection .searchContainer .searchResault-gif .divHover .divHover-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.searchResultSection .searchContainer .searchResault-gif .divHover .divHover-btn .heart {
+  padding: 5px 5px;
+  content: url("../img/icon-fav.svg");
+}
+
+.searchResultSection .searchContainer .searchResault-gif .divHover .divHover-btn .down {
+  padding: 5px 5px;
+  content: url("../img/icon-download.svg");
+}
+
+.searchResultSection .searchContainer .searchResault-gif .divHover .divHover-btn .max {
+  padding: 5px 5px;
+  content: url("../img/icon-max-normal.svg");
+}
+
+.searchResultSection .searchContainer .searchResault-gif .divHover .divHover-user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  padding-top: 35%;
+}
+
+.searchResultSection .searchContainer .searchResault-gif .divHover .divHover-user i {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  color: white;
+  padding: 0 10px 0;
+}
+
+.searchResultSection .searchContainer .searchResault-gif .divHover .divHover-user i:last-child {
+  font-weight: 700;
+}
+
+.blockTrend div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -398,13 +443,13 @@ Fonts Config
           flex-flow: column wrap;
 }
 
-.block2 div h3 {
+.blockTrend div h3 {
   font-size: 20px;
   color: #572EE5;
   text-align: center;
 }
 
-.block2 div p {
+.blockTrend div p {
   font-size: 16px;
   line-height: 23px;
   color: #000000;

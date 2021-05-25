@@ -35,25 +35,29 @@ $color_bg_primary: #ffff;
 $color_bg_secundary:#F3F5F8;
 $color_txt_primary: #572EE5;
 $color_txt_secundary:#50E3C2;
+$leftGlass: url('../img/icon-search.svg');
 /* Dark colors*/
 $color_bg_primary--dark: #37383C;
 $color_bg_secundary--dark:#222326;
 $color_bg_mobile--dark: #000000;
 $color_txt_primary--dark: #ffff;
 $color_txt_secundary--dark:#50E3C2;
+$leftGlass--dark: url('../img/icon-search-modo-noct.svg');
 
 .theme{
     --color_bg_primary: #{$color_bg_primary};
     --color_bg_secundary: #{$color_bg_secundary};
     --color_txt_primary: #{$color_txt_primary};
     --color_txt_secundary: #{color_txt_secundary};
-    
+    --iconGlass: #{$leftGlass};
     &--dark{
         --color_bg_primary: #{$color_bg_primary--dark};
         --color_bg_secundary: #{$color_bg_secundary--dark};
         --color_bg_mobile--dark:#{color_bg_mobile--dark};
         --color_txt_primary: #{$color_txt_primary--dark};
-        --color_txt_secundary: #{color_txt_secundary--dark};    
+        --color_txt_secundary: #{color_txt_secundary--dark};
+        --iconGlass--dark: #{$leftGlass--dark};    
     }
 }
+
 

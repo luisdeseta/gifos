@@ -61,42 +61,53 @@
 
     </header>
     <main>
-        <section class="block1">
-            <div clas="searchSection">
-                <h1>Inspírate, busca, guarda, y crea <br> los mejores <span>GIFOS</span></h1> 
+        <section class="block-search">
+            <div class="searchSection">
+                <h1 class="mainTitle">Inspírate, busca, guarda, y crea <br> los mejores <span class="spanGifos">GIFOS</span></h1> 
                 <img src="./img/ilustra_header.svg" alt="Personas de Gifos saludando">
-                <div id="searchBox">
-                    <i id="leftLogo"></i>
-
-                    <input type="search" id="inputSearch" name="search" placeholder="Buscar GIFOS y más">
-                    <ul id="searchBox-autocomplete" class="active">
-                        <!--  <li class="searchBox-autocomplete-list">
-                            <a id="liValue-" href="#"></a>
-                            <i class="lupa"></i>
-                        </li> -->
-
-                    </ul>
-                    <i id="rightLogo"></i>
+                <div id="searchBox" class="searchBox">
+                        <input type="search" id="inputSearch" name="search" placeholder="Buscar GIFOS y más">
+                            <ul id="searchBox-autocomplete" class="ulSearch">
+<!--                                 <li class="searchBox-autoC-list"><i id="leftGlass"></i>elemento 1</li>
+                                <li class="searchBox-autoC-list"><i id="leftGlass"></i>elemento 2</li>
+                                <li class="searchBox-autoC-list"><i id="leftGlass"></i>elemento 3</li>
+                                <li class="searchBox-autoC-list"><i id="leftGlass"></i>elemento 4</li> -->
+                            </ul>
+                            <img src="./img/icon-search.svg" alt="">
+                            <img src="./img/icon-search-modo-noct.svg" alt="">
+                    <i id="rightSearchIcon"></i>
                 </div>
                 
             </div>
             <div class="searchResultSection">
-                <h1>Resultado</h1>
+                <h1 class="mainTitle">Resultado</h1>
                 <div id="searchContainer" class="searchContainer">
-                <!--<div id="searchResult-gif" class="searchResault-gif">
-                        <img src="./img/test/test1.gif" alt="">
-                    </div> -->
+                    <div id="searchResault-gif" class="searchResault-gif">
+                        <img class="show" src="./img/test/test1.gif" alt="">
+                        <div class="divHover" style="display: none;">
+                            <div class="divHover-btn">
+                                <i class="heart" id="heart-"></i>
+                                <i class="down" id="down-"></i>
+                                <i class="max" id="max-"></i>
+                            </div>
+                            <div class="divHover-user">
+                                <i class="user" id="user-">user</i>
+                                <i class="title" id="title-">title gifos</i>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="buttonSeeMore">
                     <button>Ver más</button>
                 </div>
             </div>
-            <div class="block1-bottom">
+            <div class="block-search-bottom">
                 <h6 class="trendingText">Trending</h6>
                 <p>Reactions, Entertainment, Sports, Stickers, Artists</p>
             </div>
         </section>
-        <section class="block2">
+        <section class="blockTrend">
             <div>
                 <h3>Trending GIFOS</h3>
                 <p>Mira los últimos GIFO de nuestra comunidad.</p>
@@ -131,8 +142,7 @@
             <p>© GIFOS 2020 All Rights Reserved.</p>
         </div>
     </footer>
+
     <script type="module" src="./script/main.js"></script>
-    
-    
 </body>
 </html>
