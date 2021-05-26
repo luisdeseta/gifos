@@ -1,4 +1,4 @@
-import { autoComplete, getSearchEndP } from './getapi.js';
+import { autoComplete, getSearchEndP, getCategorie } from './getapi.js';
 
 
 /**
@@ -8,8 +8,14 @@ const inputTextSearch = document.querySelector('#inputSearch');
 const offset = 12;
 const ulAutoComplete = document.querySelector('#searchBox-autocomplete');
 const divSearchResults = document.querySelector('#searchContainer')
+const divCateg = document.querySelector('#CategTextResult')
 
-//busqueda
+/**
+ * 
+ * @description dispara petición de end point y
+ * dibuja html con resultados 
+ * @param {inSearch} inSearch variabla a buscar
+ */
 export const getSearch = (inSearch) =>{
   let search = inSearch;
   getSearchEndP(search, 12, offset)
@@ -22,7 +28,11 @@ export const getSearch = (inSearch) =>{
       searchArr.push(data[i]);
     }
     for (let z = 0; z < searchArr.length; z++) {
-      searchResults += markUpSearchResults(searchArr[z].images.fixed_height.url);
+      searchResults += markUpSearchResults(
+          searchArr[z].images.fixed_height.url,
+          searchArr[z].title,
+          searchArr[z].username,
+          searchArr[z].title);
     }
     divSearchResults.innerHTML = searchResults;
     inputTextSearch.value = "";
@@ -35,11 +45,20 @@ export const getSearch = (inSearch) =>{
  * @description texto del inputText
  * @returns dibuja el html 12 resultados
  */
-export const markUpSearchResults = (img) =>{
+export const markUpSearchResults = (img,name,user,title) =>{
   return `
-  <div id="searchResault-gif-" class="searchResault-gif">
-  <img src="${img}" alt="">
-  </div>
+    <img class="show" src="${img}" alt="">
+      <div class="divHover">
+          <div class="divHover-btn">
+              <i class="heart" id="heart-">${name}</i>
+              <i class="down" id="down-">${name}</i>
+              <i class="max" id="max-">${name}</i>
+          </div>
+          <div class="divHover-user">
+              <i class="user" id="user-">${user}</i>
+              <i class="title" id="title-">${title}</i>
+          </div>
+      </div>
   `
 }
 
@@ -99,4 +118,27 @@ export const markUpAutoComplet = (sugest) =>{
   `
 }
 
+//Trending
 
+export const categ = () => {
+  getCategorie()
+  .then((res)=>{
+    const {data} = res;
+    let listCateg ="";
+    let categArr =[];
+    console.log('array categ ', categArr)
+    console.log('listCateg', listCateg)
+    for (let i = 0; i < data.length; i++) {
+      categArr.push(data[i]);
+    }
+    for (let e = 0; e < 6; e++) {
+      listCateg += markUpCategories(categArr[e].name);
+    }
+    divCateg.innerHTML = listCateg;
+
+  })
+}
+
+export const markUpCategories = (name) =>{
+  return `<p>${name}</p>`
+}

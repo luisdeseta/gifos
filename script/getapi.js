@@ -1,4 +1,4 @@
-import { APIKEY, AUTOCOMPLETE, SEARCH } from './variables.js';
+import { APIKEY, AUTOCOMPLETE, SEARCH, CATEGORIE } from './variables.js';
  
 /**
  * @description obtener json del endpoint search
@@ -24,6 +24,15 @@ export const getSearchEndP = (search,limit,offset=5) =>{
 export const autoComplete = (search) =>{
     return new Promise ((resolve, reject)=>{
         fetch(`${AUTOCOMPLETE}?api_key=${APIKEY}&q=${search}&limit=4`)
+        .then(res => res.json())
+        .then(data => resolve(data))
+        .catch(err => reject(err))
+    })
+}
+
+export const getCategorie = () => {
+    return new Promise ((resolve, reject) => {
+        fetch(`${CATEGORIE}?api_key=${APIKEY}`)
         .then(res => res.json())
         .then(data => resolve(data))
         .catch(err => reject(err))

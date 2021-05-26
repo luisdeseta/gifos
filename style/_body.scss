@@ -94,6 +94,7 @@
             }
             
             .divHover{
+                visibility: hidden;
                 //display: none;
                 position:relative;
                 opacity: 0.6;
@@ -109,13 +110,22 @@
                         padding: 5px 5px;
                         content: url('../img/icon-fav.svg')
                     }
+                    .heart:hover{
+                        content: url('../img/icon-fav-hover.svg')
+                    }
                     .down{
                         padding: 5px 5px;
                         content: url('../img/icon-download.svg')
                     }
+                    .down:hover{
+                        content: url('../img/icon-download-hover.svg')
+                    }
                     .max{
                         padding: 5px 5px;
                         content: url('../img/icon-max-normal.svg')
+                    }
+                    .max:hover{
+                        content: url('../img/icon-max-hover.svg')
                     }
                 }
                 .divHover-user{

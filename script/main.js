@@ -1,4 +1,4 @@
-import { getSearch, markUpSearchResults, getAutoComplete, markUpAutoComplet,  } from './search.js';
+import { getSearch, markUpSearchResults, getAutoComplete, markUpAutoComplet, categ, markUpCategories } from './search.js';
 
 /**
  * @description dark theme button. cambia la clase de los elementos.
@@ -31,28 +31,30 @@ const doSearch = (z) =>{
  */  
 const doAutoComplete = () =>{
   getAutoComplete(inputTextSearch.value);
-  
 }
+categ();
 
 /**
  * Listeners
  */
-//inputTextSearch.addEventListener("keypress", doSearch);
-//inputTextSearch.addEventListener("keyup", doAutoComplete);
+inputTextSearch.addEventListener("keypress", doSearch);
+inputTextSearch.addEventListener("keyup", doAutoComplete);
 
 
+/**
+ * mostrar y ocultar iconos sobre el gif
+ */
 const show = document.querySelector('.show')
 const showDiv = document.querySelector('.divHover')
-function test(){
-  alert("hola")
-}
+
 function showMe() {
   const x = showDiv;
-  if (x.style.display === "none") {
-    x.style.display = "inline";
-  } else {
-    x.style.display = "none";
-  }
+    x.style.visibility = "visible";
 }
+function hideMe() {
+  const x = showDiv;
+  x.style.visibility = "hidden";
+}
+
 show.addEventListener("mouseover", showMe)
-//show.addEventListener("mouseout", showMe)
+showDiv.addEventListener("mouseout", hideMe)

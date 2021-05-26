@@ -375,6 +375,7 @@ Fonts Config
 }
 
 .searchResultSection .searchContainer .searchResault-gif .divHover {
+  visibility: hidden;
   position: relative;
   opacity: 0.6;
   background-color: #572EE5;
@@ -398,14 +399,26 @@ Fonts Config
   content: url("../img/icon-fav.svg");
 }
 
+.searchResultSection .searchContainer .searchResault-gif .divHover .divHover-btn .heart:hover {
+  content: url("../img/icon-fav-hover.svg");
+}
+
 .searchResultSection .searchContainer .searchResault-gif .divHover .divHover-btn .down {
   padding: 5px 5px;
   content: url("../img/icon-download.svg");
 }
 
+.searchResultSection .searchContainer .searchResault-gif .divHover .divHover-btn .down:hover {
+  content: url("../img/icon-download-hover.svg");
+}
+
 .searchResultSection .searchContainer .searchResault-gif .divHover .divHover-btn .max {
   padding: 5px 5px;
   content: url("../img/icon-max-normal.svg");
+}
+
+.searchResultSection .searchContainer .searchResault-gif .divHover .divHover-btn .max:hover {
+  content: url("../img/icon-max-hover.svg");
 }
 
 .searchResultSection .searchContainer .searchResault-gif .divHover .divHover-user {
