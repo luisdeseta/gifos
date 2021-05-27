@@ -118,8 +118,10 @@ export const markUpAutoComplet = (sugest) =>{
   `
 }
 
-//Trending
-
+/**
+ * @description Endpoint de categorias
+ * dibuja html debajo de Trending
+ */
 export const categ = () => {
   getCategorie()
   .then((res)=>{

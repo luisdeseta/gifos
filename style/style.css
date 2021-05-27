@@ -83,12 +83,16 @@ header nav {
   padding: 0% 0% 5%;
 }
 
-header nav .createButtom {
+header nav .logo {
+  padding: 5% 5% 0%;
+}
+
+header nav #stickySearch {
   display: none;
 }
 
-header nav .logo {
-  padding: 5% 5% 0%;
+header nav .createButtom {
+  display: none;
 }
 
 header nav .MenuHambuerguesa {
@@ -188,6 +192,17 @@ header nav .MenuHambuerguesa {
 /* desktop */
 @media screen and (min-width: 375px) and (max-width: 1440px) {
   .menuH {
+    display: none;
+  }
+  header {
+    position: -webkit-sticky;
+    position: sticky;
+    overflow: hidden;
+    top: 0;
+    width: 100%;
+    background-color: var(--color_bg_primary);
+  }
+  header nav .createButtom {
     display: none;
   }
   header nav .MenuHambuerguesa .MenuHeader {
@@ -292,7 +307,13 @@ Fonts Config
 }
 
 .block-search .searchSection .searchBox {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   border-radius: 27px;
   border: 1px solid #572EE5;
   background-color: var(--color_bg_primary);
@@ -300,12 +321,19 @@ Fonts Config
 }
 
 .block-search .searchSection .searchBox input {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   border: none;
   border-style: none;
   border-radius: 27px;
   padding: 5px 5px;
   width: 85%;
   height: 40px;
+}
+
+.block-search .searchSection .searchBox input:focus {
+  outline: none;
 }
 
 .block-search .searchSection .searchBox .ulSearch {

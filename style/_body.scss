@@ -25,19 +25,23 @@
             max-width: 70vw;
         }
         .searchBox{
-            display: block;
+            display: flex;
+            flex-direction: column;
             border-radius: 27px;
             border: 1px solid #572EE5;
             background-color: var(--color_bg_primary);
             width: 500px;
             input{
-                
+                align-self: center;
                 border: none;
                 border-style: none;
                 border-radius: 27px;
                 padding: 5px 5px;
                 width: 85%;
                 height: 40px;
+            }
+            input:focus{
+                outline: none;
             }
             .ulSearch{
                 padding: 10px 0;

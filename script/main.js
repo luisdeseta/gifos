@@ -15,6 +15,9 @@ import { getSearch, markUpSearchResults, getAutoComplete, markUpAutoComplet, cat
  */
 const inputTextSearch = document.querySelector('#inputSearch');
 
+
+categ();
+
 /**
  * @description ejecuta busqueda dibuja el html
  * @param tecla enter
@@ -32,7 +35,8 @@ const doSearch = (z) =>{
 const doAutoComplete = () =>{
   getAutoComplete(inputTextSearch.value);
 }
-categ();
+
+
 
 /**
  * Listeners
@@ -42,7 +46,8 @@ inputTextSearch.addEventListener("keyup", doAutoComplete);
 
 
 /**
- * mostrar y ocultar iconos sobre el gif
+ * @description mostrar y ocultar iconos sobre el gif
+ * revisar!
  */
 const show = document.querySelector('.show')
 const showDiv = document.querySelector('.divHover')
