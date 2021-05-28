@@ -87,75 +87,98 @@
         grid-template-rows: 1fr 1fr 1fr ;
         row-gap: 10px;
         column-gap: 10px;
-        .searchResault-gif{
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            img{
-                width: 260px;
-                height: 200px;
-                //object-fit: cover;
-            }
-            
-            .divHover{
-                visibility: hidden;
-                //display: none;
-                position:relative;
-                opacity: 0.6;
-                background-color: #572EE5;
-                width: 260px;
-                height: 200px;
-                top:-200px;
-                left:0px;
-                .divHover-btn{
-                    display: flex;
-                    justify-content: flex-end;
-                    .heart{
-                        padding: 5px 5px;
-                        content: url('../img/icon-fav.svg')
-                    }
-                    .heart:hover{
-                        content: url('../img/icon-fav-hover.svg')
-                    }
-                    .down{
-                        padding: 5px 5px;
-                        content: url('../img/icon-download.svg')
-                    }
-                    .down:hover{
-                        content: url('../img/icon-download-hover.svg')
-                    }
-                    .max{
-                        padding: 5px 5px;
-                        content: url('../img/icon-max-normal.svg')
-                    }
-                    .max:hover{
-                        content: url('../img/icon-max-hover.svg')
-                    }
-                }
-                .divHover-user{
-                    display: flex;
-                    flex-flow: column nowrap;
-                    padding-top: 35%;
-                    i{
-                        font-family: $fontSecundary;
-                        font-style: normal;
-                        color: white;
-                        padding: 0 10px 0;
-                    }
-                    i:last-child{
-                        font-weight: 700;
-                    }
-                }
-            }            
-        }
-        
     }
-    
+}
+// Tambien aplica a Trending
+.searchResault-gif{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    img{
+        width: 260px;
+        height: 200px;
+        //object-fit: cover;
+    }
+//revisar performance de JS y eliminar redundancia            
+    .divHover{
+        display: block;
+        position:relative;
+        opacity: 0.6;
+        background-color: transparent;
+        width: 260px;
+        height: 200px;
+        top:-200px;
+        left:0px;
+        .divHover-btn{
+            display: flex;
+            justify-content: flex-end;
+            .heart{
+                padding: 5px 5px;
+                content: url('');
+            }
+            .heart:hover{
+                content: url('../img/icon-fav-hover.svg')
+            }
+            .down{
+                padding: 5px 5px;
+                content: url('')
+            }
+            .down:hover{
+                content: url('../img/icon-download-hover.svg')
+            }
+            .max{
+                padding: 5px 5px;
+                content: url('');
+            }
+            .max:hover{
+                content: url('../img/icon-max-hover.svg')
+            }
+        }
+        .divHover-user{
+            display: none;
+            flex-flow: column nowrap;
+            padding-top: 35%;
+            i{
+                font-family: $fontSecundary;
+                font-style: normal;
+                color: white;
+                padding: 0 10px 0;
+            }
+            i:last-child{
+                font-weight: 700;
+            }
+        }
+    }
+    .divHover:hover{
+        background-color: #572EE5
+    }
+    .divHover:hover .divHover-btn .heart{
+        content: url('../img/icon-fav.svg');
+    }
+    .divHover:hover .divHover-btn .heart:hover{
+        content: url('../img/icon-fav-hover.svg')
+    }
+    .divHover:hover .divHover-btn .down{
+        content: url('../img/icon-download.svg')
+    }
+    .divHover:hover .divHover-btn .down:hover{
+        content: url('../img/icon-download-hover.svg')
+    }
+    .divHover:hover .divHover-btn .max{
+        content: url('../img/icon-max-normal.svg');
+    }
+    .divHover:hover .divHover-btn .max:hover{
+        content: url('../img/icon-max-hover.svg')
+    }
+    .divHover:hover .divHover-user{
+        display: flex;
+    }            
 }
 
 
 .blockTrend{
-    div{
+    padding: 0 50px 0;
+    .blockTrendIntro{
         display:flex;
         align-items: center;
         flex-flow: column wrap; 
@@ -174,6 +197,13 @@
             max-width: 60%;
         }
 
+    }
+    .trendGifos{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr ;
+        grid-template-rows: 1fr;
+        row-gap: 1px;
+        column-gap: 1px;
     }
 
 }

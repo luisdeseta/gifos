@@ -2,12 +2,12 @@
 /**
 Fonts Config
 */
-.MenuHeader li a, .mainTitle, .spanGifos, .block-search .block-search-bottom h6, .blockTrend div h3 {
+.MenuHeader li a, .mainTitle, .spanGifos, .block-search .block-search-bottom h6, .blockTrend .blockTrendIntro h3 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
 }
 
-.block-search .block-search-bottom p, .blockTrend div p {
+.block-search .block-search-bottom p, .blockTrend .blockTrendIntro p {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
 }
@@ -35,12 +35,12 @@ Fonts Config
 /**
 Fonts Config
 */
-.MenuHeader li a, .mainTitle, .spanGifos, .block-search .block-search-bottom h6, .blockTrend div h3 {
+.MenuHeader li a, .mainTitle, .spanGifos, .block-search .block-search-bottom h6, .blockTrend .blockTrendIntro h3 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
 }
 
-.block-search .block-search-bottom p, .blockTrend div p {
+.block-search .block-search-bottom p, .blockTrend .blockTrendIntro p {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
 }
@@ -246,12 +246,12 @@ header nav .MenuHambuerguesa {
 /**
 Fonts Config
 */
-.MenuHeader li a, .mainTitle, .spanGifos, .block-search .block-search-bottom h6, .blockTrend div h3 {
+.MenuHeader li a, .mainTitle, .spanGifos, .block-search .block-search-bottom h6, .blockTrend .blockTrendIntro h3 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
 }
 
-.block-search .block-search-bottom p, .blockTrend div p {
+.block-search .block-search-bottom p, .blockTrend .blockTrendIntro p {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
 }
@@ -386,34 +386,34 @@ Fonts Config
           column-gap: 10px;
 }
 
-.searchResultSection .searchContainer .searchResault-gif {
+.searchResault-gif {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
-.searchResultSection .searchContainer .searchResault-gif img {
+.searchResault-gif img {
   width: 260px;
   height: 200px;
 }
 
-.searchResultSection .searchContainer .searchResault-gif .divHover {
-  visibility: hidden;
+.searchResault-gif .divHover {
+  display: block;
   position: relative;
   opacity: 0.6;
-  background-color: #572EE5;
+  background-color: transparent;
   width: 260px;
   height: 200px;
   top: -200px;
   left: 0px;
 }
 
-.searchResultSection .searchContainer .searchResault-gif .divHover .divHover-btn {
+.searchResault-gif .divHover .divHover-btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -422,37 +422,35 @@ Fonts Config
           justify-content: flex-end;
 }
 
-.searchResultSection .searchContainer .searchResault-gif .divHover .divHover-btn .heart {
+.searchResault-gif .divHover .divHover-btn .heart {
   padding: 5px 5px;
-  content: url("../img/icon-fav.svg");
+  content: url("");
 }
 
-.searchResultSection .searchContainer .searchResault-gif .divHover .divHover-btn .heart:hover {
+.searchResault-gif .divHover .divHover-btn .heart:hover {
   content: url("../img/icon-fav-hover.svg");
 }
 
-.searchResultSection .searchContainer .searchResault-gif .divHover .divHover-btn .down {
+.searchResault-gif .divHover .divHover-btn .down {
   padding: 5px 5px;
-  content: url("../img/icon-download.svg");
+  content: url("");
 }
 
-.searchResultSection .searchContainer .searchResault-gif .divHover .divHover-btn .down:hover {
+.searchResault-gif .divHover .divHover-btn .down:hover {
   content: url("../img/icon-download-hover.svg");
 }
 
-.searchResultSection .searchContainer .searchResault-gif .divHover .divHover-btn .max {
+.searchResault-gif .divHover .divHover-btn .max {
   padding: 5px 5px;
-  content: url("../img/icon-max-normal.svg");
+  content: url("");
 }
 
-.searchResultSection .searchContainer .searchResault-gif .divHover .divHover-btn .max:hover {
+.searchResault-gif .divHover .divHover-btn .max:hover {
   content: url("../img/icon-max-hover.svg");
 }
 
-.searchResultSection .searchContainer .searchResault-gif .divHover .divHover-user {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.searchResault-gif .divHover .divHover-user {
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-flow: column nowrap;
@@ -460,18 +458,56 @@ Fonts Config
   padding-top: 35%;
 }
 
-.searchResultSection .searchContainer .searchResault-gif .divHover .divHover-user i {
+.searchResault-gif .divHover .divHover-user i {
   font-family: "Roboto", sans-serif;
   font-style: normal;
   color: white;
   padding: 0 10px 0;
 }
 
-.searchResultSection .searchContainer .searchResault-gif .divHover .divHover-user i:last-child {
+.searchResault-gif .divHover .divHover-user i:last-child {
   font-weight: 700;
 }
 
-.blockTrend div {
+.searchResault-gif .divHover:hover {
+  background-color: #572EE5;
+}
+
+.searchResault-gif .divHover:hover .divHover-btn .heart {
+  content: url("../img/icon-fav.svg");
+}
+
+.searchResault-gif .divHover:hover .divHover-btn .heart:hover {
+  content: url("../img/icon-fav-hover.svg");
+}
+
+.searchResault-gif .divHover:hover .divHover-btn .down {
+  content: url("../img/icon-download.svg");
+}
+
+.searchResault-gif .divHover:hover .divHover-btn .down:hover {
+  content: url("../img/icon-download-hover.svg");
+}
+
+.searchResault-gif .divHover:hover .divHover-btn .max {
+  content: url("../img/icon-max-normal.svg");
+}
+
+.searchResault-gif .divHover:hover .divHover-btn .max:hover {
+  content: url("../img/icon-max-hover.svg");
+}
+
+.searchResault-gif .divHover:hover .divHover-user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.blockTrend {
+  padding: 0 50px 0;
+}
+
+.blockTrend .blockTrendIntro {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -484,18 +520,30 @@ Fonts Config
           flex-flow: column wrap;
 }
 
-.blockTrend div h3 {
+.blockTrend .blockTrendIntro h3 {
   font-size: 20px;
   color: #572EE5;
   text-align: center;
 }
 
-.blockTrend div p {
+.blockTrend .blockTrendIntro p {
   font-size: 16px;
   line-height: 23px;
   color: #000000;
   text-align: center;
   max-width: 60%;
+}
+
+.blockTrend .trendGifos {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  row-gap: 1px;
+  -webkit-column-gap: 1px;
+          column-gap: 1px;
 }
 
 * {

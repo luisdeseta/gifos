@@ -1,4 +1,4 @@
-import { autoComplete, getSearchEndP, getCategorie } from './getapi.js';
+import { autoComplete, getSearchEndP, getCategorie,getTrending } from './getapi.js';
 
 
 /**
@@ -7,14 +7,15 @@ import { autoComplete, getSearchEndP, getCategorie } from './getapi.js';
 const inputTextSearch = document.querySelector('#inputSearch');
 const offset = 12;
 const ulAutoComplete = document.querySelector('#searchBox-autocomplete');
-const divSearchResults = document.querySelector('#searchContainer')
-const divCateg = document.querySelector('#CategTextResult')
+const divSearchResults = document.querySelector('#searchResault-gif');
+const divCateg = document.querySelector('#CategTextResult');
+const divTrend = document.querySelector('#trendGifos-Container')
 
 /**
  * 
  * @description dispara petición de end point y
  * dibuja html con resultados 
- * @param {inSearch} inSearch variabla a buscar
+ * @param {inSearch} inSearch variable a buscar
  */
 export const getSearch = (inSearch) =>{
   let search = inSearch;
@@ -23,7 +24,7 @@ export const getSearch = (inSearch) =>{
     const {data } = res;
     let searchResults ="";
     let searchArr =[];
-    console.log(searchArr)
+    console.log('Array con paramettos Search',searchArr)
     for (let i = 0; i < data.length; i++) {
       searchArr.push(data[i]);
     }
@@ -42,22 +43,22 @@ export const getSearch = (inSearch) =>{
 
 
 /**
- * @description texto del inputText
- * @returns dibuja el html 12 resultados
+ * @description dibuja un Gifo
+ * 
  */
 export const markUpSearchResults = (img,name,user,title) =>{
   return `
     <img class="show" src="${img}" alt="">
       <div class="divHover">
           <div class="divHover-btn">
-              <i class="heart" id="heart-">${name}</i>
-              <i class="down" id="down-">${name}</i>
-              <i class="max" id="max-">${name}</i>
+              <i class="heart" id="heart-${name}"></i>
+              <i class="down" id="down-${name}"></i>
+              <i class="max" id="max-${name}"></i>
           </div>
-          <div class="divHover-user">
+            <div class="divHover-user">
               <i class="user" id="user-">${user}</i>
               <i class="title" id="title-">${title}</i>
-          </div>
+            </div>
       </div>
   `
 }
@@ -128,8 +129,8 @@ export const categ = () => {
     const {data} = res;
     let listCateg ="";
     let categArr =[];
-    console.log('array categ ', categArr)
-    console.log('listCateg', listCateg)
+    //console.log('array categ ', categArr)
+    //console.log('listCateg', listCateg)
     for (let i = 0; i < data.length; i++) {
       categArr.push(data[i]);
     }
@@ -143,4 +144,26 @@ export const categ = () => {
 
 export const markUpCategories = (name) =>{
   return `<p>${name}</p>`
+}
+
+export const TrendingGif = (limit, offset=0) =>{
+  getTrending(limit, offset)
+  .then((res) => {
+      const {data} = res;
+      let trend ='';
+      let trendArr =[];
+      console.log('Trending Gif', res)
+    for (let i = 0; i < data.length; i++) {
+      trendArr.push(data[i]);
+    }
+    for (let t = 0; t < trendArr.length; t++) {
+      trend += markUpSearchResults(
+        trendArr[t].images.downsized_medium.url,
+        trendArr[t].title,
+        trendArr[t].username,
+        trendArr[t].title);
+    }
+    divTrend.innerHTML = trend;    
+  })
+  .catch(err => console.warn('Error en la petición trending',err))
 }

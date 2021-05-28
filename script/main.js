@@ -1,4 +1,6 @@
-import { getSearch, markUpSearchResults, getAutoComplete, markUpAutoComplet, categ, markUpCategories } from './search.js';
+import { getSearch, markUpSearchResults, getAutoComplete, categ, TrendingGif } from './search.js';
+//import { TrendingGif } from './trending';
+
 
 /**
  * @description dark theme button. cambia la clase de los elementos.
@@ -9,13 +11,18 @@ import { getSearch, markUpSearchResults, getAutoComplete, markUpAutoComplet, cat
      const classArray = document.body.classList;
      darkButton.innerText = classArray.contains("theme--dark") ? "Modo Nocturno" : "Modo Diurno";
      classArray.toggle("theme--dark");
- });
+    });
 /**
  * constantes
  */
 const inputTextSearch = document.querySelector('#inputSearch');
+const testing = document.querySelector('.heart');
 
 
+/**
+ * @description Ejecuta y dibuja las categorias en Trending
+ * REVISAR!!
+ */
 categ();
 
 /**
@@ -36,8 +43,13 @@ const doAutoComplete = () =>{
   getAutoComplete(inputTextSearch.value);
 }
 
-
-
+/**
+ * @description ejecuta Trending
+ */
+const doTrending = (limit=3, offset=0) =>{
+  TrendingGif(limit, offset);
+}
+doTrending()
 /**
  * Listeners
  */
@@ -45,21 +57,13 @@ inputTextSearch.addEventListener("keypress", doSearch);
 inputTextSearch.addEventListener("keyup", doAutoComplete);
 
 
+
 /**
- * @description mostrar y ocultar iconos sobre el gif
- * revisar!
+ * Testing
+ * BORRAR ANTES DE LA ENTREGA FINAL
  */
-const show = document.querySelector('.show')
-const showDiv = document.querySelector('.divHover')
-
-function showMe() {
-  const x = showDiv;
-    x.style.visibility = "visible";
-}
-function hideMe() {
-  const x = showDiv;
-  x.style.visibility = "hidden";
+const test =()=>{
+  alert("Prueba");
 }
 
-show.addEventListener("mouseover", showMe)
-showDiv.addEventListener("mouseout", hideMe)
+testing.addEventListener('click', test);
