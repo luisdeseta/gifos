@@ -409,8 +409,7 @@ Fonts Config
   background-color: transparent;
   width: 260px;
   height: 200px;
-  top: -200px;
-  left: 0px;
+  left: -260px;
 }
 
 .searchResault-gif .divHover .divHover-btn {
