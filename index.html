@@ -51,7 +51,7 @@
                     <label for="checkMenuH" class="menuH"></label>
                     <ul class="MenuHeader">
                         <li> <a id="darkSwitch" href="#">Modo Nocturno</a><span></span></li>
-                        <li> <a href="#">Favoritos</a><span></span></li>
+                        <li> <a href="./pages/fav.html">Favoritos</a><span></span></li>
                         <li> <a href="#">Mis GIFOS</a><span></span></li>
                     </ul>
             </div>
@@ -83,6 +83,20 @@
                 <h1 class="mainTitle">Resultado</h1>
                 <div id="searchContainer" class="searchContainer">
                     <div id="searchResault-gif" class="searchResault-gif">
+                        <!-- resultados de busqueda-->
+                        <img class="show" src="./img/test/test1.gif" alt="">
+                        <div class="divHover">
+                            <div class="divHover-btn">
+                                <i class="heart" id="heart-"></i>
+                                <i class="down" id="down-"></i>
+                                <i class="max" id="max-"></i>
+                            </div>
+                            <div class="divHover-user">
+                                <i class="user" id="user-">user</i>
+                                <i class="title" id="title-">title gifos</i>
+                            </div>
+                        </div>
+                        <!-- resultados de busqueda-->
                         <!-- resultados de busqueda-->
                         <img class="show" src="./img/test/test1.gif" alt="">
                         <div class="divHover">
@@ -140,19 +154,20 @@
                     <p>></p>
                 </div>
             </div>
-
         </section>
         <section></section>
     </main>
-    <footer>
-        <div>
-        <p>Compartir en: </p>
-        <img src="./img/icon-tw-normal.svg" alt="">
+    <div class="footer">
+        <div class="footerSocialNT">
+            <p>Compartir en: </p>
+            <img src="./img/icon_facebook.svg" alt="">
+            <img src="./img/icon-tw-normal.svg" alt="">
+            <img src="./img/icon_instagram.svg" alt="">
         </div>
-        <div>
+        <div class="footerGifos">
             <p>© GIFOS 2020 All Rights Reserved.</p>
         </div>
-    </footer>
+    </div>
 
     <script type="module" src="./script/main.js"></script>
 </body>

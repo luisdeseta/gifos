@@ -1,0 +1,43 @@
+@import "variables";
+
+//desktop OJO EL MOBILE
+.mainTitle{
+    @extend %font-title;
+    font-size: 25px;
+    color:var(--color_txt_primary);
+    padding-bottom: 31px;
+    text-align: center;
+
+}
+
+.footer{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0 50px;
+    
+    .footerSocialNT{
+        display: flex;
+        flex-flow: row wrap;
+        padding: 0 25px 0;
+        p{
+        @extend %font-medium2;
+        font-size: 13px;
+        color: var(--color_txt_therd);
+        //text-align: center;
+        }
+        img{
+            padding: 0 15px 0;
+        }
+
+    }
+    .footerGifos{
+        p{
+            @extend %font-medium2;
+            font-size: 13px;
+            color: var(--color_txt_therd);
+            //text-align: center;
+            }
+    }
+}

@@ -12,6 +12,11 @@ Fonts Config
   font-weight: 400;
 }
 
+.footer .footerSocialNT p, .footer .footerGifos p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
 /* Dark mode styles */
 /* Light colors*/
 /* Dark colors*/
@@ -20,6 +25,7 @@ Fonts Config
   --color_bg_secundary: #F3F5F8;
   --color_txt_primary: #572EE5;
   --color_txt_secundary: color_txt_secundary;
+  --color_txt_therd: #000000;
   --iconGlass: url("../img/icon-search.svg");
 }
 
@@ -29,6 +35,7 @@ Fonts Config
   --color_bg_mobile--dark:color_bg_mobile--dark;
   --color_txt_primary: #ffff;
   --color_txt_secundary: color_txt_secundary--dark;
+  --color_txt_therd: #ffff;
   --iconGlass--dark: url("../img/icon-search-modo-noct.svg");
 }
 
@@ -45,6 +52,11 @@ Fonts Config
   font-weight: 400;
 }
 
+.footer .footerSocialNT p, .footer .footerGifos p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
 /* Dark mode styles */
 /* Light colors*/
 /* Dark colors*/
@@ -53,6 +65,7 @@ Fonts Config
   --color_bg_secundary: #F3F5F8;
   --color_txt_primary: #572EE5;
   --color_txt_secundary: color_txt_secundary;
+  --color_txt_therd: #000000;
   --iconGlass: url("../img/icon-search.svg");
 }
 
@@ -62,6 +75,7 @@ Fonts Config
   --color_bg_mobile--dark:color_bg_mobile--dark;
   --color_txt_primary: #ffff;
   --color_txt_secundary: color_txt_secundary--dark;
+  --color_txt_therd: #ffff;
   --iconGlass--dark: url("../img/icon-search-modo-noct.svg");
 }
 
@@ -256,6 +270,11 @@ Fonts Config
   font-weight: 400;
 }
 
+.footer .footerSocialNT p, .footer .footerGifos p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
 /* Dark mode styles */
 /* Light colors*/
 /* Dark colors*/
@@ -264,6 +283,7 @@ Fonts Config
   --color_bg_secundary: #F3F5F8;
   --color_txt_primary: #572EE5;
   --color_txt_secundary: color_txt_secundary;
+  --color_txt_therd: #000000;
   --iconGlass: url("../img/icon-search.svg");
 }
 
@@ -273,12 +293,13 @@ Fonts Config
   --color_bg_mobile--dark:color_bg_mobile--dark;
   --color_txt_primary: #ffff;
   --color_txt_secundary: color_txt_secundary--dark;
+  --color_txt_therd: #ffff;
   --iconGlass--dark: url("../img/icon-search-modo-noct.svg");
 }
 
 .mainTitle {
   font-size: 25px;
-  color: #572EE5;
+  color: var(--color_txt_primary);
   padding-bottom: 31px;
   text-align: center;
 }
@@ -371,19 +392,14 @@ Fonts Config
 }
 
 .searchResultSection {
-  padding: 0 50px 0;
-}
-
-.searchResultSection .searchContainer {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-  -ms-grid-rows: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
-  row-gap: 10px;
-  -webkit-column-gap: 10px;
-          column-gap: 10px;
+  padding: 0 5px 0;
+  /*     .searchContainer{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr ;
+        grid-template-rows: 1fr 1fr 1fr ;
+        row-gap: 1px;
+        column-gap: 10px;
+    } */
 }
 
 .searchResault-gif {
@@ -392,9 +408,6 @@ Fonts Config
   display: flex;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .searchResault-gif img {
@@ -503,7 +516,8 @@ Fonts Config
 }
 
 .blockTrend {
-  padding: 0 50px 0;
+  padding: 0 50px 100px;
+  background-color: var(--color_bg_secundary);
 }
 
 .blockTrend .blockTrendIntro {
@@ -545,6 +559,93 @@ Fonts Config
           column-gap: 1px;
 }
 
+/**
+Fonts Config
+*/
+.MenuHeader li a, .mainTitle, .spanGifos, .block-search .block-search-bottom h6, .blockTrend .blockTrendIntro h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+.block-search .block-search-bottom p, .blockTrend .blockTrendIntro p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+.footer .footerSocialNT p, .footer .footerGifos p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+/* Dark mode styles */
+/* Light colors*/
+/* Dark colors*/
+.theme {
+  --color_bg_primary: #ffff;
+  --color_bg_secundary: #F3F5F8;
+  --color_txt_primary: #572EE5;
+  --color_txt_secundary: color_txt_secundary;
+  --color_txt_therd: #000000;
+  --iconGlass: url("../img/icon-search.svg");
+}
+
+.theme--dark {
+  --color_bg_primary: #37383C;
+  --color_bg_secundary: #222326;
+  --color_bg_mobile--dark:color_bg_mobile--dark;
+  --color_txt_primary: #ffff;
+  --color_txt_secundary: color_txt_secundary--dark;
+  --color_txt_therd: #ffff;
+  --iconGlass--dark: url("../img/icon-search-modo-noct.svg");
+}
+
+.mainTitle {
+  font-size: 25px;
+  color: var(--color_txt_primary);
+  padding-bottom: 31px;
+  text-align: center;
+}
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 50px 0 50px;
+}
+
+.footer .footerSocialNT {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  padding: 0 25px 0;
+}
+
+.footer .footerSocialNT p {
+  font-size: 13px;
+  color: var(--color_txt_therd);
+}
+
+.footer .footerSocialNT img {
+  padding: 0 15px 0;
+}
+
+.footer .footerGifos p {
+  font-size: 13px;
+  color: var(--color_txt_therd);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -554,5 +655,6 @@ body {
   scroll-behavior: smooth;
   border-top: solid 5px #572EE5;
   background-color: var(--color_bg_primary);
+  border-bottom: solid 5px #572EE5;
 }
 /*# sourceMappingURL=style.css.map */

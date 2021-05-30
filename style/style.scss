@@ -1,6 +1,7 @@
 @import "variables";
 @import "header";
 @import "body";
+@import "footer";
 
 * {
     margin: 0;
@@ -10,5 +11,6 @@
 body {
     scroll-behavior: smooth;
     border-top: solid 5px #572EE5;
-    background-color: var(--color_bg_primary);   
+    background-color: var(--color_bg_primary);
+    border-bottom: solid 5px #572EE5;   
   }

@@ -3,7 +3,7 @@
 .mainTitle{
     @extend %font-title;
     font-size: 25px;
-    color:#572EE5;
+    color:var(--color_txt_primary);
     padding-bottom: 31px;
     text-align: center;
 
@@ -80,20 +80,20 @@
 //Viene de Bloque 1
 
 .searchResultSection{
-    padding: 0 50px 0;
-    .searchContainer{
+    padding: 0 5px 0;
+/*     .searchContainer{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr ;
         grid-template-rows: 1fr 1fr 1fr ;
-        row-gap: 10px;
+        row-gap: 1px;
         column-gap: 10px;
-    }
+    } */
 }
 // Tambien aplica a Trending
 .searchResault-gif{
     display: flex;
     flex-wrap: nowrap;
-    align-items: center;
+    //align-items: center;
     img{
         width: 260px;
         height: 200px;
@@ -177,7 +177,8 @@
 
 
 .blockTrend{
-    padding: 0 50px 0;
+    padding: 0 50px 100px;
+    background-color: var(--color_bg_secundary);    
     .blockTrendIntro{
         display:flex;
         align-items: center;

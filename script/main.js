@@ -23,7 +23,7 @@ const testing = document.querySelector('.heart');
  * @description Ejecuta y dibuja las categorias en Trending
  * REVISAR!!
  */
-categ();
+//categ();
 
 /**
  * @description ejecuta busqueda dibuja el html
@@ -49,7 +49,7 @@ const doAutoComplete = () =>{
 const doTrending = (limit=3, offset=0) =>{
   TrendingGif(limit, offset);
 }
-doTrending()
+//doTrending()
 /**
  * Listeners
  */
