@@ -9,7 +9,7 @@ const offset = 12;
 const ulAutoComplete = document.querySelector('#searchBox-autocomplete');
 const divSearchResults = document.querySelector('#searchResault-gif');
 const divCateg = document.querySelector('#CategTextResult');
-const divTrend = document.querySelector('#trendGifos-Container')
+
 
 /**
  * 
@@ -37,6 +37,7 @@ export const getSearch = (inSearch) =>{
     }
     divSearchResults.innerHTML = searchResults;
     inputTextSearch.value = "";
+    addListenerFav(searchArr[z].id)
   })
   .catch(err => console.warn('Error en la petición de busqueda',err))
 }
@@ -46,12 +47,12 @@ export const getSearch = (inSearch) =>{
  * @description dibuja un Gifo
  * 
  */
-export const markUpSearchResults = (img,name,user,title) =>{
+export const markUpSearchResults = (img,name,user,title, id) =>{
   return `
-    <img class="show" src="${img}" alt="">
+    <img class="show" src="${img}" id="${id}" alt="">
       <div class="divHover">
           <div class="divHover-btn">
-              <i class="heart" id="heart-${name}"></i>
+              <i class="heart" id="heart-${id}"></i>
               <i class="down" id="down-${name}"></i>
               <i class="max" id="max-${name}"></i>
           </div>
@@ -146,24 +147,20 @@ export const markUpCategories = (name) =>{
   return `<p>${name}</p>`
 }
 
-export const TrendingGif = (limit, offset=0) =>{
-  getTrending(limit, offset)
-  .then((res) => {
-      const {data} = res;
-      let trend ='';
-      let trendArr =[];
-      console.log('Trending Gif', res)
-    for (let i = 0; i < data.length; i++) {
-      trendArr.push(data[i]);
-    }
-    for (let t = 0; t < trendArr.length; t++) {
-      trend += markUpSearchResults(
-        trendArr[t].images.downsized_medium.url,
-        trendArr[t].title,
-        trendArr[t].username,
-        trendArr[t].title);
-    }
-    divTrend.innerHTML = trend;    
-  })
-  .catch(err => console.warn('Error en la petición trending',err))
+/**
+ * @description agrega un Listener active al boton Fav
+ * agrega o quita clase a la img del gifo 
+ */
+ export const addListenerFav =(name)=>{
+  let fav = document.querySelectorAll(`"heart-${name}"`);
+  let test = () =>{
+    alert("prueba")
+  }
+  fav.forEach((element) => {
+  element.addEventListener('click', test);
+    
+  });
+ }
+const addListenerIdGif = (id) => {
+  document.getElementsByClassName(id).classList.toggle('favorite')
 }

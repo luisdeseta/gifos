@@ -1,5 +1,5 @@
-import { getSearch, markUpSearchResults, getAutoComplete, categ, TrendingGif } from './search.js';
-//import { TrendingGif } from './trending';
+import { getSearch, markUpSearchResults, getAutoComplete, categ,} from './search.js';
+import { TrendingGif } from './trending.js';
 
 
 /**
@@ -16,7 +16,6 @@ import { getSearch, markUpSearchResults, getAutoComplete, categ, TrendingGif } f
  * constantes
  */
 const inputTextSearch = document.querySelector('#inputSearch');
-const testing = document.querySelector('.heart');
 
 
 /**
@@ -49,7 +48,7 @@ const doAutoComplete = () =>{
 const doTrending = (limit=3, offset=0) =>{
   TrendingGif(limit, offset);
 }
-//doTrending()
+doTrending()
 /**
  * Listeners
  */
@@ -58,12 +57,4 @@ inputTextSearch.addEventListener("keyup", doAutoComplete);
 
 
 
-/**
- * Testing
- * BORRAR ANTES DE LA ENTREGA FINAL
- */
-const test =()=>{
-  alert("Prueba");
-}
 
-testing.addEventListener('click', test);
