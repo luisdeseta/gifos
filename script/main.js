@@ -47,6 +47,12 @@ const doAutoComplete = () =>{
  */
 const doTrending = (limit=3, offset=0) =>{
   TrendingGif(limit, offset);
+  return function forGifo () {
+    for (let t = 0; t < trendArr.length; t++){
+    let fav = document.getElementById(`heart-${trendArr[t].id}`);
+    fav.addEventListener('click', ()=> test(trendArr[t].name));
+}  
+}
 }
 doTrending()
 /**

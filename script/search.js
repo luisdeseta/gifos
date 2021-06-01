@@ -151,8 +151,8 @@ export const markUpCategories = (name) =>{
  * @description agrega un Listener active al boton Fav
  * agrega o quita clase a la img del gifo 
  */
- export const addListenerFav =(name)=>{
-  let fav = document.querySelectorAll(`"heart-${name}"`);
+ export const addListenerFav =()=>{
+  let fav = document.querySelectorAll(".heart");
   let test = () =>{
     alert("prueba")
   }

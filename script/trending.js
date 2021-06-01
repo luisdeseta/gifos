@@ -12,7 +12,7 @@ export const TrendingGif = (limit, offset=0) =>{
     .then((res) => {
         const {data} = res;
         let trend ='';
-        let trendArr =[];
+        const trendArr =[];
         console.log('Trending Gif', res)
       for (let i = 0; i < data.length; i++) {
         trendArr.push(data[i]);
@@ -25,18 +25,23 @@ export const TrendingGif = (limit, offset=0) =>{
           trendArr[t].title,
           trendArr[t].id);
         }
-      for (let t = 0; t < trendArr.length; t++){
-        let fav = document.getElementById(`#heart-${trendArr[t].id}`);
-        let test = () =>{
-          alert("prueba")
-        }
-        fav.forEach((element) => {
-        element.addEventListener('click', test);
-        });
+      divTrend.innerHTML = trend;
 
-      }  
-        divTrend.innerHTML = trend;
       
+      /* setTimeout(() => { // el machetazo ;)
+        
+      }, 2000); */
     })
     .catch(err => console.warn('Error en la petición trending',err))
+    return 
+    /* function forGifo () {
+            for (let t = 0; t < trendArr.length; t++){
+            let fav = document.getElementById(`heart-${trendArr[t].id}`);
+            fav.addEventListener('click', ()=> test(trendArr[t].name));
+        }  
+      } */
+  }
+  
+const test = (gifo) =>{
+    console.log(gifo)
   }
