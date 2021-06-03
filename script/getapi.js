@@ -1,5 +1,5 @@
 import { APIKEY, AUTOCOMPLETE, SEARCH, CATEGORIE,TRENDING } from './variables.js';
- 
+import { markUpSearchResults } from './search.js';
 /**
  * @description obtener json del endpoint search
  * @search parametro a buscar (obligatorio)
@@ -54,3 +54,88 @@ export const getTrending = (limitTrend=3, offSetTrend=0) =>{
         .catch(err => reject(err))
     })
 }
+
+const divTrend = document.querySelector('#trendGifos-Container')
+/**
+* @description endpoint de Trending con otro then
+* @search
+*/
+export async function getTrending2(limitTrend=3, offSetTrend=0) {
+    const trendy = await fetch(`${TRENDING}?api_key=${APIKEY}&limit=${limitTrend}&offset=${offSetTrend}`);
+    const res = await trendy.json();
+    return res
+}
+
+
+export async function getTrending3() {
+    const trendArr =[];
+    getTrending2()
+    .then((res) => {
+    const {data} = res;    
+    let trend ='';
+    //const trendArr =[];
+    console.log('Trending Gif', data);
+    console.log('Trending Gif', trend);
+    console.log('Trending Gif', trendArr);
+        for (let i = 0; i < data.length; i++) {
+        trendArr.push(data[i]);
+        }
+        for (let t = 0; t < trendArr.length; t++) {
+        trend += markUpSearchResults(
+            trendArr[t].images.downsized_medium.url,
+            trendArr[t].title,
+            trendArr[t].username,
+            trendArr[t].title,
+            trendArr[t].id);
+        }
+        divTrend.innerHTML = trend;
+    })
+     
+    .then(() => {
+    //const {data} = res;
+    for (let t = 0; t < trendArr.length; t++){
+    let fav = document.getElementById(`heart-${trendArr[t].id}`);
+    fav.addEventListener('click', ()=> test(trendArr[t].id));
+    }
+
+    })
+
+}
+const test = (gifo) =>{
+    console.log(gifo)
+  }
+
+/* export async function getTrending3() {
+    getTrending2()
+    .then((res) => {
+    const {data} = res;    
+    let trend ='';
+    const trendArr =[];
+    console.log('Trending Gif', data);
+    console.log('Trending Gif', trend);
+    console.log('Trending Gif', trendArr);
+        for (let i = 0; i < data.length; i++) {
+        trendArr.push(data[i]);
+        }
+        for (let t = 0; t < trendArr.length; t++) {
+        trend += markUpSearchResults(
+            trendArr[t].images.downsized_medium.url,
+            trendArr[t].title,
+            trendArr[t].username,
+            trendArr[t].title,
+            trendArr[t].id);
+        }
+        divTrend.innerHTML = trend;
+        
+    })
+    .then((res) => {
+    const {data} = res;
+    
+    for (let t = 0; t < trendArr.length; t++){
+    let fav = document.getElementById(`heart-${trendArr[t].id}`);
+    fav.addEventListener('click', ()=> test(trendArr[t].name));
+    }
+
+    })
+
+} */

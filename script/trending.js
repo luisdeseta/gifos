@@ -1,5 +1,5 @@
 import { getTrending } from './getapi.js';
-import {markUpSearchResults, addListenerFav} from './search.js'
+import {markUpSearchResults,} from './search.js'
 
 const divTrend = document.querySelector('#trendGifos-Container')
 /**
@@ -26,20 +26,20 @@ export const TrendingGif = (limit, offset=0) =>{
           trendArr[t].id);
         }
       divTrend.innerHTML = trend;
-
-      
       /* setTimeout(() => { // el machetazo ;)
         
       }, 2000); */
     })
+    .then((res) =>{
+      const {data} = res;
+      for (let t = 0; t < data.length; t++){
+      let fav = document.getElementById(`heart-${data[t].id}`);
+      fav.addEventListener('click', ()=> test(data[t].name));
+      }  
+      
+
+    })
     .catch(err => console.warn('Error en la petición trending',err))
-    return 
-    /* function forGifo () {
-            for (let t = 0; t < trendArr.length; t++){
-            let fav = document.getElementById(`heart-${trendArr[t].id}`);
-            fav.addEventListener('click', ()=> test(trendArr[t].name));
-        }  
-      } */
   }
   
 const test = (gifo) =>{

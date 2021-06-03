@@ -147,20 +147,4 @@ export const markUpCategories = (name) =>{
   return `<p>${name}</p>`
 }
 
-/**
- * @description agrega un Listener active al boton Fav
- * agrega o quita clase a la img del gifo 
- */
- export const addListenerFav =()=>{
-  let fav = document.querySelectorAll(".heart");
-  let test = () =>{
-    alert("prueba")
-  }
-  fav.forEach((element) => {
-  element.addEventListener('click', test);
-    
-  });
- }
-const addListenerIdGif = (id) => {
-  document.getElementsByClassName(id).classList.toggle('favorite')
-}
+
