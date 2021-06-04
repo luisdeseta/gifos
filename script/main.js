@@ -1,6 +1,5 @@
-import { getSearch, markUpSearchResults, getAutoComplete, categ,} from './search.js';
-import { TrendingGif } from './trending.js';
-import { getTrending3 } from './getapi.js';
+import { getSearch, getAutoComplete, } from './search.js';
+import { drawTrending } from './trending.js';
 
 
 /**
@@ -47,7 +46,7 @@ const doAutoComplete = () =>{
  * @description ejecuta Trending
  */
 const doTrending = (limit=3, offset=0) =>{
-  getTrending3();
+  drawTrending();
  
 }
 doTrending()

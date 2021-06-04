@@ -1,0 +1,34 @@
+@import "variables";
+
+.mainTitle{
+    @extend %font-title;
+    font-size: 25px;
+    color:var(--color_txt_primary);
+    padding-bottom: 31px;
+    text-align: center;
+
+}
+.spanGifos{
+    @extend %font-title;
+    font-size: 25px;
+    color:#50E3C2;
+    
+}
+
+.favContainer{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr ;
+        grid-template-rows: 1fr 1fr 1fr ;
+        row-gap: 1px;
+        column-gap: 10px;
+        .favResault-gif{
+            display: flex;
+            flex-wrap: nowrap;
+            //align-items: center;
+            img{
+                width: 260px;
+                height: 200px;
+                //object-fit: cover;
+            }
+
+    }
