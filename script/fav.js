@@ -20,6 +20,7 @@ export const setFavGifs = (id) =>{
     
     localStorage.setItem('FavGifos', JSON.stringify(gifFavArr))
     drawFav(gifFavArr)
+    
 }
 
 /**
@@ -28,10 +29,14 @@ export const setFavGifs = (id) =>{
 
 export const drawFav = (ids)=>{
     const divFav = document.querySelector('#favResault-gif');
+    let favArr = []
     getGifosByIDs(ids)
     .then( (res) => {
     const {data} = res;
     let fav =''
+    for (let x = 0; x < data.length; x++) {
+        favArr.push(data[x]);
+    }
     for (let f = 0; f < data.length; f++) {
         fav += markUpSearchResults(
             data[f].images.downsized_medium.url,
@@ -42,6 +47,11 @@ export const drawFav = (ids)=>{
     }
     divFav.innerHTML = fav;
     })
-
-
+    .then(() => {
+        //const {data} = res;
+        for (let t = 0; t < favArr.length; t++){
+            let fav = document.getElementById(`heart-${favArr[t].id}`);
+            fav.addEventListener('click', ()=> setFavGifs(favArr[t].id));
+        }
+    })
 }

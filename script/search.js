@@ -1,4 +1,4 @@
-import { autoComplete, getSearchEndP, getCategorie,getTrending } from './getapi.js';
+import { autoComplete, getSearchEndP, getPopularSearchEP } from './getapi.js';
 
 
 /**
@@ -94,19 +94,6 @@ export const getAutoComplete = (inSearch) => {
   })
 }
 
-/**
- * @description dispara busqueda sugerida
- * @param busqueda cuando hace click 
- */
-const sugestTrigger = (ii) =>{
-  const a = document.querySelectorAll('.searchBox-autoC-list');
-  a.forEach((i) =>{
-    i.addEventListener('click', doSearch(ii))
-    //ulAutoComplete.innerHTML = "";
-  })
-}
-
-
 
 /**
  * @description texto ingresado del InputText en form busqueda 
@@ -124,27 +111,38 @@ export const markUpAutoComplet = (sugest) =>{
  * @description Endpoint de categorias
  * dibuja html debajo de Trending
  */
-export const categ = () => {
-  getCategorie()
+export const popularSearch = () => {
+  const popularArr =[];
+  getPopularSearchEP()
   .then((res)=>{
     const {data} = res;
-    let listCateg ="";
-    let categArr =[];
-    //console.log('array categ ', categArr)
-    //console.log('listCateg', listCateg)
+    let listPop ="";
     for (let i = 0; i < data.length; i++) {
-      categArr.push(data[i]);
+      popularArr.push(data[i]);
     }
     for (let e = 0; e < 6; e++) {
-      listCateg += markUpCategories(categArr[e].name);
+      listPop += markUpPopularSearch(popularArr[e]);
     }
-    divCateg.innerHTML = listCateg;
-
+    divCateg.innerHTML = listPop;
   })
+  
+  .then(() => {
+    //const {data} = res;
+    for (let t = 0; t < popularArr.length; t++){
+        let popu = document.getElementById(`pop-${popularArr[t]}`);
+        popu.addEventListener('click', ()=> test(popularArr[t]));
+    }
+    
+  })
+
 }
 
-export const markUpCategories = (name) =>{
-  return `<p>${name}</p>`
+const test = (gifo) =>{
+  console.log(gifo)
+}
+
+export const markUpPopularSearch = (name) =>{
+  return `<p id="pop-${name}">${name}</p>`
 }
 
 

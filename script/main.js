@@ -1,4 +1,4 @@
-import { getSearch, getAutoComplete, } from './search.js';
+import { getSearch, getAutoComplete,popularSearch } from './search.js';
 import { drawTrending } from './trending.js';
 
 
@@ -19,10 +19,10 @@ const inputTextSearch = document.querySelector('#inputSearch');
 
 
 /**
- * @description Ejecuta y dibuja las categorias en Trending
+ * @description Ejecuta y dibuja las busquedas populares
  * REVISAR!!
  */
-//categ();
+ popularSearch();
 
 /**
  * @description ejecuta busqueda dibuja el html

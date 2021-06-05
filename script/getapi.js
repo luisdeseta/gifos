@@ -1,4 +1,4 @@
-import { APIKEY, AUTOCOMPLETE, SEARCH, CATEGORIE,TRENDING,GIFSBYID } from './variables.js';
+import { APIKEY, AUTOCOMPLETE, SEARCH, TRENDING,GIFSBYID, POPULARSEARCH } from './variables.js';
 import { markUpSearchResults } from './search.js';
 /**
  * @description obtener json del endpoint search
@@ -30,12 +30,12 @@ export const autoComplete = (search) =>{
     })
 }
 /**
-* @description endpoint de categorias
+* @description endpoint de busquedas populares
 * @search
 */
-export const getCategorie = () => {
+export const getPopularSearchEP = () => {
     return new Promise ((resolve, reject) => {
-        fetch(`${CATEGORIE}?api_key=${APIKEY}`)
+        fetch(`${POPULARSEARCH}?api_key=${APIKEY}`)
         .then(res => res.json())
         .then(data => resolve(data))
         .catch(err => reject(err))

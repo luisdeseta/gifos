@@ -34,16 +34,13 @@ import { setFavGifs } from './fav.js';
           }
           divTrend.innerHTML = trend;
       })
-      
       .then(() => {
           //const {data} = res;
           for (let t = 0; t < trendArr.length; t++){
               let fav = document.getElementById(`heart-${trendArr[t].id}`);
               fav.addEventListener('click', ()=> setFavGifs(trendArr[t].id));
-          }
-          
-      })
-      
+            }
+        })
 }
 const test = (gifo) =>{
   console.log(gifo)
