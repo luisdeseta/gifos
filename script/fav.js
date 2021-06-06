@@ -5,26 +5,29 @@ import {drawTrending} from './trending.js'
 drawTrending()
 /**
  * @description Guardar Gif en LocalStorage
- * cambiar iconos
+ * falta cambiar iconos
  */
-const gifFavArr = [];
+export const gifFavArr = []; // NO USAR ESTE ARRAY, USAR EL LOCAL STORAGE
 export const setFavGifs = (id) =>{
-    if (gifFavArr.includes(id)) {
+    //buscar en el LS y pasarlo a JSON
+    if (gifFavArr.includes(id)) { //verifica si ID esa en el Array
         let i = gifFavArr.indexOf(id)
-        gifFavArr.splice(i, 1)        
+        gifFavArr.splice(i, 1)         //si esta lo quita
     } else{
-        gifFavArr.splice(0, 0,id);
+        gifFavArr.splice(0, 0,id);      //si no esta lo agrega
     }
     console.log(gifFavArr)
     console.log(id)
     
     localStorage.setItem('FavGifos', JSON.stringify(gifFavArr))
-    drawFav(gifFavArr)
+    drawFav(gifFavArr)      //dibuba los Gif del local storage
     
 }
 
 /**
  * @description leer LocalStorage y dibujarlo en fav.html
+ * @function getGifosByIDs endpoint para traer gifos por array
+ * recibe ids de gifos separados por coma
  */
 
 export const drawFav = (ids)=>{
@@ -48,10 +51,18 @@ export const drawFav = (ids)=>{
     divFav.innerHTML = fav;
     })
     .then(() => {
-        //const {data} = res;
-        for (let t = 0; t < favArr.length; t++){
-            let fav = document.getElementById(`heart-${favArr[t].id}`);
-            fav.addEventListener('click', ()=> setFavGifs(favArr[t].id));
+        for (let t = 0; t < favArr.length; t++)
+        {
+        let fav = document.getElementById(`heart-${favArr[t].id}`);
+            fav.addEventListener('click', ()=> 
+            {
+                setFavGifs(favArr[t].id);
+                
+            })
         }
     })
 }
+
+const test = (gifo) =>{
+    console.log(gifo)
+  }

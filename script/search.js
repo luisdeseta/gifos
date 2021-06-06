@@ -1,30 +1,30 @@
 import { autoComplete, getSearchEndP, getPopularSearchEP } from './getapi.js';
-
+import { gifFavArr, setFavGifs} from './fav.js'
 
 /**
  * constantes
  */
-const inputTextSearch = document.querySelector('#inputSearch');
+export const inputTextSearch = document.querySelector('#inputSearch');
 const offset = 12;
-const ulAutoComplete = document.querySelector('#searchBox-autocomplete');
+export const ulAutoComplete = document.querySelector('#searchBox-autocomplete');
 const divSearchResults = document.querySelector('#searchResault-gif');
 const divCateg = document.querySelector('#CategTextResult');
-
+const searchTitle = document.getElementById('searchTitle')
 
 /**
  * 
- * @description dispara petición de end point y
+ * @description dispara petición de endpoint search y
  * dibuja html con resultados 
  * @param {inSearch} inSearch variable a buscar
+ * revisar cantidad a dibujar (12 o mas)
  */
 export const getSearch = (inSearch) =>{
   let search = inSearch;
+  const searchArr =[];
   getSearchEndP(search, 12, offset)
   .then((res) => {
     const {data } = res;
     let searchResults ="";
-    let searchArr =[];
-    console.log('Array con paramettos Search',searchArr)
     for (let i = 0; i < data.length; i++) {
       searchArr.push(data[i]);
     }
@@ -33,12 +33,20 @@ export const getSearch = (inSearch) =>{
           searchArr[z].images.fixed_height.url,
           searchArr[z].title,
           searchArr[z].username,
-          searchArr[z].title);
+          searchArr[z].title,
+          searchArr[z].id);
     }
     divSearchResults.innerHTML = searchResults;
+    searchTitle.innerHTML = markUpSearchTitle(search)
     inputTextSearch.value = "";
-    addListenerFav(searchArr[z].id)
   })
+   .then(() =>{
+    for (let sF = 0; sF < searchArr.length; sF++) {
+      const searchFav = document.getElementById(`heart-${searchArr[sF].id}`);
+      searchFav.addEventListener('click', ()=> setFavGifs(searchArr[sF].id));
+    }
+  })
+
   .catch(err => console.warn('Error en la petición de busqueda',err))
 }
 
@@ -64,22 +72,26 @@ export const markUpSearchResults = (img,name,user,title, id) =>{
   `
 }
 
+const markUpSearchTitle =(title)=>{
+  return `
+  <h1 id="searchTitle" class="mainTitle">${title}</h1>
+  `
+}
 
 
 /**
  * @description llama al endpoint Autocomplete
  * recibe el parametro de busqueda
  * dibuja el HTML en ul 
- * res y sugestArr son los mismo, se puede simplificar
+ * data y sugestArr son los mismo, se puede simplificar
  */
 export const getAutoComplete = (inSearch) => {
   let search = inSearch;
+  const sugestArr =[];
   autoComplete(search)
   .then((res) => {
-    //console.log("trae el endpoint de AUTOCOMPLE", res)
     const {data} = res;
     let sugestSearch ="";
-    let sugestArr =[];
     for (let i = 0; i < data.length; i++) {
       sugestArr.push(data[i]);
     }
@@ -87,16 +99,29 @@ export const getAutoComplete = (inSearch) => {
       sugestSearch += markUpAutoComplet(sugestArr[e].name);
     }
     ulAutoComplete.innerHTML = sugestSearch;
-    //console.log("trae sugestArr ", sugestArr)
   })
-  .catch((err) =>{
-    console.warn('Error al hacer la petición', err)
+
+  .then(() => {
+    for (let t = 0; t < sugestArr.length; t++){
+        
+      let auto = document.getElementById(`item-${sugestArr[t].name}`);
+      
+      auto.addEventListener('click', ()=> {
+        getSearch(sugestArr[t].name);
+        ulAutoComplete.innerHTML =''
+      });
+      
+    }
+    
   })
+
+  .catch((err) => console.warn('Error al hacer la petición', err) )
+  
 }
 
 
 /**
- * @description texto ingresado del InputText en form busqueda 
+ * @description recibe texto ingresado del InputText 
  * @returns dibuja el html
  */
 export const markUpAutoComplet = (sugest) =>{
@@ -108,7 +133,7 @@ export const markUpAutoComplet = (sugest) =>{
 }
 
 /**
- * @description Endpoint de categorias
+ * @description Endpoint de busquedas populares
  * dibuja html debajo de Trending
  */
 export const popularSearch = () => {
@@ -127,12 +152,10 @@ export const popularSearch = () => {
   })
   
   .then(() => {
-    //const {data} = res;
-    for (let t = 0; t < popularArr.length; t++){
+    for (let t = 0; t < 6; t++){
         let popu = document.getElementById(`pop-${popularArr[t]}`);
-        popu.addEventListener('click', ()=> test(popularArr[t]));
+        popu.addEventListener('click', ()=> getSearch(popularArr[t]));
     }
-    
   })
 
 }
@@ -141,8 +164,13 @@ const test = (gifo) =>{
   console.log(gifo)
 }
 
+/**
+ * 
+ * @param {name} name nombre de los resultados del endpoing busquedas populares
+ * @returns dibuja el HTML 
+ */
 export const markUpPopularSearch = (name) =>{
-  return `<p id="pop-${name}">${name}</p>`
+  return `<p id="pop-${name}" class="popuSearch">${name}</p>`
 }
 
 

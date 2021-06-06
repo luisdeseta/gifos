@@ -1,6 +1,5 @@
-import { getSearch, getAutoComplete,popularSearch } from './search.js';
+import { getSearch, getAutoComplete,popularSearch,inputTextSearch } from './search.js';
 import { drawTrending } from './trending.js';
-
 
 /**
  * @description dark theme button. cambia la clase de los elementos.
@@ -15,7 +14,6 @@ import { drawTrending } from './trending.js';
 /**
  * constantes
  */
-const inputTextSearch = document.querySelector('#inputSearch');
 
 
 /**
@@ -47,15 +45,11 @@ const doAutoComplete = () =>{
  */
 const doTrending = (limit=3, offset=0) =>{
   drawTrending();
- 
+  
 }
 doTrending()
 /**
  * Listeners
  */
-inputTextSearch.addEventListener("keypress", doSearch);
+inputTextSearch.addEventListener("keypress", doSearch)
 inputTextSearch.addEventListener("keyup", doAutoComplete);
-
-
-
-

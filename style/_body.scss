@@ -51,28 +51,44 @@
                     color: #9CAFC3;
                     text-decoration:none;
                     font-size: 16px;
+                    cursor: pointer;
                     i{
                         content: var(--iconGlass);
                     }
                 }
             }
+            #rightSearchIcon{
+                width: 20px;
+                content: var(--iconGlass);
+            }
         }
     }
+
     .block-search-bottom{
         padding: 35px 0px 90px;
+        
         h6{
             @extend %font-title;
             font-size: 18px;
             color:#572EE5;
             text-align: center; 
         }
-        p{
-            @extend %font-medium;
-            font-size: 16px;
-            line-height: 25px;
-            color:#572EE5;
-            text-align: center;
-            max-width: 60%;
+        div{
+            display: flex;
+            flex-flow: row nowrap;
+            align-content: center;
+            justify-content: center;
+            p{
+                padding: 0 5px;
+                @extend %font-medium;
+                font-size: 16px;
+                line-height: 25px;
+                color:#572EE5;
+                text-align: center;
+                max-width: 60%;
+                cursor: pointer;
+            }
+
         }
     }
 }
@@ -152,6 +168,7 @@
     .divHover:hover{
         background-color: #572EE5
     }
+
     .divHover:hover .divHover-btn .heart{
         content: url('../img/icon-fav.svg');
     }

@@ -17,10 +17,6 @@ import { setFavGifs } from './fav.js';
   .then((res) => {
       const {data} = res;    
       let trend ='';
-      //const trendArr =[];
-      console.log('Trending Gif', data);
-      console.log('Trending Gif', trend);
-      console.log('Trending Gif', trendArr);
       for (let i = 0; i < data.length; i++) {
           trendArr.push(data[i]);
       }
@@ -35,7 +31,6 @@ import { setFavGifs } from './fav.js';
           divTrend.innerHTML = trend;
       })
       .then(() => {
-          //const {data} = res;
           for (let t = 0; t < trendArr.length; t++){
               let fav = document.getElementById(`heart-${trendArr[t].id}`);
               fav.addEventListener('click', ()=> setFavGifs(trendArr[t].id));
