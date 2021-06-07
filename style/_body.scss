@@ -26,19 +26,30 @@
         }
         .searchBox{
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: flex-start;
             border-radius: 27px;
             border: 1px solid #572EE5;
             background-color: var(--color_bg_primary);
             width: 500px;
             input{
-                align-self: center;
                 border: none;
                 border-style: none;
                 border-radius: 27px;
-                padding: 5px 5px;
-                width: 85%;
+                padding: 5px 15px;
+                width: 75%;
                 height: 40px;
+            }
+            .glassSearch{
+                width: 20px;
+                padding: 0 10px;
+                content: var(--iconGlass);
+            }
+            .glassCross{
+                width: 15px;
+                padding: 0 10px;
+                content: var(--iconCross);
+                cursor: pointer;
             }
             input:focus{
                 outline: none;
@@ -52,13 +63,9 @@
                     text-decoration:none;
                     font-size: 16px;
                     cursor: pointer;
-                    i{
-                        content: var(--iconGlass);
-                    }
                 }
             }
-            #rightSearchIcon{
-                width: 20px;
+            i{
                 content: var(--iconGlass);
             }
         }

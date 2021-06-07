@@ -27,6 +27,7 @@ Fonts Config
   --color_txt_secundary: color_txt_secundary;
   --color_txt_therd: #000000;
   --iconGlass: url("../img/icon-search.svg");
+  --iconCross: url("../img/close.svg");
 }
 
 .theme--dark {
@@ -37,6 +38,7 @@ Fonts Config
   --color_txt_secundary: color_txt_secundary--dark;
   --color_txt_therd: #ffff;
   --iconGlass--dark: url("../img/icon-search-modo-noct.svg");
+  --iconCross--dark: url("../img/close-modo-noct.svg");
 }
 
 /**
@@ -67,6 +69,7 @@ Fonts Config
   --color_txt_secundary: color_txt_secundary;
   --color_txt_therd: #000000;
   --iconGlass: url("../img/icon-search.svg");
+  --iconCross: url("../img/close.svg");
 }
 
 .theme--dark {
@@ -77,6 +80,7 @@ Fonts Config
   --color_txt_secundary: color_txt_secundary--dark;
   --color_txt_therd: #ffff;
   --iconGlass--dark: url("../img/icon-search-modo-noct.svg");
+  --iconCross--dark: url("../img/close-modo-noct.svg");
 }
 
 /* Mobile First HEADER breakpoint 320*/
@@ -297,6 +301,7 @@ Fonts Config
   --color_txt_secundary: color_txt_secundary;
   --color_txt_therd: #000000;
   --iconGlass: url("../img/icon-search.svg");
+  --iconCross: url("../img/close.svg");
 }
 
 .theme--dark {
@@ -307,6 +312,7 @@ Fonts Config
   --color_txt_secundary: color_txt_secundary--dark;
   --color_txt_therd: #ffff;
   --iconGlass--dark: url("../img/icon-search-modo-noct.svg");
+  --iconCross--dark: url("../img/close-modo-noct.svg");
 }
 
 .mainTitle {
@@ -343,10 +349,11 @@ Fonts Config
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   border-radius: 27px;
   border: 1px solid #572EE5;
   background-color: var(--color_bg_primary);
@@ -354,15 +361,25 @@ Fonts Config
 }
 
 .block-search .searchSection .searchBox input {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
   border: none;
   border-style: none;
   border-radius: 27px;
-  padding: 5px 5px;
-  width: 85%;
+  padding: 5px 15px;
+  width: 75%;
   height: 40px;
+}
+
+.block-search .searchSection .searchBox .glassSearch {
+  width: 20px;
+  padding: 0 10px;
+  content: var(--iconGlass);
+}
+
+.block-search .searchSection .searchBox .glassCross {
+  width: 15px;
+  padding: 0 10px;
+  content: var(--iconCross);
+  cursor: pointer;
 }
 
 .block-search .searchSection .searchBox input:focus {
@@ -382,12 +399,7 @@ Fonts Config
   cursor: pointer;
 }
 
-.block-search .searchSection .searchBox .ulSearch li i {
-  content: var(--iconGlass);
-}
-
-.block-search .searchSection .searchBox #rightSearchIcon {
-  width: 20px;
+.block-search .searchSection .searchBox i {
   content: var(--iconGlass);
 }
 
@@ -622,6 +634,7 @@ Fonts Config
   --color_txt_secundary: color_txt_secundary;
   --color_txt_therd: #000000;
   --iconGlass: url("../img/icon-search.svg");
+  --iconCross: url("../img/close.svg");
 }
 
 .theme--dark {
@@ -632,6 +645,7 @@ Fonts Config
   --color_txt_secundary: color_txt_secundary--dark;
   --color_txt_therd: #ffff;
   --iconGlass--dark: url("../img/icon-search-modo-noct.svg");
+  --iconCross--dark: url("../img/close-modo-noct.svg");
 }
 
 .mainTitle {
@@ -709,6 +723,7 @@ Fonts Config
   --color_txt_secundary: color_txt_secundary;
   --color_txt_therd: #000000;
   --iconGlass: url("../img/icon-search.svg");
+  --iconCross: url("../img/close.svg");
 }
 
 .theme--dark {
@@ -719,6 +734,7 @@ Fonts Config
   --color_txt_secundary: color_txt_secundary--dark;
   --color_txt_therd: #ffff;
   --iconGlass--dark: url("../img/icon-search-modo-noct.svg");
+  --iconCross--dark: url("../img/close-modo-noct.svg");
 }
 
 /**
@@ -749,6 +765,7 @@ Fonts Config
   --color_txt_secundary: color_txt_secundary;
   --color_txt_therd: #000000;
   --iconGlass: url("../img/icon-search.svg");
+  --iconCross: url("../img/close.svg");
 }
 
 .theme--dark {
@@ -759,6 +776,7 @@ Fonts Config
   --color_txt_secundary: color_txt_secundary--dark;
   --color_txt_therd: #ffff;
   --iconGlass--dark: url("../img/icon-search-modo-noct.svg");
+  --iconCross--dark: url("../img/close-modo-noct.svg");
 }
 
 .mainTitle {
@@ -795,10 +813,11 @@ Fonts Config
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   border-radius: 27px;
   border: 1px solid #572EE5;
   background-color: var(--color_bg_primary);
@@ -806,15 +825,25 @@ Fonts Config
 }
 
 .block-search .searchSection .searchBox input {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
   border: none;
   border-style: none;
   border-radius: 27px;
-  padding: 5px 5px;
-  width: 85%;
+  padding: 5px 15px;
+  width: 75%;
   height: 40px;
+}
+
+.block-search .searchSection .searchBox .glassSearch {
+  width: 20px;
+  padding: 0 10px;
+  content: var(--iconGlass);
+}
+
+.block-search .searchSection .searchBox .glassCross {
+  width: 15px;
+  padding: 0 10px;
+  content: var(--iconCross);
+  cursor: pointer;
 }
 
 .block-search .searchSection .searchBox input:focus {
@@ -834,12 +863,7 @@ Fonts Config
   cursor: pointer;
 }
 
-.block-search .searchSection .searchBox .ulSearch li i {
-  content: var(--iconGlass);
-}
-
-.block-search .searchSection .searchBox #rightSearchIcon {
-  width: 20px;
+.block-search .searchSection .searchBox i {
   content: var(--iconGlass);
 }
 

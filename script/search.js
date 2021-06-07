@@ -1,5 +1,5 @@
 import { autoComplete, getSearchEndP, getPopularSearchEP } from './getapi.js';
-import { gifFavArr, setFavGifs} from './fav.js'
+import { setFavGifs} from './fav.js'
 
 /**
  * constantes
@@ -39,6 +39,9 @@ export const getSearch = (inSearch) =>{
     divSearchResults.innerHTML = searchResults;
     searchTitle.innerHTML = markUpSearchTitle(search)
     inputTextSearch.value = "";
+    document.getElementById('rightSearchIcon').classList.add('glassCross')
+
+
   })
    .then(() =>{
     for (let sF = 0; sF < searchArr.length; sF++) {
@@ -100,20 +103,22 @@ export const getAutoComplete = (inSearch) => {
     }
     ulAutoComplete.innerHTML = sugestSearch;
   })
-
   .then(() => {
     for (let t = 0; t < sugestArr.length; t++){
-        
       let auto = document.getElementById(`item-${sugestArr[t].name}`);
-      
       auto.addEventListener('click', ()=> {
         getSearch(sugestArr[t].name);
         ulAutoComplete.innerHTML =''
-      });
-      
-    }
-    
+        });
+      }
   })
+  .then(() => {
+  const i = document.getElementById('rightSearchIcon')
+  i.classList.add('glassCross')
+  i.addEventListener('click', () => {getSearch("");i.classList.remove('glassCross')  })
+
+  })
+
 
   .catch((err) => console.warn('Error al hacer la petición', err) )
   
