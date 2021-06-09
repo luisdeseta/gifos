@@ -165,10 +165,6 @@ export const popularSearch = () => {
 
 }
 
-const test = (gifo) =>{
-  console.log(gifo)
-}
-
 /**
  * 
  * @param {name} name nombre de los resultados del endpoing busquedas populares

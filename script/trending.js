@@ -8,10 +8,10 @@ import { drawFav, setFavGifs } from './fav.js';
  * @param {*} limit Revisar para paginancion
  * @param {*} offset revisar para paginacion
  */
- export async function drawTrending() {
+ export async function drawTrending(limit=3, offset=0) {
   const divTrend = document.querySelector('#trendGifos-Container')
   const trendArr =[];
-  getTrending()
+  getTrending(limit=3, offset)
   .then((res) => {
       const {data} = res;    
       let trend ='';
@@ -35,10 +35,6 @@ import { drawFav, setFavGifs } from './fav.js';
             }
         })
 }
-const test = (gifo) =>{
-  console.log(gifo)
-}
-
 
 /**
  * @description Dibuaja trending en fav.html y agregar comportamiento a los botones
@@ -70,8 +66,35 @@ const test = (gifo) =>{
                 let fav = document.getElementById(`heart-${trendArr[t].id}`);
                 fav.addEventListener('click', function() {    
                     setFavGifs(trendArr[t].id);
-                    drawFav()
+                   //drawFav()
                 });
               }
           })
   }
+
+/**
+ * @description Paginador. cambiar el offset y suma 3
+ */
+const rBtn = document.getElementById('rigthbtn')
+let offSet = 0
+export const trendPagR =() =>{
+    offSet += 3;
+    let limit=3
+    console.log(offSet)
+    drawTrending(limit, offSet)
+    
+}
+rBtn.addEventListener('click', trendPagR)
+
+/**
+ * @description Paginador. cambiar el offset y resta 3
+ */
+ const lBtn = document.getElementById('leftbtn')
+  export const trendPagL =() =>{
+     offSet -= 3;
+     let limit=3
+     console.log(offSet)
+     drawTrending(limit, offSet)
+     
+ }
+ lBtn.addEventListener('click', trendPagL)

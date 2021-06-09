@@ -15,7 +15,7 @@
     
 }
  
-/* Block 1 */
+/* Block 1  */
 .block-search{
     .searchSection{
         display: flex;
@@ -104,34 +104,39 @@
 
 .searchResultSection{
     padding: 0 5px 0;
-/*     .searchContainer{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr ;
-        grid-template-rows: 1fr 1fr 1fr ;
-        row-gap: 1px;
-        column-gap: 10px;
-    } */
+     //.searchContainer{    } 
 }
-// Tambien aplica a Trending
+
+
 .searchResault-gif{
-    display: flex;
-    flex-wrap: nowrap;
-    //align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 20px 1fr 20px 1fr 20px 1fr 20px;
+    grid-template-rows: 1fr 1fr 1fr ;
+    row-gap: 20px;
+
     img{
-        width: 260px;
-        height: 200px;
+        width: 15em;
+        height: 11.5em;
         //object-fit: cover;
     }
+/*     @supports(object-fit: cover){
+        img{
+          height: ;
+          object-fit: cover;
+          object-position: center center;
+        }
+    } */
+
 //Aplica a Fav y a Search          
     .divHover{
         display: block;
         position:relative;
         opacity: 0.6;
         background-color: transparent;
-        width: 260px;
-        height: 200px;
+        width: 15em;
+        height: 11.5em;
         //top:-200px;
-        left:-260px;
+        left:-15em;
         .divHover-btn{
             display: flex;
             justify-content: flex-end;
@@ -198,7 +203,18 @@
         display: flex;
     }            
 }
-
+//grid favoritos
+.trendGifos-Container{
+    display: grid;
+    grid-template-columns: 1fr 20px 1fr 20px 1fr 20px;
+    grid-template-rows: 1fr;
+    row-gap: 20px;
+    img{
+        width: 260px;
+        height: 200px;
+        //object-fit: cover;
+    }
+}
 
 .blockTrend{
     padding: 0 50px 100px;
@@ -206,12 +222,14 @@
     .blockTrendIntro{
         display:flex;
         align-items: center;
-        flex-flow: column wrap; 
+        flex-flow: column wrap;
+        padding: 0 0 4rem; 
         h3{
             @extend %font-title;
             font-size: 20px;
             color:#572EE5;
             text-align: center; 
+            padding: 0 0 1rem; 
         }
          p{
             @extend %font-medium;
@@ -228,7 +246,30 @@
         grid-template-columns: 1fr 1fr 1fr ;
         grid-template-rows: 1fr;
         row-gap: 1px;
-        column-gap: 1px;
+        //column-gap: 1px;
+        .buttonSliderLeft{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .leftbtn{
+                content: url('../img/button-slider-left.svg')
+             }
+            .leftbtn:hover {
+                content: url('../img/button-slider-left-hover.svg')
+            }
+        }
+        .buttonSliderRight{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            .rigthbtn{
+                content: url('../img/Button-Slider-right.svg')
+             }
+            .rigthbtn:hover {
+                content: url('../img/Button-Slider-right-hover.svg')
+            }
+        }
     }
 
 }

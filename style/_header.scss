@@ -117,14 +117,20 @@ header{
         nav{
             display: flex;
             flex-wrap:  nowrap;
-            //justify-content: center;
+            justify-content:space-around;
             align-items: center;
+            padding: 1vw 0 4vw;
+            .logo{
+                padding: 0;
+            }
             .createButtom{
                 display: block;
-                padding: 5% 5% 0%;
+                padding: 0 2vw 0 0 ;
             }
             .MenuHambuerguesa{
-                
+                padding: 0 0 0 25vw;
+                display: flex;
+                align-items: center;
                 .MenuHeader{
                     display: flex;
                     flex-flow: row nowrap;
