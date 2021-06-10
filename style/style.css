@@ -457,6 +457,10 @@ Fonts Config
   padding: 0 5px 0;
 }
 
+.searchResultSection .searchContainer {
+  max-width: 1050px;
+}
+
 .searchResault-gif {
   display: -ms-grid;
   display: grid;
@@ -976,6 +980,10 @@ Fonts Config
 
 .searchResultSection {
   padding: 0 5px 0;
+}
+
+.searchResultSection .searchContainer {
+  max-width: 1050px;
 }
 
 .searchResault-gif {
