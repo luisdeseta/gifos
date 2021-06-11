@@ -50,7 +50,7 @@ header{
             a{
             @extend %font-title;
             text-decoration:none;
-            color: #FFFFFF;
+            color: var(--color_txt_primary);
             font-size: 15px;
             background-color:transparent;
             }
@@ -126,6 +126,12 @@ header{
             .createButtom{
                 display: block;
                 padding: 0 2vw 0 0 ;
+                .createButtom-img{
+                    content: var(--createGifo);
+                }
+                .createButtom-img:hover{
+                    content: url('../img/CTA-crear-gifo-hover.svg');
+                }
             }
             .MenuHambuerguesa{
                 padding: 0 0 0 25vw;
@@ -149,7 +155,7 @@ header{
                         padding: 0 2vw;
                         a{
                             text-decoration:none;
-                            color: #572EE5;
+                            color: var(--color_txt_primary);
                             font-size: 15px;
                         }
                         span{

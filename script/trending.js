@@ -78,7 +78,12 @@ import { drawFav, setFavGifs } from './fav.js';
 const rBtn = document.getElementById('rigthbtn')
 let offSet = 0
 export const trendPagR =() =>{
-    offSet += 3;
+    if (offSet === 50) {
+        offSet = 50
+    } else {
+
+        offSet += 3;
+    }
     let limit=3
     console.log(offSet)
     drawTrending(limit, offSet)
@@ -91,7 +96,12 @@ rBtn.addEventListener('click', trendPagR)
  */
  const lBtn = document.getElementById('leftbtn')
   export const trendPagL =() =>{
-     offSet -= 3;
+    if (offSet <= 0) {
+        offSet = 0
+    } else {
+        offSet -= 3;
+
+    }
      let limit=3
      console.log(offSet)
      drawTrending(limit, offSet)

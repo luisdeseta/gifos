@@ -4,7 +4,7 @@
     @extend %font-title;
     font-size: 25px;
     color:var(--color_txt_primary);
-    padding-bottom: 31px;
+    padding: 7vw 0 5vw;
     text-align: center;
 
 }
@@ -104,8 +104,8 @@
 
 .searchResultSection{
     padding: 0 5px 0;
-     .searchContainer{
-         max-width: 1050px;
+    .searchContainer{
+        max-width: 1050px;
          } 
 }
 
@@ -229,7 +229,7 @@
         h3{
             @extend %font-title;
             font-size: 20px;
-            color:#572EE5;
+            color:var(--color_txt_primary);
             text-align: center; 
             padding: 0 0 1rem; 
         }

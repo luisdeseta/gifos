@@ -38,6 +38,7 @@ $color_txt_secundary:#50E3C2;
 $color_txt_therd: #000000;
 $leftGlass: url('../img/icon-search.svg');
 $leftCross: url('../img/close.svg');
+$createGifo: url('../img/button-crear-gifo.svg');
 /* Dark colors*/
 $color_bg_primary--dark: #37383C;
 $color_bg_secundary--dark:#222326;
@@ -47,15 +48,16 @@ $color_txt_secundary--dark:#50E3C2;
 $color_txt_therd--dark: #ffff;
 $leftGlass--dark: url('../img/icon-search-modo-noct.svg');
 $leftCross--dark: url('../img/close-modo-noct.svg');
-
+$createGifo--dark: url('../img/CTA-crear-gifo-modo-noc.svg');
 .theme{
     --color_bg_primary: #{$color_bg_primary};
     --color_bg_secundary: #{$color_bg_secundary};
     --color_txt_primary: #{$color_txt_primary};
-    --color_txt_secundary: #{color_txt_secundary};
+    --color_txt_secundary: #{$color_txt_secundary};
     --color_txt_therd: #{$color_txt_therd};
     --iconGlass: #{$leftGlass};
     --iconCross: #{$leftCross};
+    --createGifo: #{$createGifo};
     &--dark{
         --color_bg_primary: #{$color_bg_primary--dark};
         --color_bg_secundary: #{$color_bg_secundary--dark};
@@ -64,7 +66,8 @@ $leftCross--dark: url('../img/close-modo-noct.svg');
         --color_txt_secundary: #{color_txt_secundary--dark};
         --color_txt_therd: #{$color_txt_therd--dark};
         --iconGlass--dark: #{$leftGlass--dark};
-        --iconCross--dark: #{$leftCross--dark};    
+        --iconCross--dark: #{$leftCross--dark};
+        --createGifo--dark: #{$createGifo--dark};    
     }
 }
 
