@@ -1,19 +1,31 @@
 @import "variables";
 @import "body";
 
-.mainTitle{
-    @extend %font-title;
-    font-size: 25px;
-    color:var(--color_txt_primary);
-    padding-bottom: 31px;
-    text-align: center;
+.favIconHeader{
+    .mainTitle{
+        @extend %font-title;
+        font-size: 25px;
+        color:var(--color_txt_primary);
+        padding-bottom: 31px;
+        text-align: center;
+    }
+    .spanGifos{
+        @extend %font-title;
+        font-size: 25px;
+        color:#50E3C2;
+    }
 
 }
-.spanGifos{
-    @extend %font-title;
-    font-size: 25px;
-    color:#50E3C2;
-    
+.favEmpty{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    p{
+        @extend %font-medium2;
+        color: #50E3C2;
+        width: 20rem;
+        text-align: center;
+    }
 }
  #favResault-gif{
         display: grid;

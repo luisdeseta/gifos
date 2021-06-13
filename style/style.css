@@ -2,7 +2,7 @@
 /**
 Fonts Config
 */
-.MenuHeader li a, .mainTitle, .spanGifos, .block-search .block-search-bottom h6, .blockTrend .blockTrendIntro h3 {
+.MenuHeader li a, .mainTitle, .spanGifos, .block-search .block-search-bottom h6, .blockTrend .blockTrendIntro h3, .favIconHeader .mainTitle, .favIconHeader .spanGifos {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
 }
@@ -12,7 +12,7 @@ Fonts Config
   font-weight: 400;
 }
 
-.footer .footerSocialNT p, .footer .footerGifos p {
+.footer .footerSocialNT p, .footer .footerGifos p, .favEmpty p {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
 }
@@ -38,15 +38,15 @@ Fonts Config
   --color_txt_primary: #ffff;
   --color_txt_secundary: color_txt_secundary--dark;
   --color_txt_therd: #ffff;
-  --iconGlass--dark: url("../img/icon-search-modo-noct.svg");
-  --iconCross--dark: url("../img/close-modo-noct.svg");
-  --createGifo--dark: url("../img/CTA-crear-gifo-modo-noc.svg");
+  --iconGlass: url("../img/icon-search-modo-noct.svg");
+  --iconCross: url("../img/close-modo-noct.svg");
+  --createGifo: url("../img/CTA-crear-gifo-modo-noc.svg");
 }
 
 /**
 Fonts Config
 */
-.MenuHeader li a, .mainTitle, .spanGifos, .block-search .block-search-bottom h6, .blockTrend .blockTrendIntro h3 {
+.MenuHeader li a, .mainTitle, .spanGifos, .block-search .block-search-bottom h6, .blockTrend .blockTrendIntro h3, .favIconHeader .mainTitle, .favIconHeader .spanGifos {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
 }
@@ -56,7 +56,7 @@ Fonts Config
   font-weight: 400;
 }
 
-.footer .footerSocialNT p, .footer .footerGifos p {
+.footer .footerSocialNT p, .footer .footerGifos p, .favEmpty p {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
 }
@@ -82,9 +82,9 @@ Fonts Config
   --color_txt_primary: #ffff;
   --color_txt_secundary: color_txt_secundary--dark;
   --color_txt_therd: #ffff;
-  --iconGlass--dark: url("../img/icon-search-modo-noct.svg");
-  --iconCross--dark: url("../img/close-modo-noct.svg");
-  --createGifo--dark: url("../img/CTA-crear-gifo-modo-noc.svg");
+  --iconGlass: url("../img/icon-search-modo-noct.svg");
+  --iconCross: url("../img/close-modo-noct.svg");
+  --createGifo: url("../img/CTA-crear-gifo-modo-noc.svg");
 }
 
 /* Mobile First HEADER breakpoint 320*/
@@ -301,7 +301,7 @@ header nav .MenuHambuerguesa {
 /**
 Fonts Config
 */
-.MenuHeader li a, .mainTitle, .spanGifos, .block-search .block-search-bottom h6, .blockTrend .blockTrendIntro h3 {
+.MenuHeader li a, .mainTitle, .spanGifos, .block-search .block-search-bottom h6, .blockTrend .blockTrendIntro h3, .favIconHeader .mainTitle, .favIconHeader .spanGifos {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
 }
@@ -311,7 +311,7 @@ Fonts Config
   font-weight: 400;
 }
 
-.footer .footerSocialNT p, .footer .footerGifos p {
+.footer .footerSocialNT p, .footer .footerGifos p, .favEmpty p {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
 }
@@ -337,9 +337,9 @@ Fonts Config
   --color_txt_primary: #ffff;
   --color_txt_secundary: color_txt_secundary--dark;
   --color_txt_therd: #ffff;
-  --iconGlass--dark: url("../img/icon-search-modo-noct.svg");
-  --iconCross--dark: url("../img/close-modo-noct.svg");
-  --createGifo--dark: url("../img/CTA-crear-gifo-modo-noc.svg");
+  --iconGlass: url("../img/icon-search-modo-noct.svg");
+  --iconCross: url("../img/close-modo-noct.svg");
+  --createGifo: url("../img/CTA-crear-gifo-modo-noc.svg");
 }
 
 .mainTitle {
@@ -352,6 +352,15 @@ Fonts Config
 .spanGifos {
   font-size: 25px;
   color: #50E3C2;
+}
+
+.gifoMax {
+  display: none;
+  position: absolute;
+  z-index: +1;
+  width: 100vw;
+  height: 100vw;
+  background-color: #8a8a8a;
 }
 
 /* Block 1  */
@@ -394,11 +403,14 @@ Fonts Config
   padding: 5px 15px;
   width: 75%;
   height: 40px;
+  margin: 0 0 0 15px;
+  background-color: transparent;
+  color: var(--color_txt_therd);
 }
 
 .block-search .searchSection .searchBox .glassSearch {
   width: 20px;
-  padding: 0 10px;
+  padding: 0 15px;
   content: var(--iconGlass);
 }
 
@@ -436,7 +448,7 @@ Fonts Config
 
 .block-search .block-search-bottom h6 {
   font-size: 18px;
-  color: #572EE5;
+  color: var(--color_txt_primary);
   text-align: center;
 }
 
@@ -459,7 +471,7 @@ Fonts Config
   padding: 0 5px;
   font-size: 16px;
   line-height: 25px;
-  color: #572EE5;
+  color: var(--color_txt_primary);
   text-align: center;
   max-width: 60%;
   cursor: pointer;
@@ -626,7 +638,7 @@ Fonts Config
   -webkit-box-direction: normal;
       -ms-flex-flow: column wrap;
           flex-flow: column wrap;
-  padding: 0 0 4rem;
+  padding: 3rem 0 3rem;
 }
 
 .blockTrend .blockTrendIntro h3 {
@@ -639,7 +651,7 @@ Fonts Config
 .blockTrend .blockTrendIntro p {
   font-size: 16px;
   line-height: 23px;
-  color: #000000;
+  color: var(--color_txt_therd);
   text-align: center;
   max-width: 60%;
 }
@@ -697,7 +709,7 @@ Fonts Config
 /**
 Fonts Config
 */
-.MenuHeader li a, .mainTitle, .spanGifos, .block-search .block-search-bottom h6, .blockTrend .blockTrendIntro h3 {
+.MenuHeader li a, .mainTitle, .spanGifos, .block-search .block-search-bottom h6, .blockTrend .blockTrendIntro h3, .favIconHeader .mainTitle, .favIconHeader .spanGifos {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
 }
@@ -707,7 +719,7 @@ Fonts Config
   font-weight: 400;
 }
 
-.footer .footerSocialNT p, .footer .footerGifos p {
+.footer .footerSocialNT p, .footer .footerGifos p, .favEmpty p {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
 }
@@ -733,9 +745,9 @@ Fonts Config
   --color_txt_primary: #ffff;
   --color_txt_secundary: color_txt_secundary--dark;
   --color_txt_therd: #ffff;
-  --iconGlass--dark: url("../img/icon-search-modo-noct.svg");
-  --iconCross--dark: url("../img/close-modo-noct.svg");
-  --createGifo--dark: url("../img/CTA-crear-gifo-modo-noc.svg");
+  --iconGlass: url("../img/icon-search-modo-noct.svg");
+  --iconCross: url("../img/close-modo-noct.svg");
+  --createGifo: url("../img/CTA-crear-gifo-modo-noc.svg");
 }
 
 .mainTitle {
@@ -788,7 +800,7 @@ Fonts Config
 /**
 Fonts Config
 */
-.MenuHeader li a, .mainTitle, .spanGifos, .block-search .block-search-bottom h6, .blockTrend .blockTrendIntro h3 {
+.MenuHeader li a, .mainTitle, .spanGifos, .block-search .block-search-bottom h6, .blockTrend .blockTrendIntro h3, .favIconHeader .mainTitle, .favIconHeader .spanGifos {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
 }
@@ -798,7 +810,7 @@ Fonts Config
   font-weight: 400;
 }
 
-.footer .footerSocialNT p, .footer .footerGifos p {
+.footer .footerSocialNT p, .footer .footerGifos p, .favEmpty p {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
 }
@@ -824,15 +836,15 @@ Fonts Config
   --color_txt_primary: #ffff;
   --color_txt_secundary: color_txt_secundary--dark;
   --color_txt_therd: #ffff;
-  --iconGlass--dark: url("../img/icon-search-modo-noct.svg");
-  --iconCross--dark: url("../img/close-modo-noct.svg");
-  --createGifo--dark: url("../img/CTA-crear-gifo-modo-noc.svg");
+  --iconGlass: url("../img/icon-search-modo-noct.svg");
+  --iconCross: url("../img/close-modo-noct.svg");
+  --createGifo: url("../img/CTA-crear-gifo-modo-noc.svg");
 }
 
 /**
 Fonts Config
 */
-.MenuHeader li a, .mainTitle, .spanGifos, .block-search .block-search-bottom h6, .blockTrend .blockTrendIntro h3 {
+.MenuHeader li a, .mainTitle, .spanGifos, .block-search .block-search-bottom h6, .blockTrend .blockTrendIntro h3, .favIconHeader .mainTitle, .favIconHeader .spanGifos {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
 }
@@ -842,7 +854,7 @@ Fonts Config
   font-weight: 400;
 }
 
-.footer .footerSocialNT p, .footer .footerGifos p {
+.footer .footerSocialNT p, .footer .footerGifos p, .favEmpty p {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
 }
@@ -868,9 +880,9 @@ Fonts Config
   --color_txt_primary: #ffff;
   --color_txt_secundary: color_txt_secundary--dark;
   --color_txt_therd: #ffff;
-  --iconGlass--dark: url("../img/icon-search-modo-noct.svg");
-  --iconCross--dark: url("../img/close-modo-noct.svg");
-  --createGifo--dark: url("../img/CTA-crear-gifo-modo-noc.svg");
+  --iconGlass: url("../img/icon-search-modo-noct.svg");
+  --iconCross: url("../img/close-modo-noct.svg");
+  --createGifo: url("../img/CTA-crear-gifo-modo-noc.svg");
 }
 
 .mainTitle {
@@ -883,6 +895,15 @@ Fonts Config
 .spanGifos {
   font-size: 25px;
   color: #50E3C2;
+}
+
+.gifoMax {
+  display: none;
+  position: absolute;
+  z-index: +1;
+  width: 100vw;
+  height: 100vw;
+  background-color: #8a8a8a;
 }
 
 /* Block 1  */
@@ -925,11 +946,14 @@ Fonts Config
   padding: 5px 15px;
   width: 75%;
   height: 40px;
+  margin: 0 0 0 15px;
+  background-color: transparent;
+  color: var(--color_txt_therd);
 }
 
 .block-search .searchSection .searchBox .glassSearch {
   width: 20px;
-  padding: 0 10px;
+  padding: 0 15px;
   content: var(--iconGlass);
 }
 
@@ -967,7 +991,7 @@ Fonts Config
 
 .block-search .block-search-bottom h6 {
   font-size: 18px;
-  color: #572EE5;
+  color: var(--color_txt_primary);
   text-align: center;
 }
 
@@ -990,7 +1014,7 @@ Fonts Config
   padding: 0 5px;
   font-size: 16px;
   line-height: 25px;
-  color: #572EE5;
+  color: var(--color_txt_primary);
   text-align: center;
   max-width: 60%;
   cursor: pointer;
@@ -1157,7 +1181,7 @@ Fonts Config
   -webkit-box-direction: normal;
       -ms-flex-flow: column wrap;
           flex-flow: column wrap;
-  padding: 0 0 4rem;
+  padding: 3rem 0 3rem;
 }
 
 .blockTrend .blockTrendIntro h3 {
@@ -1170,7 +1194,7 @@ Fonts Config
 .blockTrend .blockTrendIntro p {
   font-size: 16px;
   line-height: 23px;
-  color: #000000;
+  color: var(--color_txt_therd);
   text-align: center;
   max-width: 60%;
 }
@@ -1225,16 +1249,35 @@ Fonts Config
   content: url("../img/Button-Slider-right-hover.svg");
 }
 
-.mainTitle {
+.favIconHeader .mainTitle {
   font-size: 25px;
   color: var(--color_txt_primary);
   padding-bottom: 31px;
   text-align: center;
 }
 
-.spanGifos {
+.favIconHeader .spanGifos {
   font-size: 25px;
   color: #50E3C2;
+}
+
+.favEmpty {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.favEmpty p {
+  color: #50E3C2;
+  width: 20rem;
+  text-align: center;
 }
 
 #favResault-gif {

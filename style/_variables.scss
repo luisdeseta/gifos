@@ -65,10 +65,8 @@ $createGifo--dark: url('../img/CTA-crear-gifo-modo-noc.svg');
         --color_txt_primary: #{$color_txt_primary--dark};
         --color_txt_secundary: #{color_txt_secundary--dark};
         --color_txt_therd: #{$color_txt_therd--dark};
-        --iconGlass--dark: #{$leftGlass--dark};
-        --iconCross--dark: #{$leftCross--dark};
-        --createGifo--dark: #{$createGifo--dark};    
+        --iconGlass: #{$leftGlass--dark};
+        --iconCross: #{$leftCross--dark};
+        --createGifo: #{$createGifo--dark};    
     }
 }
-
-
