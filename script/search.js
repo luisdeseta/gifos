@@ -155,7 +155,7 @@ export const popularSearch = () => {
     }
     divCateg.innerHTML = listPop;
   })
-  
+   
   .then(() => {
     for (let t = 0; t < 6; t++){
         let popu = document.getElementById(`pop-${popularArr[t]}`);

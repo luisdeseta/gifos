@@ -1,5 +1,5 @@
 import { getSearch, getAutoComplete,popularSearch,inputTextSearch } from './search.js';
-import { drawTrending,trendPagR,trendPagL } from './trending.js';
+import { drawTrending, } from './trending.js';
 
 /**
  * @description dark theme button. cambia la clase de los elementos.
@@ -18,7 +18,7 @@ import { drawTrending,trendPagR,trendPagL } from './trending.js';
  
 /**
  * @description Ejecuta y dibuja las busquedas populares
- * REVISAR!!
+ * 
  */
  popularSearch();
 

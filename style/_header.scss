@@ -114,6 +114,7 @@ header{
         top:0;
         width: 100%;
         background-color: var(--color_bg_primary);
+        z-index: +100;
         nav{
             display: flex;
             flex-wrap:  nowrap;

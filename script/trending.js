@@ -65,7 +65,7 @@ import { drawFav, setFavGifs } from './fav.js';
             for (let t = 0; t < trendArr.length; t++){
                 let fav = document.getElementById(`heart-${trendArr[t].id}`);
                 fav.addEventListener('click', function() {    
-                    setFavGifs(trendArr[t].id);
+                    setFavGifs(`gif-${trendArr[t].id}`,trendArr[t].id);
                    //drawFav()
                 });
               }
@@ -73,7 +73,7 @@ import { drawFav, setFavGifs } from './fav.js';
   }
 
 /**
- * @description Paginador. cambiar el offset y suma 3
+ * @description Paginador. cambia el offset y suma 3
  */
 const rBtn = document.getElementById('rigthbtn')
 let offSet = 0
