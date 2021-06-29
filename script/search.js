@@ -64,7 +64,7 @@ export const markUpSearchResults = (img,name,user,title, id) =>{
       <div class="divHover">
           <div class="divHover-btn">
               <i class="heart" id="heart-${id}"></i>
-              <i class="down" id="down-${name}"></i>
+              <i class="down" id="down-${id}"></i>
               <i class="max" id="max-${name}"></i>
           </div>
             <div class="divHover-user">

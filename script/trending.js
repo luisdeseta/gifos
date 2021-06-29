@@ -66,8 +66,12 @@ import { drawFav, setFavGifs } from './fav.js';
                 let fav = document.getElementById(`heart-${trendArr[t].id}`);
                 fav.addEventListener('click', function() {    
                     setFavGifs(`gif-${trendArr[t].id}`,trendArr[t].id);
-                   //drawFav()
+                    //drawFav()
                 });
+                let down = document.getElementById(`down-${trendArr[t].id}`);
+                down.addEventListener('click', function() {
+                 console.log("Gifo: ",trendArr[t].title)
+                })    
               }
           })
   }

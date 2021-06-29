@@ -1,5 +1,5 @@
-import { APIKEY, AUTOCOMPLETE, SEARCH, TRENDING,GIFSBYID, POPULARSEARCH } from './variables.js';
-import { markUpSearchResults } from './search.js';
+import { APIKEY, AUTOCOMPLETE, SEARCH, TRENDING,GIFSBYID, POPULARSEARCH} from './variables.js';
+//import { markUpSearchResults } from './search.js';
 /**
  * @description obtener json del endpoint search
  * @search parametro a buscar (obligatorio)
@@ -63,3 +63,4 @@ export async function getTrending(limitTrend=3, offSetTrend=0) {
     const res = await gifs.json();
     return res
 }
+

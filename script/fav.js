@@ -39,7 +39,7 @@ export const drawFav = ()=>{
                 const element = localStorage.getItem(localStorage.key(i));
                 favArr.push(element);
             }
-            
+            console.log("favArr= ", favArr)
             getGifosByIDs(favArr)
             .then( (res) => {
             const {data} = res;
@@ -54,15 +54,16 @@ export const drawFav = ()=>{
             divFav.innerHTML = fav;
             })
             .then(() => {
-                for (let t = 0; t < favArr.length; t++)
-                {
+                for (let t = 0; t < favArr.length; t++){
                 let favy = document.getElementById(`heart-${favArr[t]}`);
-                    favy.addEventListener('click', ()=> 
-                    {
+                    favy.addEventListener('click', ()=> {
                         setFavGifs(`gif-${favArr[t]}`,favArr[t]);
                         drawFav()
+                        
                     })
-                }
+                let down = document.getElementById(`down-${favArr[t]}`);
+                down.addEventListener('click', download(favArr[t],favArr[t])
+                )}
             })
 
     }
@@ -72,3 +73,13 @@ const load =() => {
     document.getElementById('favContainer').addEventListener("DOMContentLoaded", drawFav())
 }
 drawFav()
+/**
+ * @description Descarga un Gifo
+ * @param id id del Gifo a descargar
+ */
+export const download = (id,title) => {
+    
+    console.log("urlGifo= ", id, title);
+    
+
+}
