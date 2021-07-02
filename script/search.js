@@ -46,7 +46,9 @@ export const getSearch = (inSearch) =>{
    .then(() =>{
     for (let sF = 0; sF < searchArr.length; sF++) {
       const searchFav = document.getElementById(`heart-${searchArr[sF].id}`);
-      searchFav.addEventListener('click', ()=> setFavGifs(searchArr[sF].id));
+      searchFav.addEventListener('click', function() {
+        setFavGifs(`gif-${searchArr[sF].id}`,searchArr[sF].id);
+      });
     }
   })
 
@@ -173,5 +175,3 @@ export const popularSearch = () => {
 export const markUpPopularSearch = (name) =>{
   return `<p id="pop-${name}" class="popuSearch">${name}</p>`
 }
-
-

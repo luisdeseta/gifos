@@ -2,7 +2,6 @@ import {getGifosByIDs} from './getapi.js';
 import {markUpSearchResults} from './search.js';
 import {drawTrendingFav} from './trending.js';
 
-drawTrendingFav()
 /**
  * @description Guardar Gif en LocalStorage
  * @param name clave del Gifo
@@ -16,10 +15,10 @@ export const setFavGifs = (name, id) =>{
     } else{
         localStorage.setItem(name,id) 
     }
-drawFav() 
+    //drawFav() 
 }
 
- 
+
 /**
  * @description leer LocalStorage y dibujarlo en fav.html
  * @function getGifosByIDs endpoint para traer gifos por array
@@ -34,14 +33,14 @@ export const drawFav = ()=>{
         //console.log("if esta vacio")
         divFav.innerHTML =""
     } else {
-            let favArr = []
-            for (let i = 0; i < localStorage.length; i++) {
-                const element = localStorage.getItem(localStorage.key(i));
-                favArr.push(element);
-            }
-            console.log("favArr= ", favArr)
-            getGifosByIDs(favArr)
-            .then( (res) => {
+        let favArr = []
+        for (let i = 0; i < localStorage.length; i++) {
+            const element = localStorage.getItem(localStorage.key(i));
+            favArr.push(element);
+        }
+        console.log("favArr= ", favArr)
+        getGifosByIDs(favArr)
+        .then( (res) => {
             const {data} = res;
             for (let f = 0; f < data.length; f++) {
                 fav += markUpSearchResults(
@@ -50,36 +49,22 @@ export const drawFav = ()=>{
                     data[f].username,
                     data[f].title,
                     data[f].id);
-            }
-            divFav.innerHTML = fav;
+                }
+                divFav.innerHTML = fav;
             })
             .then(() => {
                 for (let t = 0; t < favArr.length; t++){
-                let favy = document.getElementById(`heart-${favArr[t]}`);
+                    let favy = document.getElementById(`heart-${favArr[t]}`);
                     favy.addEventListener('click', ()=> {
                         setFavGifs(`gif-${favArr[t]}`,favArr[t]);
                         drawFav()
-                        
                     })
-                let down = document.getElementById(`down-${favArr[t]}`);
-                down.addEventListener('click', download(favArr[t],favArr[t])
-                )}
+                }
             })
-
+            
+        }
     }
-}
-
-const load =() => {
-    document.getElementById('favContainer').addEventListener("DOMContentLoaded", drawFav())
-}
+//document.getElementById('favContainer').addEventListener("load", console.log("load"));
+//window.onload = () => {console.log("onload")}
 drawFav()
-/**
- * @description Descarga un Gifo
- * @param id id del Gifo a descargar
- */
-export const download = (id,title) => {
-    
-    console.log("urlGifo= ", id, title);
-    
-
-}
+drawTrendingFav()

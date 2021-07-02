@@ -1,4 +1,4 @@
-import { getTrending } from './getapi.js';
+import { getTrending, download } from './getapi.js';
 import {markUpSearchResults,} from './search.js';
 import { drawFav, setFavGifs } from './fav.js';
 
@@ -31,7 +31,10 @@ import { drawFav, setFavGifs } from './fav.js';
       .then(() => {
           for (let t = 0; t < trendArr.length; t++){
               let fav = document.getElementById(`heart-${trendArr[t].id}`);
-              fav.addEventListener('click', ()=> setFavGifs(trendArr[t].id));
+              fav.addEventListener('click', function() {
+                setFavGifs(`gif-${trendArr[t].id}`,trendArr[t].id);
+                
+              });
             }
         })
 }
@@ -66,15 +69,14 @@ import { drawFav, setFavGifs } from './fav.js';
                 let fav = document.getElementById(`heart-${trendArr[t].id}`);
                 fav.addEventListener('click', function() {    
                     setFavGifs(`gif-${trendArr[t].id}`,trendArr[t].id);
-                    //drawFav()
+                    drawFav()
                 });
                 let down = document.getElementById(`down-${trendArr[t].id}`);
-                down.addEventListener('click', function() {
-                 console.log("Gifo: ",trendArr[t].title)
-                })    
+                down.addEventListener('click', () => download(trendArr[t].images.original.url,`Gifo ${trendArr[t].title}`))    
               }
           })
   }
+
 
 /**
  * @description Paginador. cambia el offset y suma 3

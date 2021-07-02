@@ -64,3 +64,19 @@ export async function getTrending(limitTrend=3, offSetTrend=0) {
     return res
 }
 
+/**
+ * @description Descarga un Gifo
+ * @param url link de la imagne del Gifo a descargar
+ * @param title nombre del archivo a descargar
+ */
+ export async function download (url, title) {
+    console.log("gifos; ", url);
+    const gif = await fetch(url);
+    const gifBlob = await gif.blob();
+    const gifUrl = URL.createObjectURL(gifBlob)
+    
+    const link = document.createElement('a');
+    link.href = gifUrl;
+    link.download = title;
+    link.click()
+}

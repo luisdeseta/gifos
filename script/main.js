@@ -4,7 +4,8 @@ import { drawTrending, } from './trending.js';
 /**
  * @description dark theme button. cambia la clase de los elementos.
  * usar el metodo de Cris, ver local storage
- * */
+ *  
+ */
  const darkButton = document.getElementById("darkSwitch");
  darkButton.addEventListener("click", () =>{
      const classArray = document.body.classList;
