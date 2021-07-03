@@ -1,6 +1,7 @@
-import {getGifosByIDs} from './getapi.js';
+import {getGifosByIDs, download} from './getapi.js';
 import {markUpSearchResults} from './search.js';
 import {drawTrendingFav} from './trending.js';
+
 
 /**
  * @description Guardar Gif en LocalStorage
@@ -26,11 +27,9 @@ export const setFavGifs = (name, id) =>{
  */
 export const drawFav = ()=>{
     const divFav = document.querySelector('#favResault-gif');
-    //const favLS = localStorage.getItem('FavGifos')
     let fav =''
-    //console.log("favLS localStorage", favLS)
+    let dataHeart =[]
     if ( localStorage.length === 0 ) {
-        //console.log("if esta vacio")
         divFav.innerHTML =""
     } else {
         let favArr = []
@@ -38,7 +37,6 @@ export const drawFav = ()=>{
             const element = localStorage.getItem(localStorage.key(i));
             favArr.push(element);
         }
-        console.log("favArr= ", favArr)
         getGifosByIDs(favArr)
         .then( (res) => {
             const {data} = res;
@@ -49,19 +47,20 @@ export const drawFav = ()=>{
                     data[f].username,
                     data[f].title,
                     data[f].id);
+                dataHeart.push(data[f]);
                 }
                 divFav.innerHTML = fav;
             })
-            .then(() => {
-                for (let t = 0; t < favArr.length; t++){
-                    let favy = document.getElementById(`heart-${favArr[t]}`);
-                    favy.addEventListener('click', ()=> {
-                        setFavGifs(`gif-${favArr[t]}`,favArr[t]);
-                        drawFav()
-                    })
-                }
-            })
-            
+        .then(() => {
+            for (let t = 0; t < dataHeart.length; t++){
+                let favy = document.getElementById(`heart-${dataHeart[t].id}`);
+                favy.addEventListener('click', ()=> {
+                    setFavGifs(`gif-${dataHeart[t].id}`,dataHeart[t].id);
+                    drawFav();
+                    //download(dataHeart[t].images.original.url,dataHeart[t].title)
+                })
+            }
+        })
         }
     }
 //document.getElementById('favContainer').addEventListener("load", console.log("load"));

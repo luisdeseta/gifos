@@ -4,7 +4,7 @@ import { drawFav, setFavGifs } from './fav.js';
 
 
 /**
- * @description Dibuaja trending en index y agregar comportamiento a los botones
+ * @description Dibuja trending en index y agregar comportamiento a los botones
  * @param {*} limit Revisar para paginancion
  * @param {*} offset revisar para paginacion
  */

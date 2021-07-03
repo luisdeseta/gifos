@@ -1,11 +1,15 @@
 import { APIKEY, AUTOCOMPLETE, SEARCH, TRENDING,GIFSBYID, POPULARSEARCH} from './variables.js';
 //import { markUpSearchResults } from './search.js';
+
+
 /**
  * @description obtener json del endpoint search
  * @search parametro a buscar (obligatorio)
  * @limit cantidad de resultados a mostrar
  * @offset orden dentro del json
+ *
  */
+
 export const getSearchEndP = (search,limit,offset=5) =>{
     return new Promise((resolve, reject) =>{
         fetch(`${SEARCH}?api_key=${APIKEY}&q=${search}&limit=${limit}&offset=${offset}&lang=es`)
@@ -66,7 +70,7 @@ export async function getTrending(limitTrend=3, offSetTrend=0) {
 
 /**
  * @description Descarga un Gifo
- * @param url link de la imagne del Gifo a descargar
+ * @param url link de la imagen del Gifo a descargar
  * @param title nombre del archivo a descargar
  */
  export async function download (url, title) {
