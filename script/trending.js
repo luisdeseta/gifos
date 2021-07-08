@@ -8,10 +8,10 @@ import { drawFav, setFavGifs } from './fav.js';
  * @param {*} limit Revisar para paginancion
  * @param {*} offset revisar para paginacion
  */
- export async function drawTrending(limit=3, offset=0) {
+ export async function drawTrending(limit=36, offset=0) {
   const divTrend = document.querySelector('#trendGifos-Container')
   const trendArr =[];
-  getTrending(limit=3, offset)
+  getTrending(limit, offset)
   .then((res) => {
       const {data} = res;    
       let trend ='';

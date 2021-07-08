@@ -36,7 +36,6 @@ header{
     padding-bottom: 100vw;
         li:first-child{
             margin-top: 17px;
-            
         }
         li{
             background-color:transparent;
@@ -50,6 +49,7 @@ header{
             @extend %font-title;
             text-decoration:none;
             color: var(--color_txt_primary);
+            
             font-size: 15px;
             background-color:transparent;
             }

@@ -2,18 +2,10 @@
 //@import "body";
 
 .favIconHeader{
-    .mainTitle{
-        @extend %font-title;
-        font-size: 25px;
-        color:var(--color_txt_primary);
-        padding-bottom: 31px;
-        text-align: center;
-    }
-    .spanGifos{
-        @extend %font-title;
-        font-size: 25px;
-        color:#50E3C2;
-    }
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    justify-content: center;
 
 }
 .favEmpty{
