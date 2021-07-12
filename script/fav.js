@@ -2,6 +2,9 @@ import {getGifosByIDs, download} from './getapi.js';
 import {markUpSearchResults} from './search.js';
 import {drawTrendingFav} from './trending.js';
 
+//boton crear Gifo
+// const c= document.querySelector('#createButtom-img')
+// c.addEventListener('click', window.location = './create.html')
 
 /**
  * @description Guardar Gif en LocalStorage
