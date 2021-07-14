@@ -3,40 +3,51 @@ const videoBtn = document.getElementById('videoBTN')
 const videoBtnStart = document.getElementById('videoBTNstart')
 const videoBtnStop = document.getElementById('videoBTNstop')
 const videoS = document.getElementById('video')
-console.log("videoS:  ", videoS)
+var recorder;
+
 //Solicito los permisos
-function getStreamAndRecord () { 
-    navigator.mediaDevices.getUserMedia({
-    audio: false,
-    video: {
-       height: { max: 480 }
-    }
- })
- .then(function(stream) {
-    videoS.srcObject = stream;
-    videoS.play();
-})
-.catch(function(err){
-    console.log("Error Stream video: ", err)
-})
+function captureCamera() {
+    navigator.mediaDevices.getUserMedia({ 
+        audio: false, 
+        video: {
+            height: { max: 480 }
+         } 
+    })
+    .then(function(camera) {
+        video.srcObject = camera;
+        video.play()
+        recorder = RecordRTC(camera, {
+            type: 'gif',
+            frameRate: 1,
+            quality: 10,
+            width: 360,
+            hidden: 240,
+        });
+    }).catch(function(error) {
+        console.error(error);
+    });
 }
 
-//Objeto Recorder.
-//Llamar a los metodos dentro del objeto para iniciar y detener grabacion
-const recorder = RecordRTC(videoS, {
-    type: 'gif',
-    frameRate: 1,
-    quality: 10,
-    width: 360,
-    hidden: 240,
-    onGifRecordingStarted: function() {
-     console.log('started')
-   },
-  });
+//Grabar
+const Rec = () =>{
+//    this.disabled = true;
 
- 
+       
+    //para cambiar estado de los botones??
+    //document.getElementById('btn-stop-recording').disabled = false;
+    recorder.startRecording();
+}
+
+function stopRec() {
+    recorder.stopRecording(function(){
+        let form = new FormData();
+        form.append('file', recorder.getBlob(), 'myGif.gif');
+        console.log(form.get('file'))
+    })
+
+}
 
 //Listeners
-videoBtn.addEventListener('click', getStreamAndRecord)
-videoBtnStart.addEventListener('click', recorder.startRecording)
-videoBtnStop.addEventListener('click', recorder.stopRecording)
+videoBtn.addEventListener('click', captureCamera)
+videoBtnStart.addEventListener('click', Rec)
+videoBtnStop.addEventListener('click', stopRec)
