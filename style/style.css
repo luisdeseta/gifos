@@ -12,7 +12,7 @@ Fonts Config
   font-weight: 400;
 }
 
-.footer .footerSocialNT p, .footer .footerGifos p, .favEmpty p {
+.footer .footerSocialNT p, .footer .footerGifos p, .favEmpty p, .videoGrid .createText {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
 }
@@ -29,50 +29,7 @@ Fonts Config
   --iconGlass: url("../img/icon-search.svg");
   --iconCross: url("../img/close.svg");
   --createGifo: url("../img/button-crear-gifo.svg");
-}
-
-.theme--dark {
-  --color_bg_primary: #37383C;
-  --color_bg_secundary: #222326;
-  --color_bg_mobile--dark:color_bg_mobile--dark;
-  --color_txt_primary: #ffff;
-  --color_txt_secundary: color_txt_secundary--dark;
-  --color_txt_therd: #ffff;
-  --iconGlass: url("../img/icon-search-modo-noct.svg");
-  --iconCross: url("../img/close-modo-noct.svg");
-  --createGifo: url("../img/CTA-crear-gifo-modo-noc.svg");
-}
-
-/**
-Fonts Config
-*/
-.MenuHeader li a, .mainTitle, .spanGifos, .block-search .block-search-bottom h6, .blockTrend .blockTrendIntro h3 {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-}
-
-.block-search .block-search-bottom div p, .blockTrend .blockTrendIntro p {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-}
-
-.footer .footerSocialNT p, .footer .footerGifos p, .favEmpty p {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-}
-
-/* Dark mode styles */
-/* Light colors*/
-/* Dark colors*/
-.theme {
-  --color_bg_primary: #ffff;
-  --color_bg_secundary: #F3F5F8;
-  --color_txt_primary: #572EE5;
-  --color_txt_secundary: #50E3C2;
-  --color_txt_therd: #000000;
-  --iconGlass: url("../img/icon-search.svg");
-  --iconCross: url("../img/close.svg");
-  --createGifo: url("../img/button-crear-gifo.svg");
+  --createGifoHover: url("../img/CTA-crear-gifo-hover.svg");
 }
 
 .theme--dark {
@@ -297,50 +254,6 @@ header nav .MenuHambuerguesa {
   header nav .MenuHambuerguesa .MenuHeader li span {
     display: none;
   }
-}
-
-/**
-Fonts Config
-*/
-.MenuHeader li a, .mainTitle, .spanGifos, .block-search .block-search-bottom h6, .blockTrend .blockTrendIntro h3 {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-}
-
-.block-search .block-search-bottom div p, .blockTrend .blockTrendIntro p {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-}
-
-.footer .footerSocialNT p, .footer .footerGifos p, .favEmpty p {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-}
-
-/* Dark mode styles */
-/* Light colors*/
-/* Dark colors*/
-.theme {
-  --color_bg_primary: #ffff;
-  --color_bg_secundary: #F3F5F8;
-  --color_txt_primary: #572EE5;
-  --color_txt_secundary: #50E3C2;
-  --color_txt_therd: #000000;
-  --iconGlass: url("../img/icon-search.svg");
-  --iconCross: url("../img/close.svg");
-  --createGifo: url("../img/button-crear-gifo.svg");
-}
-
-.theme--dark {
-  --color_bg_primary: #37383C;
-  --color_bg_secundary: #222326;
-  --color_bg_mobile--dark:color_bg_mobile--dark;
-  --color_txt_primary: #ffff;
-  --color_txt_secundary: color_txt_secundary--dark;
-  --color_txt_therd: #ffff;
-  --iconGlass: url("../img/icon-search-modo-noct.svg");
-  --iconCross: url("../img/close-modo-noct.svg");
-  --createGifo: url("../img/CTA-crear-gifo-modo-noc.svg");
 }
 
 .mainTitle {
@@ -707,57 +620,14 @@ Fonts Config
   content: url("../img/Button-Slider-right-hover.svg");
 }
 
-/**
-Fonts Config
-*/
-.MenuHeader li a, .mainTitle, .spanGifos, .block-search .block-search-bottom h6, .blockTrend .blockTrendIntro h3 {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-}
+/* .mainTitle{
+    @extend %font-title;
+    font-size: 25px;
+    color:var(--color_txt_primary);
+    padding-bottom: 31px;
+    text-align: center;
 
-.block-search .block-search-bottom div p, .blockTrend .blockTrendIntro p {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-}
-
-.footer .footerSocialNT p, .footer .footerGifos p, .favEmpty p {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-}
-
-/* Dark mode styles */
-/* Light colors*/
-/* Dark colors*/
-.theme {
-  --color_bg_primary: #ffff;
-  --color_bg_secundary: #F3F5F8;
-  --color_txt_primary: #572EE5;
-  --color_txt_secundary: #50E3C2;
-  --color_txt_therd: #000000;
-  --iconGlass: url("../img/icon-search.svg");
-  --iconCross: url("../img/close.svg");
-  --createGifo: url("../img/button-crear-gifo.svg");
-}
-
-.theme--dark {
-  --color_bg_primary: #37383C;
-  --color_bg_secundary: #222326;
-  --color_bg_mobile--dark:color_bg_mobile--dark;
-  --color_txt_primary: #ffff;
-  --color_txt_secundary: color_txt_secundary--dark;
-  --color_txt_therd: #ffff;
-  --iconGlass: url("../img/icon-search-modo-noct.svg");
-  --iconCross: url("../img/close-modo-noct.svg");
-  --createGifo: url("../img/CTA-crear-gifo-modo-noc.svg");
-}
-
-.mainTitle {
-  font-size: 25px;
-  color: var(--color_txt_primary);
-  padding-bottom: 31px;
-  text-align: center;
-}
-
+} */
 .footer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -796,50 +666,6 @@ Fonts Config
 .footer .footerGifos p {
   font-size: 13px;
   color: var(--color_txt_therd);
-}
-
-/**
-Fonts Config
-*/
-.MenuHeader li a, .mainTitle, .spanGifos, .block-search .block-search-bottom h6, .blockTrend .blockTrendIntro h3 {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-}
-
-.block-search .block-search-bottom div p, .blockTrend .blockTrendIntro p {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-}
-
-.footer .footerSocialNT p, .footer .footerGifos p, .favEmpty p {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-}
-
-/* Dark mode styles */
-/* Light colors*/
-/* Dark colors*/
-.theme {
-  --color_bg_primary: #ffff;
-  --color_bg_secundary: #F3F5F8;
-  --color_txt_primary: #572EE5;
-  --color_txt_secundary: #50E3C2;
-  --color_txt_therd: #000000;
-  --iconGlass: url("../img/icon-search.svg");
-  --iconCross: url("../img/close.svg");
-  --createGifo: url("../img/button-crear-gifo.svg");
-}
-
-.theme--dark {
-  --color_bg_primary: #37383C;
-  --color_bg_secundary: #222326;
-  --color_bg_mobile--dark:color_bg_mobile--dark;
-  --color_txt_primary: #ffff;
-  --color_txt_secundary: color_txt_secundary--dark;
-  --color_txt_therd: #ffff;
-  --iconGlass: url("../img/icon-search-modo-noct.svg");
-  --iconCross: url("../img/close-modo-noct.svg");
-  --createGifo: url("../img/CTA-crear-gifo-modo-noc.svg");
 }
 
 .favIconHeader {
@@ -991,6 +817,43 @@ Fonts Config
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.videoGrid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+
+.videoGrid .videoBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.videoGrid .createText {
+  color: var(--color_txt_therd);
+  text-align: center;
+}
+
+.videoBTN {
+  border: 1px solid #572EE5;
+  border-radius: 25px;
+  border-radius: 25px;
 }
 
 * {

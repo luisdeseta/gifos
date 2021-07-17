@@ -1,0 +1,24 @@
+//@import "variables";
+
+.videoGrid{
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+    
+    .videoBox{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .createText{
+        @extend %font-medium2; 
+        color:var(--color_txt_therd);
+        text-align: center;
+    }
+
+}
+.videoBTN{
+    border: 1px solid #572EE5;
+    border-radius: 25px;
+    border-radius: 25px;
+}

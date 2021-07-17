@@ -39,6 +39,7 @@ $color_txt_therd: #000000;
 $leftGlass: url('../img/icon-search.svg');
 $leftCross: url('../img/close.svg');
 $createGifo: url('../img/button-crear-gifo.svg');
+$createGifoHover: url('../img/CTA-crear-gifo-hover.svg');
 /* Dark colors*/
 $color_bg_primary--dark: #37383C;
 $color_bg_secundary--dark:#222326;
@@ -58,6 +59,7 @@ $createGifo--dark: url('../img/CTA-crear-gifo-modo-noc.svg');
     --iconGlass: #{$leftGlass};
     --iconCross: #{$leftCross};
     --createGifo: #{$createGifo};
+    --createGifoHover: #{$createGifoHover};
     &--dark{
         --color_bg_primary: #{$color_bg_primary--dark};
         --color_bg_secundary: #{$color_bg_secundary--dark};

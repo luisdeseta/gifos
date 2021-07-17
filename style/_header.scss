@@ -1,4 +1,4 @@
-@import "variables";
+//@import "variables";
 
 /* Mobile First HEADER breakpoint 320*/
 header{
@@ -126,11 +126,13 @@ header{
             .createButtom{
                 display: block;
                 padding: 0 2vw 0 0 ;
+                
                 .createButtom-img{
                     content: var(--createGifo);
                 }
                 .createButtom-img:hover{
                     content: url('../img/CTA-crear-gifo-hover.svg');
+                    
                 }
             }
             .MenuHambuerguesa{

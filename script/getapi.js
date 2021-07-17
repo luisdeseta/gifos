@@ -1,4 +1,4 @@
-import { APIKEY, AUTOCOMPLETE, SEARCH, TRENDING,GIFSBYID, POPULARSEARCH} from './variables.js';
+import { APIKEY, AUTOCOMPLETE, SEARCH, TRENDING,GIFSBYID, POPULARSEARCH, UPLOAD} from './variables.js';
 //import { markUpSearchResults } from './search.js';
 
 
@@ -83,4 +83,18 @@ export async function getTrending(limitTrend=3, offSetTrend=0) {
     link.href = gifUrl;
     link.download = title;
     link.click()
+}
+
+/**
+ * @description Upload del gif grabado por el usuario
+ * @param file archivo para subir
+ * fetch(`${UPLOAD}?api_key=${APIKEY}&file=${file}`,{ method: 'POST'})
+ */ 
+export const uploadGifo = (data) =>{
+    return new Promise ((resolve, reject) => {
+        fetch(`${UPLOAD}?api_key=${APIKEY}&file=${data}`,{ method: 'POST', body: data})
+        .then(res => res.json())
+        .then(data => resolve(data))
+        .catch(err => reject(err))
+    })
 }

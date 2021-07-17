@@ -1,3 +1,5 @@
+import {uploadGifo } from './getapi.js';
+
 //constantes
 const videoBtn = document.getElementById('videoBTN')
 const videoBtnStart = document.getElementById('videoBTNstart')
@@ -42,7 +44,13 @@ function stopRec() {
     recorder.stopRecording(function(){
         let form = new FormData();
         form.append('file', recorder.getBlob(), 'myGif.gif');
-        console.log(form.get('file'))
+        console.log(form.get('file'));
+        uploadGifo(form)
+        .then( (res) =>{
+            const {data } = res
+            console.log('res: ', res)
+            localStorage.setItem("myGif",data.id) 
+        });
     })
 
 }
