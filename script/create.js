@@ -1,19 +1,27 @@
 import {uploadGifo } from './getapi.js';
 
 //constantes
-const videoBtn = document.getElementById('videoBTN')
-const videoBtnStart = document.getElementById('videoBTNstart')
-const videoBtnStop = document.getElementById('videoBTNstop')
-const videoS = document.getElementById('video')
+const videoBtn = document.getElementById('videoBTN');
+const videoBtnStart = document.getElementById('videoBTNstart');
+const videoBtnStop = document.getElementById('videoBTNstop');
+const videoS = document.getElementById('video');
+const videoBox = document.getElementById('videoStep');
 var recorder;
 
+videoBtnStart.hidden = true;
+videoBtnStop.hidden = true;
 //Solicito los permisos
 function captureCamera() {
+    if (document.getElementById('video').classList.contains('video')) {
+        document.getElementById('video').classList.toggle('videoShow');
+    }
+    //test- Revisar buttons
+    videoBox.innerHTML = step2
+    videoBtn.hidden = true;
     navigator.mediaDevices.getUserMedia({ 
         audio: false, 
-        video: {
-            height: { max: 480 }
-         } 
+        video: true,
+        //{  height: { max: 320 } } 
     })
     .then(function(camera) {
         video.srcObject = camera;
@@ -25,16 +33,16 @@ function captureCamera() {
             width: 360,
             hidden: 240,
         });
-    }).catch(function(error) {
+    //oculatar button comenzar
+    videoBtnStart.hidden = false;
+    })
+    .catch(function(error) {
         console.error(error);
     });
 }
 
 //Grabar
 const Rec = () =>{
-//    this.disabled = true;
-
-       
     //para cambiar estado de los botones??
     //document.getElementById('btn-stop-recording').disabled = false;
     recorder.startRecording();
@@ -54,6 +62,13 @@ function stopRec() {
     })
 
 }
+//Markup
+const step2 = `
+    <div>    <h1 id="createTitle" class="mainTitle">¿Nos das acceso <br> a tu cámara?</h1>
+            <p id="createText" class="createText">El acceso a tu camara será válido sólo
+            por el tiempo en el que estés creando el GIFO.</p>
+    </div>
+    `
 
 //Listeners
 videoBtn.addEventListener('click', captureCamera)

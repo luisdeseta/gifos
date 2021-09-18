@@ -27,6 +27,7 @@ export const setFavGifs = (name, id) =>{
  * @description leer LocalStorage y dibujarlo en fav.html
  * @function getGifosByIDs endpoint para traer gifos por array
  * recibe ids de gifos separados por coma
+ * 
  */
 export const drawFav = ()=>{
     const divFav = document.querySelector('#favResault-gif');
@@ -68,5 +69,7 @@ export const drawFav = ()=>{
     }
 //document.getElementById('favContainer').addEventListener("load", console.log("load"));
 //window.onload = () => {console.log("onload")}
-drawFav()
+
+
+//drawFav()
 drawTrendingFav()

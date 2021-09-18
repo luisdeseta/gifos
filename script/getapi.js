@@ -35,7 +35,7 @@ export const autoComplete = (search) =>{
 }
 /**
 * @description endpoint de busquedas populares
-* @search
+* 
 */
 export const getPopularSearchEP = () => {
     return new Promise ((resolve, reject) => {

@@ -3,6 +3,7 @@ import { setFavGifs} from './fav.js'
 
 /**
  * constantes
+ * TODO revisar este listado y pasar junto con cada Función.
  */
 export const inputTextSearch = document.querySelector('#inputSearch');
 const offset = 12;
@@ -17,6 +18,8 @@ const searchTitle = document.getElementById('searchTitle')
  * dibuja html con resultados 
  * @param {inSearch} inSearch variable a buscar
  * revisar cantidad a dibujar (12 o mas)
+ * TODO revisar offset
+ * MOVER a main.js
  */
 export const getSearch = (inSearch) =>{
   let search = inSearch;
@@ -41,7 +44,6 @@ export const getSearch = (inSearch) =>{
     inputTextSearch.value = "";
     document.getElementById('rightSearchIcon').classList.add('glassCross')
 
-
   })
    .then(() =>{
     for (let sF = 0; sF < searchArr.length; sF++) {
@@ -57,7 +59,8 @@ export const getSearch = (inSearch) =>{
 
 
 /**
- * @description dibuja un Gifo
+ * @description dibuja un Gifo. 
+ * OK
  * 
  */
 export const markUpSearchResults = (img,name,user,title, id) =>{
@@ -76,7 +79,11 @@ export const markUpSearchResults = (img,name,user,title, id) =>{
       </div>
   `
 }
-
+/**
+ * @description dibuja el titulo del resultado de la busqueda
+ * @param  title parametro que se busca
+ * TODO mover a main.js 
+ */
 const markUpSearchTitle =(title)=>{
   return `
   <h1 id="searchTitle" class="mainTitle">${title}</h1>
@@ -86,9 +93,10 @@ const markUpSearchTitle =(title)=>{
 
 /**
  * @description llama al endpoint Autocomplete
- * recibe el parametro de busqueda
- * dibuja el HTML en ul 
+ * @param inSeach el parametro de busqueda.
+ * Dibuja el HTML en ul 
  * data y sugestArr son los mismo, se puede simplificar
+ * TODO mover a main.js
  */
 export const getAutoComplete = (inSearch) => {
   let search = inSearch;
@@ -129,7 +137,8 @@ export const getAutoComplete = (inSearch) => {
 
 /**
  * @description recibe texto ingresado del InputText 
- * @returns dibuja el html
+ * @returns dibuja el html con las sugerencias de busquedas
+ * TODO ¿por que export?
  */
 export const markUpAutoComplet = (sugest) =>{
   return `
@@ -140,8 +149,8 @@ export const markUpAutoComplet = (sugest) =>{
 }
 
 /**
- * @description Endpoint de busquedas populares
- * dibuja html debajo de Trending
+ * @description dibuja los nombres de busquedas populares debajo del titulo "Trending"
+ * TODO MOVER a main.js
  */
 export const popularSearch = () => {
   const popularArr =[];
@@ -168,9 +177,9 @@ export const popularSearch = () => {
 }
 
 /**
- * 
+ * @description dibuja el HTML con nombres busquedas populares
  * @param {name} name nombre de los resultados del endpoing busquedas populares
- * @returns dibuja el HTML 
+ * TODO mover a main.js
  */
 export const markUpPopularSearch = (name) =>{
   return `<p id="pop-${name}" class="popuSearch">${name}</p>`

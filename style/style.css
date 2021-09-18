@@ -12,7 +12,7 @@ Fonts Config
   font-weight: 400;
 }
 
-.footer .footerSocialNT p, .footer .footerGifos p, .favEmpty p, .videoGrid .createText {
+.footer .footerSocialNT p, .footer .footerGifos p, .favEmpty p, .mainCreate .videoGrid .createText, .videoStatus .step {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
 }
@@ -819,7 +819,60 @@ header nav .MenuHambuerguesa {
   display: flex;
 }
 
-.videoGrid {
+.mainSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+
+.mainCreate {
+  border: dotted  2px green;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  max-width: 520px;
+}
+
+.mainCreate .leftColumn {
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+.mainCreate .rightColumn {
+  height: auto;
+}
+
+.mainCreate .column {
+  padding: 20px 0;
+}
+
+.mainCreate .videoGrid {
+  border: solid 1px #572EE5;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -832,7 +885,7 @@ header nav .MenuHambuerguesa {
           flex-flow: row nowrap;
 }
 
-.videoGrid .videoBox {
+.mainCreate .videoGrid .videoBox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -845,14 +898,54 @@ header nav .MenuHambuerguesa {
           flex-direction: column;
 }
 
-.videoGrid .createText {
+.mainCreate .videoGrid .createText {
   color: var(--color_txt_therd);
   text-align: center;
 }
 
-.videoBTN {
-  border: 1px solid #572EE5;
+.mainCreate .videoGrid .hide {
+  display: hide;
+}
+
+.mainCreate .videoGrid .video {
+  display: none;
+}
+
+.mainCreate .videoGrid .videoShow {
+  display: inline;
+  max-height: 320px;
+}
+
+.videoStatus {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 55vw;
+  padding: 0 65px;
+}
+
+.videoStatus .statusBar {
+  display: block;
+  border: solid #572EE5;
+  width: 100%;
   border-radius: 25px;
+}
+
+.videoStatus .step {
+  color: var(--color_txt_therd);
+}
+
+.videoStatus .videoBTN {
+  border: 1px solid #572EE5;
   border-radius: 25px;
 }
 

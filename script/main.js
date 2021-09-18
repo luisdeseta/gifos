@@ -8,7 +8,7 @@ import { drawTrending, } from './trending.js';
 
  
 /**
- * @description Ejecuta y dibuja las busquedas populares
+ * @description Ejecuta y dibuja nombres de las busquedas populares
  * 
  */
  popularSearch();
@@ -39,6 +39,8 @@ const doTrending = (limit=3, offset=0) =>{
   
 }
 doTrending()
+
+
 /**
  * Listeners
  */

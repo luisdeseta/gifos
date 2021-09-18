@@ -7,6 +7,7 @@ import { drawFav, setFavGifs } from './fav.js';
  * @description Dibuja trending en index y agregar comportamiento a los botones
  * @param {*} limit Revisar para paginancion
  * @param {*} offset revisar para paginacion
+ * TODO mover a main.js
  */
  export async function drawTrending(limit=36, offset=0) {
   const divTrend = document.querySelector('#trendGifos-Container')
@@ -43,6 +44,7 @@ import { drawFav, setFavGifs } from './fav.js';
  * @description Dibuaja trending en fav.html y agregar comportamiento a los botones
  * @param {*} limit Revisar para paginancion
  * @param {*} offset revisar para paginacion
+ * TODO mover a fav.js
  */
  export async function drawTrendingFav() {
     const divTrend = document.querySelector('#trendGifos-Container')
