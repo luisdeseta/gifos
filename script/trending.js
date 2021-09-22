@@ -1,5 +1,5 @@
 import { getTrending, download } from './getapi.js';
-import {markUpSearchResults,} from './search.js';
+import {markUpSearchResults} from './main.js';
 import { drawFav, setFavGifs } from './fav.js';
 
 

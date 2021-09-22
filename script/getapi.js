@@ -1,5 +1,4 @@
 import { APIKEY, AUTOCOMPLETE, SEARCH, TRENDING,GIFSBYID, POPULARSEARCH, UPLOAD} from './variables.js';
-//import { markUpSearchResults } from './search.js';
 
 
 /**
@@ -10,7 +9,7 @@ import { APIKEY, AUTOCOMPLETE, SEARCH, TRENDING,GIFSBYID, POPULARSEARCH, UPLOAD}
  *
  */
 
-export const getSearchEndP = (search,limit,offset=5) =>{
+export const getSearchEndP = (search,limit,offset=0) =>{
     return new Promise((resolve, reject) =>{
         fetch(`${SEARCH}?api_key=${APIKEY}&q=${search}&limit=${limit}&offset=${offset}&lang=es`)
         .then(res => res.json())
@@ -74,7 +73,7 @@ export async function getTrending(limitTrend=3, offSetTrend=0) {
  * @param title nombre del archivo a descargar
  */
  export async function download (url, title) {
-    console.log("gifos; ", url);
+    //console.log("gifos; ", url);
     const gif = await fetch(url);
     const gifBlob = await gif.blob();
     const gifUrl = URL.createObjectURL(gifBlob)
@@ -85,6 +84,14 @@ export async function getTrending(limitTrend=3, offSetTrend=0) {
     link.click()
 }
 
+/**
+ * @description Maximiza un gifo
+ * BORRAR X
+ */
+
+export function gifoMax (X){
+    alert(`Gifo Max ${X}`)
+}
 /**
  * @description Upload del gif grabado por el usuario
  * @param file archivo para subir

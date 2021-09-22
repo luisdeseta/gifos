@@ -16,8 +16,10 @@
 }
 .gifoMax{
     display: none;
-    position:absolute;
+    position:fixed;
     z-index: +1;
+    left: 0;
+    top: 0;
     width: 100vw;
     height: 100vw;
     background-color: #8a8a8a;
@@ -65,7 +67,7 @@
                 outline: none;
             }
             .ulSearch{
-                padding: 10px 0;
+                padding: 10px 5px;
                 li{
                     padding: 5px 5px;
                     list-style: none;
@@ -78,6 +80,7 @@
             i{
                 content: var(--iconGlass);
             }
+            
         }
     }
 
@@ -114,9 +117,28 @@
 
 .searchResultSection{
     padding: 0 5px 0;
+    //Aca se inserta el div de "searchTitle"
     .searchContainer{
-        max-width: 1050px;
+ //       max-width: 1050px;
+        display: flex;
+        justify-content: center;
          } 
+//boton ver mas
+    .seeMore{
+        display: flex;
+        justify-content: center;
+        .seeMoreButton{
+            padding: 6rem 0;
+            content: url('../img/CTA-ver-mas.svg');
+        }
+        .seeMoreButton:hover{
+            content: url('../img/CTA-ver-mas-hover.svg');
+        }
+        .displayNone{
+            display:none;
+        }
+
+    }
 }
 
 
@@ -139,7 +161,7 @@
         }
     } */
 
-//Aplica a Fav y a Search          
+//Aplica a Fav y a Search
     .divHover{
         display: block;
         position:relative;

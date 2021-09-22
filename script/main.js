@@ -1,34 +1,279 @@
-import { getSearch, getAutoComplete,popularSearch,inputTextSearch } from './search.js';
 import { drawTrending, } from './trending.js';
+import { autoComplete, getSearchEndP, getPopularSearchEP, download, gifoMax } from './getapi.js';
+import { setFavGifs} from './fav.js'
 
- 
 /**
  * constantes
  */
-
- 
+const divCateg = document.querySelector('#CategTextResult');
+const inputTextSearch = document.querySelector('#inputSearch');
+const divSearchResults = document.querySelector('#searchResault-gif');
+const ulAutoComplete = document.querySelector('#searchBox-autocomplete');
+const searchTitle = document.getElementById('searchTitle');
+const i = document.getElementById('rightSearchIcon');
+const leftSearchIcon = document.querySelector('#leftSearchIcon' );
+const seeMoreButton = document.querySelector('#seeMoreButton');
+//const offset = 12; 
+let limitSeeMore = 12;
 /**
- * @description Ejecuta y dibuja nombres de las busquedas populares
+ * @description dibuja los nombres de busquedas populares debajo del titulo "Trending"
  * 
  */
- popularSearch();
+const popularSearch = () => {
+  const popularArr =[];
+  getPopularSearchEP()
+  .then((res)=>{
+    const {data} = res;
+    let listPop ="";
+    for (let i = 0; i < data.length; i++) {
+      popularArr.push(data[i]);
+    }
+    for (let e = 0; e < 6; e++) {
+      listPop += markUpPopularSearch(popularArr[e]);
+    }
+    divCateg.innerHTML = listPop;
+  })
+  
+  .then(() => {
+    //dispara la busqueda popular y guarda el termino en inputsearch 
+    
+    for (let t = 0; t < 6; t++){
+      let popu = document.getElementById(`pop-${popularArr[t]}`);
+      popu.addEventListener('click', ()=> {
+        getSearch(popularArr[t]); 
+        //guardo la busqueda popular en input search para boton ver mas 
+        inputTextSearch.value=popularArr[t]
+      
+      });
+    }
+  })
+  
+}
+/**
+ * @description dibuja el HTML con nombres busquedas populares
+ * @param {name} name nombre de los resultados del endpoing busquedas populares
+ * 
+ */
+ const markUpPopularSearch = (name) =>{
+  return `<p id="pop-${name}" class="popuSearch">${name}</p>`
+}
+popularSearch();
 
+/**
+ * 
+ * @description dispara petición de endpoint search y
+ * dibuja html con resultados 
+ * @param {inSearch} inSearch variable a buscar
+ * revisar cantidad a dibujar (12 o mas)
+ * 
+ * 
+ */
+const getSearch = (inSearch, limitSeeMore=12) =>{
+  //let search = inSearch;
+  const searchArr =[];
+  getSearchEndP(inSearch, limitSeeMore)
+  .then((res) => {
+    const {data } = res;
+    let searchResults ="";
+    for (let i = 0; i < data.length; i++) {
+      searchArr.push(data[i]);
+    }
+    for (let z = 0; z < searchArr.length; z++) {
+      searchResults += markUpSearchResults(
+        searchArr[z].images.fixed_height.url,
+        searchArr[z].title,
+        searchArr[z].username,
+        searchArr[z].title,
+        searchArr[z].id);
+      }
+      divSearchResults.innerHTML = searchResults;
+      searchTitle.innerHTML = markUpSearchTitle(inSearch);
+      //inputTextSearch.value = "";
+      
+    })
+    //le agrego comportamiento a los iconos del Gifo
+    .then(() =>{
+      for (let sF = 0; sF < searchArr.length; sF++) {
+        const searchFav = document.getElementById(`heart-${searchArr[sF].id}`);
+        const down = document.getElementById(`down-${searchArr[sF].id}`);
+        const max = document.getElementById(`max-${searchArr[sF].id}`);
+        searchFav.addEventListener('click', function() {
+          setFavGifs(`gif-${searchArr[sF].id}`,searchArr[sF].id);
+        });
+        down.addEventListener('click', function (){
+          download(searchArr[sF].images.original.url, `Gifo ${searchArr[sF].title}`)
+        })
+        max.addEventListener('click', function(){
+          gifoMax(searchArr[sF].title)
+        })
+      
+        }
+    })
+    //vacia el UL, borra la lupa, agrega boton "ver mas"
+    .then(()=>{
+      ulAutoComplete.innerHTML =''
+      i.classList.remove('glassCross');
+      leftSearchIcon.classList.remove('glassSearch');
+      seeMoreButton.classList.remove('displayNone')
+
+    })
+
+
+    .catch(err => console.warn('Error en la petición de busqueda',err))
+  }
+
+/**
+ * @description dibuja el titulo del resultado de la busqueda
+ * @param  title parametro que se busca
+ *  
+ */
+const markUpSearchTitle =(title)=>{
+return `
+<h1 id="searchTitle" class="mainTitle">${title}</h1>
+`
+}
 /**
  * @description ejecuta busqueda dibuja el html
  * @param tecla enter
  * 
  */
 const doSearch = (z) =>{
+  //let limit = 12
   if (z.keyCode === 13) {
-    getSearch(inputTextSearch.value);
+    getSearch(inputTextSearch.value, limitSeeMore);
+    //vacia la caja de busqueda
+   
+
   }
+
 }
+
+/**
+ * @description Ejecuta boton "ver mas"
+ * 
+ */
+const seeMore = () =>{
+  if (limitSeeMore >= 50){
+    limitSeeMore = 50
+    seeMoreButton.classList.add('displayNone')
+  } else{
+    limitSeeMore +=12
+  }
+  console.log(limitSeeMore)
+  getSearch(inputTextSearch.value, limitSeeMore);
+}
+/**
+ * @description dibuja un Gifo. 
+ * 
+ */
+export const markUpSearchResults = (img,name,user,title, id) =>{
+  return `
+  <img class="show" src="${img}" id="${id}" alt="">
+  <div class="divHover">
+  <div class="divHover-btn">
+  <i class="heart" id="heart-${id}"></i>
+  <i class="down" id="down-${id}"></i>
+  <i class="max" id="max-${id}"></i>
+  </div>
+  <div class="divHover-user">
+  <i class="user" id="user-">${user}</i>
+            <i class="title" id="title-">${title}</i>
+          </div>
+    </div>
+`
+}
+
+/**
+ * @description llama al endpoint Autocomplete
+ * @param inSearch el parametro de busqueda.
+ * Dibuja el HTML en ul 
+ * data y sugestArr son los mismo, se puede simplificar
+ * 
+ */
+ const getAutoComplete = (inSearch) => {
+  let search = inSearch;
+  const sugestArr =[];
+  autoComplete(search)
+  .then((res) => {
+    const {data} = res;
+    let sugestSearch ="";
+    for (let i = 0; i < data.length; i++) {
+      sugestArr.push(data[i]);
+    }
+    for (let e = 0; e < sugestArr.length; e++) {
+      sugestSearch += markUpAutoComplet(sugestArr[e].name);
+    }
+    ulAutoComplete.innerHTML = sugestSearch;
+  })
+  .then(() => {
+    for (let t = 0; t < sugestArr.length; t++){
+      let auto = document.getElementById(`item-${sugestArr[t].name}`);
+      auto.addEventListener('click', ()=> {
+        getSearch(sugestArr[t].name);
+        ulAutoComplete.innerHTML =''
+        i.classList.remove('glassCross');
+        leftSearchIcon.classList.remove('glassSearch');
+      });
+      
+    }
+  })
+  .then(() => {
+    //    const i = document.getElementById('rightSearchIcon')
+    i.classList.add('glassCross')
+    leftSearchIcon.classList.add('glassSearch')
+  //TODO ¿que hacia esto?
+  //i.addEventListener('click', () => {getSearch("");i.classList.remove('glassCross')  })
+
+  })
+  .then(()=>{
+    //si borro con backspace el campo busqueda, remuevo la cruz y la lupa
+    if(inputTextSearch.value ===''){
+      i.classList.remove('glassCross');
+      leftSearchIcon.classList.remove('glassSearch');
+    }
+
+  })
+
+  .catch((err) => console.warn('Error al hacer la petición', err) )
+  
+}
+
+
+/**
+ * @description recibe texto ingresado del InputText 
+ * @returns dibuja el html con las sugerencias de busquedas
+ * 
+ */
+const markUpAutoComplet = (sugest) =>{
+return `
+<li class="searchBox-autoC-list" id="item-${sugest}">
+<i class="iconGlass"></i> ${sugest}
+</li>
+`
+}
+
 /**
  * @description ejecuta autocompletar sugerencias
  *  
  */  
-const doAutoComplete = () =>{
-  getAutoComplete(inputTextSearch.value);
+const doAutoComplete = (z) =>{
+  if (z.keyCode != 13) {
+    getAutoComplete(inputTextSearch.value, limitSeeMore);
+
+  }
+
+}
+
+/**
+ * @description Elimina sugerencias de busqueda y vacia el SearchBox
+ * 
+ */
+
+const clearCross = () =>{
+    ulAutoComplete.innerHTML ='';
+    inputTextSearch.value='';
+    i.classList.remove('glassCross');
+    leftSearchIcon.classList.remove('glassSearch');
 }
 
 /**
@@ -46,3 +291,5 @@ doTrending()
  */
 inputTextSearch.addEventListener("keypress", doSearch)
 inputTextSearch.addEventListener("keyup", doAutoComplete);
+i.addEventListener("click", clearCross)
+seeMoreButton.addEventListener("click", seeMore)

@@ -1,5 +1,5 @@
 import {getGifosByIDs, download} from './getapi.js';
-import {markUpSearchResults} from './search.js';
+import {markUpSearchResults} from './main.js';
 import {drawTrendingFav} from './trending.js';
 
 //boton crear Gifo

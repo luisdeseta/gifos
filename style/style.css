@@ -270,8 +270,10 @@ header nav .MenuHambuerguesa {
 
 .gifoMax {
   display: none;
-  position: absolute;
+  position: fixed;
   z-index: +1;
+  left: 0;
+  top: 0;
   width: 100vw;
   height: 100vw;
   background-color: #8a8a8a;
@@ -340,7 +342,7 @@ header nav .MenuHambuerguesa {
 }
 
 .block-search .searchSection .searchBox .ulSearch {
-  padding: 10px 0;
+  padding: 10px 5px;
 }
 
 .block-search .searchSection .searchBox .ulSearch li {
@@ -396,7 +398,34 @@ header nav .MenuHambuerguesa {
 }
 
 .searchResultSection .searchContainer {
-  max-width: 1050px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.searchResultSection .seeMore {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.searchResultSection .seeMore .seeMoreButton {
+  padding: 6rem 0;
+  content: url("../img/CTA-ver-mas.svg");
+}
+
+.searchResultSection .seeMore .seeMoreButton:hover {
+  content: url("../img/CTA-ver-mas-hover.svg");
+}
+
+.searchResultSection .seeMore .displayNone {
+  display: none;
 }
 
 .searchResault-gif {
