@@ -1,6 +1,8 @@
-import { drawTrending, } from './trending.js';
-import { autoComplete, getSearchEndP, getPopularSearchEP, download, gifoMax } from './getapi.js';
-import { setFavGifs} from './fav.js'
+import { drawTrending} from './trending.js';
+import { autoComplete, getSearchEndP, getPopularSearchEP, download, gifoMaxBtn } from './getapi.js';
+//import { setFavGifs, } from './fav.js'
+
+//console.log("main.js favoritesLS => " + favoritesLS())
 
 /**
  * constantes
@@ -13,6 +15,8 @@ const searchTitle = document.getElementById('searchTitle');
 const i = document.getElementById('rightSearchIcon');
 const leftSearchIcon = document.querySelector('#leftSearchIcon' );
 const seeMoreButton = document.querySelector('#seeMoreButton');
+const gifoMax = document.getElementById('gifoMax');
+
 //const offset = 12; 
 let limitSeeMore = 12;
 /**
@@ -94,17 +98,24 @@ const getSearch = (inSearch, limitSeeMore=12) =>{
     //le agrego comportamiento a los iconos del Gifo
     .then(() =>{
       for (let sF = 0; sF < searchArr.length; sF++) {
-        const searchFav = document.getElementById(`heart-${searchArr[sF].id}`);
-        const down = document.getElementById(`down-${searchArr[sF].id}`);
-        const max = document.getElementById(`max-${searchArr[sF].id}`);
-        searchFav.addEventListener('click', function() {
-          setFavGifs(`gif-${searchArr[sF].id}`,searchArr[sF].id);
-        });
+        let searchFav = document.getElementById(`heart-${searchArr[sF].id}`);
+        let down = document.getElementById(`down-${searchArr[sF].id}`);
+        let max = document.getElementById(`max-${searchArr[sF].id}`);
+        //guardo en favoritos  setFavGifs(searchArr[sF].id)
+        searchFav.addEventListener('click', function () {setFavGifs(searchArr[sF].id),
+        searchFav.classList.replace('heart','heartActive')});
+        //download de un gifo
         down.addEventListener('click', function (){
           download(searchArr[sF].images.original.url, `Gifo ${searchArr[sF].title}`)
         })
         max.addEventListener('click', function(){
-          gifoMax(searchArr[sF].title)
+          //agrego la clase para mostrar el modal
+          gifoMax.style.display ="flex"
+          //dibuja el html
+          gifoMax.innerHTML = gifoMaxBtn(searchArr[sF].images.fixed_height.url, searchArr[sF].username, searchArr[sF].title);
+          //quito la clase para cerrar el modal
+          const closeMax = document.getElementById('closeMax');
+          closeMax.addEventListener('click', () =>{gifoMax.style.display = "none"})
         })
       
         }

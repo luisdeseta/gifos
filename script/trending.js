@@ -1,15 +1,18 @@
-import { getTrending, download } from './getapi.js';
+import { getTrending, download,gifoMaxBtn } from './getapi.js';
 import {markUpSearchResults} from './main.js';
-import { drawFav, setFavGifs } from './fav.js';
+import { setFavGifs } from './fav.js';
 
 
 /**
  * @description Dibuja trending en index y agregar comportamiento a los botones
  * @param {*} limit Revisar para paginancion
  * @param {*} offset revisar para paginacion
- * TODO mover a main.js
+ * TODO divir la función en tres:
+ * 1- trae el endpoint y retorna un trend = []
+ * 2- dibujar el HTML con stringify el trend []
+ * 3- agregar el comportamiento a los botones
  */
- export async function drawTrending(limit=36, offset=0) {
+ export async function drawTrending(limit=3, offset=0) {
   const divTrend = document.querySelector('#trendGifos-Container')
   const trendArr =[];
   getTrending(limit, offset)
@@ -29,13 +32,27 @@ import { drawFav, setFavGifs } from './fav.js';
           }
           divTrend.innerHTML = trend;
       })
+      // le agrego comportamiento a los botones
       .then(() => {
           for (let t = 0; t < trendArr.length; t++){
-              let fav = document.getElementById(`heart-${trendArr[t].id}`);
-              fav.addEventListener('click', function() {
-                setFavGifs(`gif-${trendArr[t].id}`,trendArr[t].id);
-                
+              let searchfav = document.getElementById(`heart-${trendArr[t].id}`);
+              let down = document.getElementById(`down-${trendArr[t].id}`);
+              let max = document.getElementById(`max-${trendArr[t].id}`);
+              searchfav.addEventListener('click', function() {
+                setFavGifs(trendArr[t].id);
               });
+              down.addEventListener('click', function (){
+                download(trendArr[t].images.original.url, `Gifo ${trendArr[t].title}`)
+              })
+              max.addEventListener('click', function(){
+                //agrego la clase para mostrar el modal
+                gifoMax.style.display ="flex"
+                //dibuja el html
+                gifoMax.innerHTML = gifoMaxBtn(trendArr[t].images.fixed_height.url, trendArr[t].username, trendArr[t].title);
+                //quito la clase para cerrar el modal
+                const closeMax = document.getElementById('closeMax');
+                closeMax.addEventListener('click', () =>{gifoMax.style.display = "none"})
+              })
             }
         })
 }

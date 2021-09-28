@@ -122,10 +122,12 @@ header{
             padding: 1vw 0 4vw;
             .logo{
                 padding: 0;
+                cursor: pointer;
             }
             .createButtom{
                 display: block;
                 padding: 0 2vw 0 0 ;
+                cursor:pointer;
                 
                 .createButtom-img{
                     content: var(--createGifo);

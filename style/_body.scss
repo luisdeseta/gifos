@@ -17,12 +17,16 @@
 .gifoMax{
     display: none;
     position:fixed;
-    z-index: +1;
+    justify-content: center;
+    z-index: 100;
     left: 0;
     top: 0;
     width: 100vw;
     height: 100vw;
-    background-color: #8a8a8a;
+    background-color: #fff;
+    .closeMax{
+        cursor: pointer;
+    }
 } 
 /* Block 1  */
 .block-search{
@@ -127,8 +131,8 @@
     .seeMore{
         display: flex;
         justify-content: center;
+        padding: 6rem 0;
         .seeMoreButton{
-            padding: 6rem 0;
             content: url('../img/CTA-ver-mas.svg');
         }
         .seeMoreButton:hover{
@@ -181,6 +185,10 @@
             .heart:hover{
                 content: url('../img/icon-fav-hover.svg')
             }
+            //heartActive no va aca
+            .heartActive{
+                content: url('../img/icon-fav-active.svg')
+            }
             .down{
                 padding: 5px 5px;
                 content: url('')
@@ -218,6 +226,7 @@
     .divHover:hover .divHover-btn .heart{
         content: url('../img/icon-fav.svg');
     }
+    //heartActvie reemplaza este??
     .divHover:hover .divHover-btn .heart:hover{
         content: url('../img/icon-fav-hover.svg')
     }

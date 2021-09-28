@@ -197,10 +197,12 @@ header nav .MenuHambuerguesa {
   }
   header nav .logo {
     padding: 0;
+    cursor: pointer;
   }
   header nav .createButtom {
     display: block;
     padding: 0 2vw 0 0;
+    cursor: pointer;
   }
   header nav .createButtom .createButtom-img {
     content: var(--createGifo);
@@ -271,12 +273,19 @@ header nav .MenuHambuerguesa {
 .gifoMax {
   display: none;
   position: fixed;
-  z-index: +1;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 100;
   left: 0;
   top: 0;
   width: 100vw;
   height: 100vw;
-  background-color: #8a8a8a;
+  background-color: #fff;
+}
+
+.gifoMax .closeMax {
+  cursor: pointer;
 }
 
 /* Block 1  */
@@ -413,10 +422,10 @@ header nav .MenuHambuerguesa {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding: 6rem 0;
 }
 
 .searchResultSection .seeMore .seeMoreButton {
-  padding: 6rem 0;
   content: url("../img/CTA-ver-mas.svg");
 }
 
@@ -476,6 +485,10 @@ header nav .MenuHambuerguesa {
 
 .searchResault-gif .divHover .divHover-btn .heart:hover {
   content: url("../img/icon-fav-hover.svg");
+}
+
+.searchResault-gif .divHover .divHover-btn .heartActive {
+  content: url("../img/icon-fav-active.svg");
 }
 
 .searchResault-gif .divHover .divHover-btn .down {

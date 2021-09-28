@@ -86,11 +86,22 @@ export async function getTrending(limitTrend=3, offSetTrend=0) {
 
 /**
  * @description Maximiza un gifo
- * BORRAR X
+ * @url Imagen que se desea mostrar
+ * @user nombre del usuario del Gifo
+ * @title titulo el gifo
  */
-
-export function gifoMax (X){
-    alert(`Gifo Max ${X}`)
+export function gifoMaxBtn (url,user,title){
+    return `
+    <div id="closeMax" class="closeMax">x</div>
+    <div>
+        <div id="imgMax" class="imgMax">
+            <img src="${url}" alt="Gifo en pantalla completa">
+        </div>
+        <div id="gifoMaxFooter" class="gifoMaxFooter">
+        ${user}
+        ${title}
+    </div>
+    `
 }
 /**
  * @description Upload del gif grabado por el usuario
