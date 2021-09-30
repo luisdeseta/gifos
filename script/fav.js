@@ -1,6 +1,8 @@
-import {getGifosByIDs, download} from './getapi.js';
-import {markUpSearchResults} from './main.js';
-import {drawTrendingFav} from './trending.js';
+import {getGifosByIDs, download} from "./getapi.js";
+import {markUpSearchResults} from "./main.js";
+//import {drawTrendingFav} from './trending';
+
+console.log("== fav.js ===")
 
 //boton crear Gifo
 // const c= document.querySelector('#createButtom-img')
@@ -41,8 +43,8 @@ const favoritesLS = () =>{
         return JSON.parse(localStorage.getItem('gifosFav'))
     }
 }
-console.log("fav.js favoritesLS => " + favoritesLS())
 
+//console.log("fav.js favoritesLS => " + favoritesLS())
 
 /**
  * @description leer LocalStorage y dibujarlo en fav.html

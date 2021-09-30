@@ -2,6 +2,7 @@ import { getTrending, download,gifoMaxBtn } from './getapi.js';
 import {markUpSearchResults} from './main.js';
 import { setFavGifs } from './fav.js';
 
+console.log("== trending.js ==")
 
 /**
  * @description Dibuja trending en index y agregar comportamiento a los botones
@@ -12,7 +13,7 @@ import { setFavGifs } from './fav.js';
  * 2- dibujar el HTML con stringify el trend []
  * 3- agregar el comportamiento a los botones
  */
- export async function drawTrending(limit=3, offset=0) {
+ export function drawTrending(limit=3, offset=0) {
   const divTrend = document.querySelector('#trendGifos-Container')
   const trendArr =[];
   getTrending(limit, offset)

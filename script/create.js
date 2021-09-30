@@ -1,5 +1,6 @@
 import {uploadGifo } from './getapi.js';
 
+
 //constantes
 const videoBtn = document.getElementById('videoBTN');
 const videoBtnStart = document.getElementById('videoBTNstart');

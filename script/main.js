@@ -1,5 +1,5 @@
-import { drawTrending} from './trending.js';
-import { autoComplete, getSearchEndP, getPopularSearchEP, download, gifoMaxBtn } from './getapi.js';
+import { drawTrending} from "./trending.js";
+import { autoComplete, getSearchEndP, getPopularSearchEP, download, gifoMaxBtn } from "./getapi.js";
 //import { setFavGifs, } from './fav.js'
 
 //console.log("main.js favoritesLS => " + favoritesLS())
@@ -101,7 +101,7 @@ const getSearch = (inSearch, limitSeeMore=12) =>{
         let searchFav = document.getElementById(`heart-${searchArr[sF].id}`);
         let down = document.getElementById(`down-${searchArr[sF].id}`);
         let max = document.getElementById(`max-${searchArr[sF].id}`);
-        //guardo en favoritos  setFavGifs(searchArr[sF].id)
+        //guardo en favoritos
         searchFav.addEventListener('click', function () {setFavGifs(searchArr[sF].id),
         searchFav.classList.replace('heart','heartActive')});
         //download de un gifo
