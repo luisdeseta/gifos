@@ -1,71 +1,27 @@
-import {getGifosByIDs, download} from "./getapi.js";
-import {markUpSearchResults} from "./main.js";
-//import {drawTrendingFav} from './trending';
+import {favoritesLS, trendPagL,trendPagR,setFavGifs,getTrending, markUpSearchResults, getGifosByIDs, download,gifoMaxBtn} from "./getapi.js";
 
-console.log("== fav.js ===")
+//constantes
+const rBtn = document.getElementById('rigthbtn')
+const lBtn = document.getElementById('leftbtn')
+const gifoMax = document.getElementById('gifoMax');
+const empty = document.querySelector('#favEmpty');
 
-//boton crear Gifo
-// const c= document.querySelector('#createButtom-img')
-// c.addEventListener('click', window.location = './create.html')
-
-/**
- * @description Guardar Gif en LocalStorage en formato string
- * @param id id del gifo
- * 
- */
-
-export const setFavGifs = (id) =>{
-    let fav = favoritesLS();
-    let i = fav.indexOf(id)
-    console.log("fav " + fav)
-    if (i != -1) {
-        fav.splice(i,1)
-    } else {
-        fav.push(id)
-        
-    }
-    let favLS = JSON.stringify(fav);
-    localStorage.setItem('gifosFav', favLS);
-    console.log("fav ===> " + favLS);
-}
-
-
-/**
- * 
- * @description Recupera los datos de Local Storage y lo retorna como un objeto (parse)
- * si el localstorage está vacio retorna un array vacio
- * TODO ¿que pasa si hay otra cosa en el LS?
- */
-const favoritesLS = () =>{
-    if (localStorage.length === 0){
-        return []
-    } else {
-        return JSON.parse(localStorage.getItem('gifosFav'))
-    }
-}
-
-//console.log("fav.js favoritesLS => " + favoritesLS())
 
 /**
  * @description leer LocalStorage y dibujarlo en fav.html
  * @function getGifosByIDs endpoint para traer gifos por array
  * recibe ids de gifos separados por coma
- * TODO revisar el nuevo setFavGifs y favoritesLS
  */
 const drawFav = ()=>{
-    //TODO reemplazar localstorage por la función favoritesLS
     const divFav = document.querySelector('#favResault-gif');
-    let fav =''
-    let dataHeart =[]
-    if ( localStorage.length === 0 ) {
+    let fav ='';
+    let dataHeart =[];
+    let savedFav = favoritesLS();
+    console.log("savedFav =>",savedFav.length)
+    if ( savedFav.length === 0 ) {
         divFav.innerHTML =""
     } else {
-        let favArr = []
-        for (let i = 0; i < localStorage.length; i++) {
-            const element = localStorage.getItem(localStorage.key(i));
-            favArr.push(element);
-        }
-        getGifosByIDs(favArr)
+        getGifosByIDs(savedFav)
         .then( (res) => {
             const {data} = res;
             for (let f = 0; f < data.length; f++) {
@@ -75,31 +31,102 @@ const drawFav = ()=>{
                     data[f].username,
                     data[f].title,
                     data[f].id);
-                dataHeart.push(data[f]);
+                    dataHeart.push(data[f]);
                 }
                 divFav.innerHTML = fav;
             })
-        //Agrega comportamiento a los favoritos insertados
-        //TODO revisar como ejecutar drawFav nuevamente
+            //Agrega comportamiento a los favoritos insertados
+            .then(() => {
+                for (let t = 0; t < dataHeart.length; t++){
+                    let favy = document.getElementById(`heart-${dataHeart[t].id}`);
+                    let down = document.getElementById(`down-${dataHeart[t].id}`);
+                    let max = document.getElementById(`max-${dataHeart[t].id}`);
+                    //guardo en favoritos
+                    favy.addEventListener('click', ()=> {
+                        setFavGifs(dataHeart[t].id);
+                        drawFav();
+                        favEmpty();
+                    })
+                    //download de un gifo
+                    down.addEventListener('click', function (){
+                        download(dataHeart[t].images.original.url, `Gifo ${dataHeart[t].title}`)
+                        console.log("ejecutando download...")
+                    })
+                    
+                    
+                }
+            })
+        }
+    }
+    
+/**
+ * @description Dibuja trending en fav.html y agregar comportamiento a los botones
+ * @param limit Revisar para paginancion
+ * @param offset revisar para paginacion
+ * 
+ */
+function drawTrendingFav(limit=3, offset=0) {
+    const divTrend = document.querySelector('#trendGifos-Container')
+    const trendArr =[];
+    getTrending(limit, offset)
+    .then((res) => {
+        const {data} = res;    
+        let trend ='';
+        for (let i = 0; i < data.length; i++) {
+            trendArr.push(data[i]);
+        }
+        for (let t = 0; t < trendArr.length; t++) {
+            trend += markUpSearchResults(
+                trendArr[t].images.downsized_medium.url,
+                trendArr[t].title,
+                trendArr[t].username,
+                trendArr[t].title,
+                trendArr[t].id);
+            }
+            divTrend.innerHTML = trend;
+        })
         .then(() => {
-            for (let t = 0; t < dataHeart.length; t++){
-                let favy = document.getElementById(`heart-${dataHeart[t].id}`);
-                favy.addEventListener('click', ()=> {
-                    setFavGifs(dataHeart[t].id);
+            for (let t = 0; t < trendArr.length; t++){
+                let searchfav = document.getElementById(`heart-${trendArr[t].id}`);
+                let down = document.getElementById(`down-${trendArr[t].id}`);
+                let max = document.getElementById(`max-${trendArr[t].id}`);
+                searchfav.addEventListener('click', function() {
+                    setFavGifs(trendArr[t].id);
                     drawFav();
-                    //download(dataHeart[t].images.original.url,dataHeart[t].title)
+                    favEmpty();
+                });
+                down.addEventListener('click', function (){
+                    download(trendArr[t].images.original.url, `Gifo ${trendArr[t].title}`)
+                })
+                max.addEventListener('click', function(){
+                    //agrego la clase para mostrar el modal
+                    gifoMax.style.display ="flex"
+                    //dibuja el html
+                    gifoMax.innerHTML = gifoMaxBtn(trendArr[t].images.fixed_height.url, trendArr[t].username, trendArr[t].title);
+                    //quito la clase para cerrar el modal
+                    const closeMax = document.getElementById('closeMax');
+                    closeMax.addEventListener('click', () =>{gifoMax.style.display = "none"})
                 })
             }
         })
-        }
+
+    }  
+
+/**
+ * @description Si no hay favoritos guardados muestra pagina vacia
+ * 
+ */
+function favEmpty (){
+    if (localStorage.getItem("gifosFav") == "[]"){
+        empty.classList.remove('displayNone')
+    } else {
+        empty.classList.add('displayNone')
     }
+}        
 
-
-//Dibujar los favoritos cuando carga la pagina
-//TODO usar async await??
-//document.getElementById('favContainer').addEventListener("load", console.log("load"));
-//window.onload = () => {console.log("onload")}
-
-
-//drawFav()
-//drawTrendingFav()
+drawFav()
+favEmpty()
+drawTrendingFav()
+//paginador
+rBtn.addEventListener('click', () => { trendPagR(drawTrendingFav)} );
+lBtn.addEventListener('click', () => { trendPagL(drawTrendingFav)} );

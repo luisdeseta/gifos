@@ -1,6 +1,5 @@
-import { drawTrending} from "./trending.js";
-import { autoComplete, getSearchEndP, getPopularSearchEP, download, gifoMaxBtn } from "./getapi.js";
-//import { setFavGifs, } from './fav.js'
+import {trendPagL,trendPagR, drawTrending, markUpSearchResults, setFavGifs, favoritesLS, autoComplete, getSearchEndP, getPopularSearchEP, download, gifoMaxBtn } from "./getapi.js";
+
 
 //console.log("main.js favoritesLS => " + favoritesLS())
 
@@ -17,8 +16,13 @@ const leftSearchIcon = document.querySelector('#leftSearchIcon' );
 const seeMoreButton = document.querySelector('#seeMoreButton');
 const gifoMax = document.getElementById('gifoMax');
 
-//const offset = 12; 
+//Paginador de trending
+const rBtn = document.getElementById('rigthbtn')
+const lBtn = document.getElementById('leftbtn')
+
+//boton ver mas
 let limitSeeMore = 12;
+
 /**
  * @description dibuja los nombres de busquedas populares debajo del titulo "Trending"
  * 
@@ -108,6 +112,7 @@ const getSearch = (inSearch, limitSeeMore=12) =>{
         down.addEventListener('click', function (){
           download(searchArr[sF].images.original.url, `Gifo ${searchArr[sF].title}`)
         })
+        //maximizar
         max.addEventListener('click', function(){
           //agrego la clase para mostrar el modal
           gifoMax.style.display ="flex"
@@ -125,7 +130,7 @@ const getSearch = (inSearch, limitSeeMore=12) =>{
       ulAutoComplete.innerHTML =''
       i.classList.remove('glassCross');
       leftSearchIcon.classList.remove('glassSearch');
-      seeMoreButton.classList.remove('displayNone')
+      seeMoreButton.classList.remove('displayNone');
 
     })
 
@@ -161,7 +166,7 @@ const doSearch = (z) =>{
 
 /**
  * @description Ejecuta boton "ver mas"
- * 
+ * TODO copiar similar para poder usar en fav.js
  */
 const seeMore = () =>{
   if (limitSeeMore >= 50){
@@ -173,26 +178,7 @@ const seeMore = () =>{
   console.log(limitSeeMore)
   getSearch(inputTextSearch.value, limitSeeMore);
 }
-/**
- * @description dibuja un Gifo. 
- * 
- */
-export const markUpSearchResults = (img,name,user,title, id) =>{
-  return `
-  <img class="show" src="${img}" id="${id}" alt="">
-  <div class="divHover">
-  <div class="divHover-btn">
-  <i class="heart" id="heart-${id}"></i>
-  <i class="down" id="down-${id}"></i>
-  <i class="max" id="max-${id}"></i>
-  </div>
-  <div class="divHover-user">
-  <i class="user" id="user-">${user}</i>
-            <i class="title" id="title-">${title}</i>
-          </div>
-    </div>
-`
-}
+
 
 /**
  * @description llama al endpoint Autocomplete
@@ -290,12 +276,8 @@ const clearCross = () =>{
 /**
  * @description ejecuta Trending
  */
-const doTrending = (limit=3, offset=0) =>{
-  drawTrending();
-  
-}
-doTrending()
 
+drawTrending();
 
 /**
  * Listeners
@@ -304,3 +286,6 @@ inputTextSearch.addEventListener("keypress", doSearch)
 inputTextSearch.addEventListener("keyup", doAutoComplete);
 i.addEventListener("click", clearCross)
 seeMoreButton.addEventListener("click", seeMore)
+//Paginador
+rBtn.addEventListener('click', () => { trendPagR(drawTrending) } );
+lBtn.addEventListener('click', () => { trendPagL(drawTrending) });

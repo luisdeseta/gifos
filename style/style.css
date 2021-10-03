@@ -744,21 +744,55 @@ header nav .MenuHambuerguesa {
   text-align: center;
 }
 
+.displayNone {
+  display: none;
+}
+
+.favContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 #favResault-gif {
+  /*         display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr ;
+        grid-template-rows: 1fr 1fr 1fr ;
+        row-gap: 1px;
+        column-gap: 10px; */
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 20px 1fr 20px 1fr 20px 1fr 20px;
+      grid-template-columns: 1fr 20px 1fr 20px 1fr 20px 1fr 20px;
   -ms-grid-rows: 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr;
-  row-gap: 1px;
-  -webkit-column-gap: 10px;
-          column-gap: 10px;
+  row-gap: 20px;
 }
 
 #favResault-gif img {
   width: 260px;
   height: 200px;
+}
+
+.seeMore {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 6rem 0;
+}
+
+.seeMore .seeMoreButton {
+  content: url("../img/CTA-ver-mas.svg");
+}
+
+.seeMore .seeMoreButton:hover {
+  content: url("../img/CTA-ver-mas-hover.svg");
 }
 
 .divHover {
