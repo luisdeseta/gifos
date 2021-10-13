@@ -71,9 +71,16 @@
             padding: 5px 5px;
             content: url('');
         }
+        .delete{
+            padding: 5px 5px;
+            content: url('');
+        }
         .heart:hover{
             content: url('../img/icon-fav-hover.svg')
         }
+        .delete:hover{
+            content: url('../img/icon-trash-hover.svg')
+            }
         .down{
             padding: 5px 5px;
             content: url('')
@@ -110,9 +117,15 @@
 .divHover:hover .divHover-btn .heart{
     content: url('../img/icon-fav.svg');
 }
+.divHover:hover .divHover-btn .delete{
+    content: url('../img/icon-trash-normal.svg');
+}
 .divHover:hover .divHover-btn .heart:hover{
     content: url('../img/icon-fav-hover.svg')
 }
+.divHover:hover .divHover-btn .delete:hover{
+    content: url('../img/icon-trash-hover.svg');
+}   
 .divHover:hover .divHover-btn .down{
     content: url('../img/icon-download.svg')
 }

@@ -14,8 +14,16 @@ const searchTitle = document.getElementById('searchTitle');
 const i = document.getElementById('rightSearchIcon');
 const leftSearchIcon = document.querySelector('#leftSearchIcon' );
 const seeMoreButton = document.querySelector('#seeMoreButton');
+const divSeeMore = document.querySelector('#seeMore');
 const gifoMax = document.getElementById('gifoMax');
 
+const seeMoreClass = ()=>{
+  if (limitSeeMore == 50) {
+     divSeeMore.classList.remove('seeMore')
+  } else {
+    divSeeMore.classList.add('seeMore')
+  }
+}
 //Paginador de trending
 const rBtn = document.getElementById('rigthbtn')
 const lBtn = document.getElementById('leftbtn')
@@ -111,6 +119,7 @@ const getSearch = (inSearch, limitSeeMore=12) =>{
         //download de un gifo
         down.addEventListener('click', function (){
           download(searchArr[sF].images.original.url, `Gifo ${searchArr[sF].title}`)
+          console.log("ejecutando download...")
         })
         //maximizar
         max.addEventListener('click', function(){
@@ -130,12 +139,9 @@ const getSearch = (inSearch, limitSeeMore=12) =>{
       ulAutoComplete.innerHTML =''
       i.classList.remove('glassCross');
       leftSearchIcon.classList.remove('glassSearch');
-      seeMoreButton.classList.remove('displayNone');
-
+      seeMoreClass()
     })
-
-
-    .catch(err => console.warn('Error en la petición de busqueda',err))
+    .catch(err => console.warn('Error en la petición de busqueda =>',err))
   }
 
 /**
@@ -154,7 +160,7 @@ return `
  * 
  */
 const doSearch = (z) =>{
-  //let limit = 12
+  
   if (z.keyCode === 13) {
     getSearch(inputTextSearch.value, limitSeeMore);
     //vacia la caja de busqueda
@@ -166,14 +172,15 @@ const doSearch = (z) =>{
 
 /**
  * @description Ejecuta boton "ver mas"
- * TODO copiar similar para poder usar en fav.js
+ * 
  */
 const seeMore = () =>{
   if (limitSeeMore >= 50){
     limitSeeMore = 50
-    seeMoreButton.classList.add('displayNone')
-  } else{
-    limitSeeMore +=12
+  } else if (limitSeeMore == 48) {
+    limitSeeMore +=2
+  } else {
+    limitSeeMore += 12;
   }
   console.log(limitSeeMore)
   getSearch(inputTextSearch.value, limitSeeMore);
@@ -273,12 +280,9 @@ const clearCross = () =>{
     leftSearchIcon.classList.remove('glassSearch');
 }
 
-/**
- * @description ejecuta Trending
- */
+
 
 drawTrending();
-
 /**
  * Listeners
  */

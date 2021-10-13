@@ -92,23 +92,34 @@ export async function getTrending(limitTrend=3, offSetTrend=0) {
  * @user nombre del usuario del Gifo
  * @title titulo el gifo
  */
-export function gifoMaxBtn (url,user,title){
+export function gifoMaxBtn (url,user,title, id){
     return `
-    <div id="closeMax" class="closeMax">x</div>
-    <div>
+    <div id="closeMax" class="closeMax">
+        <i id="closeX" class="closeX"> </i>
+    </div>
+    <div id="gifoMaxContainer" class="gifoMaxContainer">
         <div id="imgMax" class="imgMax">
             <img src="${url}" alt="Gifo en pantalla completa">
         </div>
-        <div id="gifoMaxFooter" class="gifoMaxFooter">
-        ${user}
-        ${title}
+    <div id="gifoMaxFooter" class="gifoMaxFooter">
+        <div class="box1">
+        <p class="user" >${user}</p>
+        <p class="title" >${title}</p>
+        </div>
+        <div class="box2">
+        <i class="heart" id="heartMax-${id}"></i>
+        <i class="down" id="downMax-${id}"></i>
+        </div>
     </div>
     `
 }
+
+
+
 /**
  * @description Upload del gif grabado por el usuario
- * @param file archivo para subir
- * fetch(`${UPLOAD}?api_key=${APIKEY}&file=${file}`,{ method: 'POST'})
+ * @param data archivo para subir
+ * 
  */ 
 export const uploadGifo = (data) =>{
     return new Promise ((resolve, reject) => {
@@ -124,10 +135,11 @@ export const uploadGifo = (data) =>{
  * 
  * @description Recupera los datos de Local Storage y lo retorna como un objeto (parse)
  * si el localstorage está vacio retorna un array vacio
- * TODO ¿que pasa si hay otra cosa en el LS?
+ * 
  */
  export const favoritesLS = () =>{
-    if (localStorage.length === 0){
+    let i = JSON.parse(localStorage.getItem('gifosFav'))
+    if (!i){
         return []
     } else {
         return JSON.parse(localStorage.getItem('gifosFav'))
@@ -142,13 +154,13 @@ export const uploadGifo = (data) =>{
  */
 
  export const setFavGifs = (id) =>{
-    let fav = favoritesLS();
+    let fav = favoritesLS();//array del LocalStorage
     let i = fav.indexOf(id)
     //console.log("fav " + fav)
     if (i != -1) {
         fav.splice(i,1)
     } else {
-        fav.push(id)
+        fav.unshift(id)
         
     }
     let favLS = JSON.stringify(fav);
@@ -157,7 +169,7 @@ export const uploadGifo = (data) =>{
 }
 
 /**
- * @description dibuja un Gifo. 
+ * @description dibuja un Gifo. Tiene botones: Heart, Down y Max.
  * 
  */
  export const markUpSearchResults = (img,name,user,title, id) =>{
@@ -171,17 +183,38 @@ export const uploadGifo = (data) =>{
     </div>
     <div class="divHover-user">
     <i class="user" id="user-">${user}</i>
-              <i class="title" id="title-">${title}</i>
+    <i class="title" id="title-">${title}</i>
             </div>
       </div>
   `
   }
 
+/**
+ * @description dibuja un Gifo para seccion Mis Gifos. 
+ * Tiene botones: Eliminar, Down y Max.
+ * 
+ */
+export const markUpMyGifos = (img,name,user,title, id) =>{
+return `
+<img class="show" src="${img}" id="${id}" alt="">
+<div class="divHover">
+<div class="divHover-btn">
+<i class="delete" id="delete-${id}"></i>
+<i class="down" id="down-${id}"></i>
+<i class="max" id="max-${id}"></i>
+</div>
+<div class="divHover-user">
+<i class="user" id="user-">${user}</i>
+            <i class="title" id="title-">${title}</i>
+        </div>
+    </div>
+`
+}
   /**
  * @description Dibuja trending en index y agregar comportamiento a los botones
- * @param {*} limit Revisar para paginancion
- * @param {*} offset revisar para paginacion
- *  export const trendPagL =(draw)
+ * @param {*} limit 3
+ * @param {*} offset inicia en cero
+ * 
  */
  export function drawTrending (limit=3, offset=0) {
     const divTrend = document.querySelector('#trendGifos-Container')
@@ -219,7 +252,15 @@ export const uploadGifo = (data) =>{
                   //agrego la clase para mostrar el modal
                   gifoMax.style.display ="flex"
                   //dibuja el html
-                  gifoMax.innerHTML = gifoMaxBtn(trendArr[t].images.fixed_height.url, trendArr[t].username, trendArr[t].title);
+                  gifoMax.innerHTML = gifoMaxBtn(trendArr[t].images.downsized.url, trendArr[t].username, trendArr[t].title, trendArr[t].id);
+                  //download desde el modal
+                  document.getElementById(`downMax-${trendArr[t].id}`).addEventListener('click', function (){
+                    download(trendArr[t].images.original.url, `Gifo ${trendArr[t].title}`)
+                  })
+                  //fav desde el modal
+                  document.getElementById(`heartMax-${trendArr[t].id}`).addEventListener('click', function() {
+                    setFavGifs(trendArr[t].id);
+                  });
                   //quito la clase para cerrar el modal
                   const closeMax = document.getElementById('closeMax');
                   closeMax.addEventListener('click', () =>{gifoMax.style.display = "none"})
@@ -265,3 +306,35 @@ export function trendPagR (draw) {
      //drawTrending(limit, offSet)
      draw(limit, offSet)  
  }
+
+
+ /**
+ * @description Recupera del LocalStorage misGifos guardados
+ * los retorna como objeto
+ */
+export function myGifosLS (){
+    let i = JSON.parse(localStorage.getItem('myGif'))
+    if (!i){
+        return []
+    } else {
+        return JSON.parse(localStorage.getItem('myGif'))
+    }
+}
+
+/**
+ * @description Guardar el ID de la grabacion en LocalStorage en formato string
+ * @param id del gifo que devuelve la grabación
+ */
+export function setMyGifosLS (id) {
+    let myGifos = myGifosLS();//array del LocalStorage
+    console.log("myGifos =>  " + myGifos)
+    let i = myGifos.indexOf(id)
+    if (i != -1) {
+        myGifos.splice(i,1)
+    } else {
+        myGifos.unshift(id)
+        
+    }
+    let gifoLS = JSON.stringify(myGifos);
+    localStorage.setItem('myGif', gifoLS);
+}

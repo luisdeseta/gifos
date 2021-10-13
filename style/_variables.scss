@@ -40,6 +40,12 @@ $leftGlass: url('../img/icon-search.svg');
 $leftCross: url('../img/close.svg');
 $createGifo: url('../img/button-crear-gifo.svg');
 $createGifoHover: url('../img/CTA-crear-gifo-hover.svg');
+$step1:url('../img/paso-1.svg');
+$step2:url('../img/paso-2.svg');
+$step3:url('../img/paso-3.svg');
+$step1Active:url('../img/paso-1-hover.svg');
+$step2Active:url('../img/paso-2-hover.svg');
+$step3Active:url('../img/paso-3-hover.svg');
 /* Dark colors*/
 $color_bg_primary--dark: #37383C;
 $color_bg_secundary--dark:#222326;
@@ -50,6 +56,9 @@ $color_txt_therd--dark: #ffff;
 $leftGlass--dark: url('../img/icon-search-modo-noct.svg');
 $leftCross--dark: url('../img/close-modo-noct.svg');
 $createGifo--dark: url('../img/CTA-crear-gifo-modo-noc.svg');
+$step1--dark: url('../img/paso-1-noc.svg');
+$step2--dark:url('../img/paso-2-noc.svg');
+$step3--dark:url('../img/paso-3-noc.svg');
 .theme{
     --color_bg_primary: #{$color_bg_primary};
     --color_bg_secundary: #{$color_bg_secundary};
@@ -60,6 +69,12 @@ $createGifo--dark: url('../img/CTA-crear-gifo-modo-noc.svg');
     --iconCross: #{$leftCross};
     --createGifo: #{$createGifo};
     --createGifoHover: #{$createGifoHover};
+    --step1: #{$step1};
+    --step2: #{$step2};
+    --step3: #{$step3};
+    --step1Active: #{$step1Active};
+    --step2Active: #{$step2Active};
+    --step3Active: #{$step3Active};
     &--dark{
         --color_bg_primary: #{$color_bg_primary--dark};
         --color_bg_secundary: #{$color_bg_secundary--dark};
@@ -69,6 +84,9 @@ $createGifo--dark: url('../img/CTA-crear-gifo-modo-noc.svg');
         --color_txt_therd: #{$color_txt_therd--dark};
         --iconGlass: #{$leftGlass--dark};
         --iconCross: #{$leftCross--dark};
-        --createGifo: #{$createGifo--dark};    
+        --createGifo: #{$createGifo--dark};
+        --step1: #{$step1--dark};
+        --step2: #{$step2--dark};
+        --step3: #{$step3--dark};    
     }
 }

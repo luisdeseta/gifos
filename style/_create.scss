@@ -1,40 +1,126 @@
+
 .mainSection{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-flow: row nowrap;
-
-}
-
-.mainCreate{
-    border: dotted  2px green;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap:  wrap;
-    max-width: 520px;
     .leftColumn{
-        height: auto;
         display: flex;
+        align-content: center;
         justify-content: center;
-        flex-wrap:  nowrap;
     }
     .rightColumn{
-        height: auto;
+       //height: auto;
+        display: flex;
+        align-self: flex-end;
+        //justify-content: end;
     }
     .column{
         padding: 20px 0;
     }
+
+
+
+}
+
+.mainCreate{
+    //border: dotted  2px green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap:  wrap;
+    max-width: 690px;
+    max-height: 390px;
+    padding: 5px 5px;
     .videoGrid{
         border: solid 1px #572EE5;
         display: flex;
-        align-items: center;
+        justify-content: center;
+        //align-items: center;
         flex-flow: row nowrap;
+        width: auto;
+        height: auto;
+        padding: 5px 5px;
+        #leftBorder{
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: column;
+            //align-content: space-between;
+            justify-content: space-between;
+            #path1{
+                border-top: 1px solid #50E3C2;
+                border-left: 1px solid #50E3C2;
+                width: 27px;
+                height: 25px;
+                //padding: 20px 0 0 20px;
+            }
+            #path2{
+                border-bottom: 1px solid #50E3C2;
+                border-left: 1px solid #50E3C2;
+                width: 27px;
+                height: 25px;
+            }
         
+        }
+        #rigthBorder{
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: column;
+            //align-content: space-between;
+            justify-content: space-between;
+            #path3{
+                border-top: 1px solid #50E3C2;
+                border-right: 1px solid #50E3C2;
+                width: 27px;
+                height: 25px;
+                //padding: 20px 0 0 20px;
+            }
+            #path4{
+                border-bottom: 1px solid #50E3C2;
+                border-right: 1px solid #50E3C2;
+                width: 27px;
+                height: 25px;
+            }
+        
+        }
         .videoBox{
             display: flex;
             align-items: center;
-            flex-direction: column;
+            //flex-direction: column;
+            //justify-content: center;
+            flex-flow: row nowrap;
+            padding: 1rem;
+            
+
+            .upLoadHover{
+                display: none;
+                position:absolute;
+                opacity: 0.6;
+                background-color: #572EE5;
+               
+                width: 426px;
+                height: 320px;
+                //top:-200px;
+                left:auto;
+                z-index: 1;
+
+                .upLoadContainer{
+                    display: flex;
+                    justify-content: center;
+                    //flex-flow: nowrap column ;
+                    img{
+                        padding: 5px 5px;
+                    }
+                    
+                    .createGifo{
+                        @extend %font-medium2; 
+                        color:var(--color_bg_primary);
+                        text-align: center;
+            
+                    }
+                }
+
+            }
         }
         .createText{
             @extend %font-medium2; 
@@ -50,6 +136,7 @@
         .videoShow{
             display: inline;
             max-height: 320px;
+            padding: 1rem;
            // max-width: 480px;
         }
     
@@ -79,7 +166,30 @@
         border: 1px solid #572EE5;
         border-radius: 25px;
     }
-    
+    //Botones de paso a paso
+    .recID{
+        font-family: $fontSecundary;
+        padding: 0 0.5rem;
+        //font-style: normal;
+        //color: white;
+    }
+    .step1{
+        content: var(--step1);
+    }
+    .step2{
+        content: var(--step2);
+    }
+    .step3{
+        content: var(--step3);
+    }
+    .step1Active{
+        content: var(--step1Active);
+    }
+    .step2Active{
+        content: var(--step2Active);
+    }
+    .step3Active{
+        content: var(--step3Active);
+    }
 }
 
-//Botones de paso a paso

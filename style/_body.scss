@@ -1,4 +1,4 @@
-//@import "variables";
+@import "variables";
 
 .mainTitle{
     @extend %font-title;
@@ -18,6 +18,7 @@
     display: none;
     position:fixed;
     justify-content: center;
+    flex-wrap: wrap;
     z-index: 100;
     left: 0;
     top: 0;
@@ -25,7 +26,71 @@
     height: 100vw;
     background-color: #fff;
     .closeMax{
+        //display: flex;
+        position:fixed;
+        //justify-content: flex-end;
         cursor: pointer;
+        padding: 0rem 0;
+        top: 20px;
+        .closeX{
+            position: fixed;
+            right: 8vw;
+            top: 3vw;
+            align-self: flex-start;
+            content: url('../img/close.svg');
+        }
+    }
+    .gifoMaxContainer{
+        position: fixed;
+        top: 5vw;
+        .imgMax{
+            display: flex;
+            justify-content: center;
+            //max-height: 320px;
+            img{
+                max-height: 35vw;
+            }
+        }
+    }
+    .gifoMaxFooter{
+        padding: 2rem 0;
+        display: flex;
+        flex-flow: wrap row;
+        .box1{
+            padding: 1rem 1rem;
+            display: flex;
+            flex-flow: nowrap column;
+            p{
+                font-family: $fontSecundary;
+                font-style: normal;
+                color: $color_txt_therd;
+                padding: 0 10px 0;
+            }
+            p:last-child{
+                font-weight: 700;
+            }
+        }
+        .box2{
+            
+            display: flex;
+            flex-flow: wrap row;
+            
+            
+            .heart{
+                padding: 5px 5px;
+                content: url('../img/icon-fav.svg');
+            }
+            .heart:hover{
+                content: url('../img/icon-fav-hover.svg');
+            }
+            .down{
+                padding: 5px 5px;
+                content: url('../img/icon-download.svg');
+            }
+            .down:hover{
+                content: url('../img/icon-download-hover.svg');
+            }
+        }
     }
 } 
 /* Block 1  */
@@ -138,11 +203,11 @@
         .seeMoreButton:hover{
             content: url('../img/CTA-ver-mas-hover.svg');
         }
-        .displayNone{
-            display:none;
-        }
-
+        
     }
+}
+.displayNone{
+    display:none;
 }
 
 
@@ -157,13 +222,7 @@
         height: 11.5em;
         //object-fit: cover;
     }
-/*     @supports(object-fit: cover){
-        img{
-          height: ;
-          object-fit: cover;
-          object-position: center center;
-        }
-    } */
+
 
 //Aplica a Fav y a Search
     .divHover{
@@ -182,13 +241,25 @@
                 padding: 5px 5px;
                 content: url('');
             }
+            .delete{
+                padding: 5px 5px;
+                content: url('');
+            }
+            /*.heartActive{
+                padding: 5px 5px;
+                content: url('');
+            }*/
             .heart:hover{
-                content: url('../img/icon-fav-hover.svg')
+            content: url('../img/icon-fav-hover.svg')
             }
-            //heartActive no va aca
-            .heartActive{
+            .delete:hover{
+            content: url('../img/icon-trash-hover.svg')
+            }
+            /*
+            .heartActive:hover{
                 content: url('../img/icon-fav-active.svg')
-            }
+            }*/
+
             .down{
                 padding: 5px 5px;
                 content: url('')
@@ -223,13 +294,29 @@
         background-color: #572EE5
     }
 
-    .divHover:hover .divHover-btn .heart{
+     .divHover:hover .divHover-btn .heart{
         content: url('../img/icon-fav.svg');
     }
-    //heartActvie reemplaza este??
-    .divHover:hover .divHover-btn .heart:hover{
-        content: url('../img/icon-fav-hover.svg')
+    .divHover:hover .divHover-btn .delete{
+        content: url('../img/icon-trash-normal.svg');
     }
+    //heartActive 
+    .divHover:hover .divHover-btn .heartActive{
+        content: url('../img/icon-fav-active.svg');
+    }
+    //
+    //
+    .divHover:hover .divHover-btn .heart:hover{
+        content: url('../img/icon-fav-hover.svg');
+    }
+    .divHover:hover .divHover-btn .delete:hover{
+        content: url('../img/icon-trash-hover.svg');
+    }
+    /*
+    .divHover:hover .divHover-btn .heartActive:hover{
+        content: url('../img/icon-fav-active.svg')
+    }
+    */
     .divHover:hover .divHover-btn .down{
         content: url('../img/icon-download.svg')
     }
@@ -246,6 +333,8 @@
         display: flex;
     }            
 }
+
+
 //grid favoritos
 .trendGifos-Container{
     display: grid;

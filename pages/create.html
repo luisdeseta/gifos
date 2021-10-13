@@ -52,11 +52,12 @@
                     <ul class="MenuHeader">
                         <li> <a id="darkSwitch" href="#">Modo Nocturno</a><span></span></li>
                         <li> <a href="./fav.html">Favoritos</a><span></span></li>
-                        <li> <a href="#">Mis GIFOS</a><span></span></li>
+                        <li> <a href="./misgifos.html">Mis GIFOS</a><span></span></li>
                     </ul>
             </div>  
-            <div class="createButtom">
-                <img id="createButtom-img" src="../img/button-crear-gifo.svg" alt="Boton crear gifo">
+            <div id="createButtom" class="createButtom">
+                <img id="createButtom-img" class="createButtom-img" src="../img/CTA-crear-gifo-active.svg" alt="">
+                <!-- <i id="createButtom-img" class="createButtom-img"></a></i> -->
             </div>
 
         </nav>
@@ -64,35 +65,49 @@
     </header>
     <section id="mainSection" class="mainSection">
         <div id="leftColumn" class="leftColumn column">
-            <img src="../img/camara.svg" alt="">
-            <img src="../img/element-luz-camara.svg" alt="">
+            <img src="../img/camara.svg" alt="camara">
+            <img src="../img/element-luz-camara.svg" alt="luz de camara">
             
         </div>    
         <section id="mainCreate" class="mainCreate">
             <div id="videoGrid" class="videoGrid"> 
-                <div id="leftBorder" class="leftBorder">
-                    <div id="path1" class="path">+</div>
-                    <div id="path2" class="path">+</div>
+                <div id="leftBorder" class="leftBorder border">
+                    <div id="path1" class="path"></div>
+                    <div id="path2" class="path"></div>
                 </div>
                     <div id="videoBox" class="videoBox">
-                        <div id="videoStep">    <h1 id="createTitle" class="mainTitle">Aquí podrás <br> crear tus propios <span class="spanGifos">GIFOS</span></h1>
+                        <div id="videoStep">    
+                            <h1 id="createTitle" class="mainTitle">Aquí podrás <br> crear tus propios <span class="spanGifos">GIFOS</span></h1>
                             <p id="createText" class="createText">¡Crea tu GIFO en sólo 3 pasos! <br>(sólo necesitas una cámara para grabar un video)</p>
                         </div>
-                        <video id="video" class="video" ></video>  
+                        <video id="video" class="video"></video>  
+                        <div id="upLoadHover" class="upLoadHover">
+                            <div id="upLoadContainer" class="upLoadContainer">
+                                <img src="../img/loader.svg" alt="cargando gifo">
+                                <p id="createGifo" class="createGifo">Estamos subiendo tu GIFO</p>
+                            </div>
+                        </div>
                     </div>
                 <div id="rigthBorder" class="rightBorder border">
-                    <div id="path3" class="path">+</div>
-                    <div id="path4" class="path">+</div>
+                    <div id="path3" class="path"></div>
+                    <div id="path4" class="path"></div>
                 </div>
             </div>
             <div id="videoStatus" class="videoStatus">
-                <div id="step1" class="step">1</div>
-                <div id="step2" class="step">2</div>
-                <div id="step3" class="step">3</div>
+                <div class="stepContainer">
+                    <i id="step1" class="recID step1"></i>
+                </div>
+                <div class="stepContainer">
+                    <i id="step2" class="recID step2"></i>
+                </div>
+                <div class="stepContainer">
+                    <i id="step3" class="recID step3"></i>
+                </div>
                 <div id="statusBar" class="statusBar"></div>
                 <button id="videoBTN" class="videoBTN">COMENZAR</button>
                 <button id="videoBTNstart" class="videoBTN">GRABAR</button>
                 <button id="videoBTNstop" class="videoBTN">FINALIZAR</button>
+                <button id="videoBTNupload" class="videoBTN">SUBIR GIFO</button>
                 
             </div>
         </section>
