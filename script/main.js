@@ -17,13 +17,23 @@ const seeMoreButton = document.querySelector('#seeMoreButton');
 const divSeeMore = document.querySelector('#seeMore');
 const gifoMax = document.getElementById('gifoMax');
 
+/**
+ * @description muestra y oculata el boton ver más cuando se llega al tope
+ * de Gifos para visualizar
+ */
 const seeMoreClass = ()=>{
   if (limitSeeMore == 50) {
-     divSeeMore.classList.remove('seeMore')
+    divSeeMore.style.display = "none";
+    //document.getElementById('seeMore').classList.toggle('seeMore')
+    //divSeeMore.classList.remove('seeMore')
   } else {
-    divSeeMore.classList.add('seeMore')
+    divSeeMore.style.display = "flex"
+    //document.getElementById('seeMore').classList.toggle('displayNone')
+    //divSeeMore.classList.add('seeMore')
   }
 }
+divSeeMore.style.display = "none";
+
 //Paginador de trending
 const rBtn = document.getElementById('rigthbtn')
 const lBtn = document.getElementById('leftbtn')
@@ -113,6 +123,7 @@ const getSearch = (inSearch, limitSeeMore=12) =>{
         let searchFav = document.getElementById(`heart-${searchArr[sF].id}`);
         let down = document.getElementById(`down-${searchArr[sF].id}`);
         let max = document.getElementById(`max-${searchArr[sF].id}`);
+        let img = document.getElementById(`${searchArr[sF].id}`);
         //guardo en favoritos
         searchFav.addEventListener('click', function () {setFavGifs(searchArr[sF].id),
         searchFav.classList.replace('heart','heartActive')});
@@ -121,7 +132,7 @@ const getSearch = (inSearch, limitSeeMore=12) =>{
           download(searchArr[sF].images.original.url, `Gifo ${searchArr[sF].title}`)
           console.log("ejecutando download...")
         })
-        //maximizar
+        //maximizar desktop
         max.addEventListener('click', function(){
           //agrego la clase para mostrar el modal
           gifoMax.style.display ="flex"
@@ -131,7 +142,16 @@ const getSearch = (inSearch, limitSeeMore=12) =>{
           const closeMax = document.getElementById('closeMax');
           closeMax.addEventListener('click', () =>{gifoMax.style.display = "none"})
         })
-      
+        //maximizar mobile
+          img.addEventListener('click', function(){
+            //agrego la clase para mostrar el modal
+            gifoMax.style.display ="flex"
+            //dibuja el html
+            gifoMax.innerHTML = gifoMaxBtn(searchArr[sF].images.fixed_height.url, searchArr[sF].username, searchArr[sF].title);
+            //quito la clase para cerrar el modal
+            const closeMax = document.getElementById('closeMax');
+            closeMax.addEventListener('click', () =>{gifoMax.style.display = "none"})
+          })
         }
     })
     //vacia el UL, borra la lupa, agrega boton "ver mas"

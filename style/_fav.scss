@@ -28,42 +28,39 @@
 
 }
  #favResault-gif{
-/*         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr ;
-        grid-template-rows: 1fr 1fr 1fr ;
-        row-gap: 1px;
-        column-gap: 10px; */
-        display: grid;
-        grid-template-columns: 1fr 20px 1fr 20px 1fr 20px 1fr 20px;
-        grid-template-rows: 1fr 1fr 1fr ;
-        row-gap: 20px;
-        img{
-            width: 260px;
-            height: 200px;
-            //object-fit: cover;
-        }
+    display: grid;
+    grid-template-columns: 1fr 10px 1fr 10px ;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    row-gap: 10px;
+
+    img{
+        width: 9.75em;
+        height: 7.5em;
+        //object-fit: cover;
+    }
 }
 .seeMore{
-    display: flex;
+    display: none;
     justify-content: center;
     padding: 6rem 0;
-    .seeMoreButton{
-        content: url('../img/CTA-ver-mas.svg');
+     .seeMoreButton{
+        content: var(--seeMore);
     }
     .seeMoreButton:hover{
-        content: url('../img/CTA-ver-mas-hover.svg');
-    }
+        content: var(--seeMoreHover);
+    } 
+    
 }
 //Aplica a Fav y a Search          
-.divHover{
+/* .divHover{
     display: block;
     position:relative;
     opacity: 0.6;
     background-color: transparent;
-    width: 260px;
-    height: 200px;
+    width: 9.75em;
+    height: 7.5em;
     //top:-200px;
-    left:-260px;
+    left:-9.75em;
     .divHover-btn{
         display: flex;
         justify-content: flex-end;
@@ -96,6 +93,7 @@
             content: url('../img/icon-max-hover.svg')
         }
     }
+
     .divHover-user{
         display: none;
         flex-flow: column nowrap;
@@ -110,7 +108,7 @@
             font-weight: 700;
         }
     }
-}
+} */
 .divHover:hover{
     background-color: #572EE5
 }
@@ -141,3 +139,35 @@
 .divHover:hover .divHover-user{
     display: flex;
 }
+
+/* Desktop */
+@media screen and (min-width: 740px) and (max-width: 1440px){
+    #favResault-gif{
+        /*         display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr ;
+                grid-template-rows: 1fr 1fr 1fr ;
+                row-gap: 1px;
+                column-gap: 10px; */
+                display: grid;
+                grid-template-columns: 1fr 20px 1fr 20px 1fr 20px 1fr 20px;
+                grid-template-rows: 1fr 1fr 1fr ;
+                row-gap: 20px;
+                img{
+                    width: 260px;
+                    height: 200px;
+                    //object-fit: cover;
+                }
+        }
+    .divHover{
+        display: block;
+        position:relative;
+        opacity: 0.6;
+        background-color: transparent;
+        width: 260px;
+        height: 200px;
+        //top:-200px;
+        left:-260px;
+    }
+
+
+/* end */}

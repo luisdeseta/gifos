@@ -28,7 +28,7 @@ header{
 }
 /*Menu Hamburguesa*/
 .MenuHeader{
-    background-color:rgba(87,46,229,0.90);
+    background-color:var(--color_bg_mobile);
     display: none;
     //position: absolute;
     top: 90px;
@@ -48,7 +48,7 @@ header{
             a{
             @extend %font-title;
             text-decoration:none;
-            color: var(--color_txt_primary);
+            color: #FFFFFF;
             
             font-size: 15px;
             background-color:transparent;
@@ -68,8 +68,7 @@ header{
     cursor: pointer;
 }
 .menuH::after{ 
-    content: url("/_Gifos/local/img/burger.svg")
-    
+    content: url('../img/burger.svg')
     
 }
 .MenuHambuerguesa{
@@ -87,7 +86,7 @@ header{
 /* establecer cruz para cerrar menú hamburguesa
 ¿se puede simplificar estas lineas? ¿anidar?*/
 .check:checked ~ .menuH::before{
-        content: url("/_Gifos/local/img/close.svg")
+        content: url('../img/close.svg')
         
     }
 .check:checked ~ .menuH::after{
@@ -103,7 +102,7 @@ header{
 }
 */
 /* desktop */
-@media screen and (min-width: 375px) and (max-width: 1440px){
+@media screen and (min-width: 740px) and (max-width: 1440px){
     .menuH{
         display: none;
     }
