@@ -8,56 +8,56 @@ const logoClick = () =>{
   window.location = "../index.html"
 }
 
+//Constantes para darkmode
+let darkModeStatus = localStorage.getItem("darkmode");
+const darkButton = document.getElementById("darkSwitch");
+const classArray = document.body.classList;
+
 /**
- * @description dark theme button. cambia la clase de los elementos.
- * usar el metodo de Cris, ver local storage
+ * @description Activa darkMode y guarda en Localstorage
  *  
  */
-const darkButton = document.getElementById("darkSwitch");
-//let darkMode = false;
-//sessionStorage.setItem("d", false)
-const  DD = ()=>{
-  let i = localStorage.getItem("d")
-  //console.log("i  " + i)
-  if (i) {
-    return localStorage.getItem("d")
-  } else {
-    return localStorage.setItem("d", false)
-  }
-  
+const enableDarkMode = ()=>{
+  //agrego la clase
+  document.body.classList.add("theme--dark");
+  //guardo el dato en localStorage
+  localStorage.setItem("darkmode", "enabled");
+  darkButton.innerText = "Modo Diurno";  
 }
-//tarda en recuperar el valor en la ejecucion, por eso trae null
-//DD()
-//let darkMode = DD();
-//console.log("DD =>" + darkMode)
+/**
+ * @description Desactiva darkMode y guarda en Localstorage
+ *  
+ */
+ const disableDarkMode = ()=>{
+  //agrego la clase
+  document.body.classList.remove("theme--dark");
+  //guardo el dato en localStorage
+  localStorage.setItem("darkmode", null);
+  darkButton.innerText = "Modo Nocturno";  
+}
 
-const changeMode = () =>{
-  const classArray = document.body.classList;
-  //JSON.parse(localStorage.getItem("d"));
-  let darkMode = false
-  //let darkMode = !sessionStorage.getItem("d")
-  darkMode = !darkMode
-  console.log("!darkMode =>" + darkMode)
-  // el simbolo "!" me niega la variable booelana
-  // false---- false false
-  // true ---- false true
-  if(!!darkMode){
-    darkButton.innerText = classArray.contains("theme--dark") ? "Modo Nocturno" : "Modo Diurno";  
-    document.body.classList.add("theme--dark");
-  } else{
-    darkButton.innerText = classArray.contains("theme--dark") ? "Modo Nocturno" : "Modo Diurno";  
-    document.body.classList.remove("theme--dark");
-  }
-  localStorage.setItem("d", darkMode)
-  console.log("darkMode " + darkMode)
+//verfico el status de DarkMode, si en LS quedo gaurdado "enabled", activo el darkmode
+if (darkModeStatus === 'enabled') {
+  enableDarkMode();
 }
-darkButton.addEventListener("click", changeMode);
-//version anterior
-/* darkButton.addEventListener("click", () =>{
-  const classArray = document.body.classList;
-  darkButton.innerText = classArray.contains("theme--dark") ? "Modo Nocturno" : "Modo Diurno";
-  classArray.toggle("theme--dark");
-}); */
+
+/**
+ * @description Verifico el estado de DarkMode y activo o desactivo
+ * el modo.
+ */
+ darkButton.addEventListener("click", ()=>{
+  //capturo valor guardado en LS
+  darkModeStatus = localStorage.getItem("darkmode");
+
+  if (darkModeStatus !== "enabled") {
+    enableDarkMode()
+    
+  } else {
+    disableDarkMode()
+    
+  }
+
+})
 
 
 document.getElementById('createButtom-img').addEventListener('click', createClick )

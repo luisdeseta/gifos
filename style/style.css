@@ -43,6 +43,9 @@ Fonts Config
   --rigthBtnHover: url("../img/Button-Slider-right-hover.svg");
   --seeMore: url("../img/CTA-ver-mas.svg");
   --seeMoreHover: url("../img/CTA-ver-mas-hover.svg");
+  --camera: url("../img/camara.svg");
+  --lightCamera: url("../img/element-luz-camara.svg");
+  --film: url("../img/pelicula.svg");
 }
 
 .theme--dark {
@@ -64,6 +67,9 @@ Fonts Config
   --rigthBtnHover: url("../img/Button-Slider-right.svg");
   --seeMore: url("../img/CTA-ver+-modo-noc.svg");
   --seeMoreHover: url("../img/CTA-ver+hover-modo-noc.svg");
+  --camera: url("../img/camara-modo-noc.svg");
+  --lightCamera: url("../img/element-luz-camara.svg");
+  --film: url("../img/pelicula-modo-noc.svg");
 }
 
 /* Mobile First HEADER breakpoint 320*/
@@ -324,6 +330,9 @@ Fonts Config
   --rigthBtnHover: url("../img/Button-Slider-right-hover.svg");
   --seeMore: url("../img/CTA-ver-mas.svg");
   --seeMoreHover: url("../img/CTA-ver-mas-hover.svg");
+  --camera: url("../img/camara.svg");
+  --lightCamera: url("../img/element-luz-camara.svg");
+  --film: url("../img/pelicula.svg");
 }
 
 .theme--dark {
@@ -345,6 +354,9 @@ Fonts Config
   --rigthBtnHover: url("../img/Button-Slider-right.svg");
   --seeMore: url("../img/CTA-ver+-modo-noc.svg");
   --seeMoreHover: url("../img/CTA-ver+hover-modo-noc.svg");
+  --camera: url("../img/camara-modo-noc.svg");
+  --lightCamera: url("../img/element-luz-camara.svg");
+  --film: url("../img/pelicula-modo-noc.svg");
 }
 
 .mainTitle {
@@ -383,9 +395,9 @@ Fonts Config
 }
 
 .gifoMax .closeMax .closeX {
-  position: fixed;
-  right: 8vw;
-  top: 3vw;
+  position: relative;
+  right: -23vw;
+  top: 0vw;
   -ms-flex-item-align: start;
       align-self: flex-start;
   content: url("../img/close.svg");
@@ -587,67 +599,6 @@ Fonts Config
 
 .searchResultSection {
   padding: 0 5px 0;
-  /* .divHover{
-    display: block;
-    position:relative;
-    opacity: 0.6;
-    background-color: transparent;
-    width: 9.75em;
-    height: 7.5em;
-    //top:-200px;
-    left:-9.75em;
-    .divHover-btn{
-        display: flex;
-        justify-content: flex-end;
-        .heart{
-            padding: 5px 5px;
-            content: url('');
-        }
-        .delete{
-            padding: 5px 5px;
-            content: url('');
-        }
-        .heart:hover{
-        content: url('../img/icon-fav-hover.svg')
-        }
-        .delete:hover{
-        content: url('../img/icon-trash-hover.svg')
-        }
-        .down{
-            padding: 5px 5px;
-            content: url('')
-        }
-        .down:hover{
-            content: url('../img/icon-download-hover.svg')
-        }
-        .max{
-            padding: 5px 5px;
-            content: url('');
-        }
-        .max:hover{
-            content: url('../img/icon-max-hover.svg')
-        }
-    }
-    .divHover-user{
-        display: none;
-        flex-flow: column nowrap;
-        padding-top: 35%;
-        i{
-            font-family: $fontSecundary;
-            font-style: normal;
-            color: white;
-            padding: 0 10px 0;
-        }
-        i:last-child{
-            font-weight: 500;
-        }
-    }
-} */
-  /*
-    .divHover:hover .divHover-btn .heartActive:hover{
-        content: url('../img/icon-fav-active.svg')
-    }
-    */
 }
 
 .searchResultSection .searchContainer {
@@ -662,11 +613,13 @@ Fonts Config
 .searchResultSection .searchContainer .searchResault-gif {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 10px 1fr 10px;
-      grid-template-columns: 1fr 10px 1fr 10px;
-  -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
   row-gap: 10px;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
 }
 
 .searchResultSection .searchContainer .searchResault-gif img {
@@ -694,65 +647,8 @@ Fonts Config
   display: none;
 }
 
-.searchResultSection .divHover:hover {
-  background-color: #572EE5;
-}
-
-.searchResultSection .divHover:hover .divHover-btn .heart {
-  content: url("../img/icon-fav.svg");
-}
-
-.searchResultSection .divHover:hover .divHover-btn .delete {
-  content: url("../img/icon-trash-normal.svg");
-}
-
-.searchResultSection .divHover:hover .divHover-btn .heartActive {
-  content: url("../img/icon-fav-active.svg");
-}
-
-.searchResultSection .divHover:hover .divHover-btn .heart:hover {
-  content: url("../img/icon-fav-hover.svg");
-}
-
-.searchResultSection .divHover:hover .divHover-btn .delete:hover {
-  content: url("../img/icon-trash-hover.svg");
-}
-
-.searchResultSection .divHover:hover .divHover-btn .down {
-  content: url("../img/icon-download.svg");
-}
-
-.searchResultSection .divHover:hover .divHover-btn .down:hover {
-  content: url("../img/icon-download-hover.svg");
-}
-
-.searchResultSection .divHover:hover .divHover-btn .max {
-  content: url("../img/icon-max-normal.svg");
-}
-
-.searchResultSection .divHover:hover .divHover-btn .max:hover {
-  content: url("../img/icon-max-hover.svg");
-}
-
-.searchResultSection .divHover:hover .divHover-user {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.trendGifos-Container {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 20px 1fr 20px 1fr 20px;
-      grid-template-columns: 1fr 20px 1fr 20px 1fr 20px;
-  -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr;
-  row-gap: 20px;
-}
-
-.trendGifos-Container img {
-  width: 260px;
-  height: 200px;
+.searchResultSection .divHover {
+  display: none;
 }
 
 .blockTrend {
@@ -819,6 +715,27 @@ Fonts Config
   content: var(--leftBtnHover);
 }
 
+.blockTrend .trendGifos .trendGifos-Container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  row-gap: 20px;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+}
+
+.blockTrend .trendGifos .trendGifos-Container img {
+  width: 15em;
+  height: 11.5em;
+}
+
+.blockTrend .trendGifos .trendGifos-Container .divHover {
+  display: none;
+}
+
 .blockTrend .trendGifos .buttonSliderRight {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -839,15 +756,150 @@ Fonts Config
   content: var(--rigthBtnHover);
 }
 
+.divHover:hover {
+  background-color: #572EE5;
+}
+
 /* Desktop */
 @media screen and (min-width: 740px) and (max-width: 1440px) {
-  .block-search .searchSection .searchBox {
+  main .block-search .searchSection .searchBox {
     width: 30em;
   }
-  .block-search .searchSection .searchBox input {
+  main .block-search .searchSection .searchBox input {
     width: 75%;
   }
-  .block-search .block-search-bottom div {
+  main .block-search .searchResultSection .searchContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  main .block-search .searchResultSection .searchContainer .searchResault-gif {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 20px 1fr 20px 1fr 20px 1fr 20px;
+        grid-template-columns: 1fr 20px 1fr 20px 1fr 20px 1fr 20px;
+    -ms-grid-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    row-gap: 20px;
+    /*
+                        .divHover:hover .divHover-btn .heartActive:hover{
+                            content: url('../img/icon-fav-active.svg')
+                        }
+                        */
+  }
+  main .block-search .searchResultSection .searchContainer .searchResault-gif img {
+    width: 15em;
+    height: 11.5em;
+  }
+  main .block-search .searchResultSection .searchContainer .searchResault-gif .divHover {
+    display: block;
+    position: relative;
+    opacity: 0.6;
+    background-color: transparent;
+    width: 15em;
+    height: 11.5em;
+    left: -15.6em;
+  }
+  main .block-search .searchResultSection .searchContainer .searchResault-gif .divHover .divHover-btn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    /*.heartActive{
+                                    padding: 5px 5px;
+                                    content: url('');
+                                }*/
+    /*
+                                .heartActive:hover{
+                                    content: url('../img/icon-fav-active.svg')
+                                }*/
+  }
+  main .block-search .searchResultSection .searchContainer .searchResault-gif .divHover .divHover-btn .heart {
+    padding: 5px 5px;
+    content: url("");
+  }
+  main .block-search .searchResultSection .searchContainer .searchResault-gif .divHover .divHover-btn .delete {
+    padding: 5px 5px;
+    content: url("");
+  }
+  main .block-search .searchResultSection .searchContainer .searchResault-gif .divHover .divHover-btn .heart:hover {
+    content: url("../img/icon-fav-hover.svg");
+  }
+  main .block-search .searchResultSection .searchContainer .searchResault-gif .divHover .divHover-btn .delete:hover {
+    content: url("../img/icon-trash-hover.svg");
+  }
+  main .block-search .searchResultSection .searchContainer .searchResault-gif .divHover .divHover-btn .down {
+    padding: 5px 5px;
+    content: url("");
+  }
+  main .block-search .searchResultSection .searchContainer .searchResault-gif .divHover .divHover-btn .down:hover {
+    content: url("../img/icon-download-hover.svg");
+  }
+  main .block-search .searchResultSection .searchContainer .searchResault-gif .divHover .divHover-btn .max {
+    padding: 5px 5px;
+    content: url("");
+  }
+  main .block-search .searchResultSection .searchContainer .searchResault-gif .divHover .divHover-btn .max:hover {
+    content: url("../img/icon-max-hover.svg");
+  }
+  main .block-search .searchResultSection .searchContainer .searchResault-gif .divHover .divHover-user {
+    display: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    padding-top: 35%;
+  }
+  main .block-search .searchResultSection .searchContainer .searchResault-gif .divHover .divHover-user i {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    color: white;
+    padding: 0 10px 0;
+  }
+  main .block-search .searchResultSection .searchContainer .searchResault-gif .divHover .divHover-user i:last-child {
+    font-weight: 700;
+  }
+  main .block-search .searchResultSection .searchContainer .searchResault-gif .divHover:hover {
+    background-color: #572EE5;
+  }
+  main .block-search .searchResultSection .searchContainer .searchResault-gif .divHover:hover .divHover-btn .heart {
+    content: url("../img/icon-fav.svg");
+  }
+  main .block-search .searchResultSection .searchContainer .searchResault-gif .divHover:hover .divHover-btn .delete {
+    content: url("../img/icon-trash-normal.svg");
+  }
+  main .block-search .searchResultSection .searchContainer .searchResault-gif .divHover:hover .divHover-btn .heartActive {
+    content: url("../img/icon-fav-active.svg");
+  }
+  main .block-search .searchResultSection .searchContainer .searchResault-gif .divHover:hover .divHover-btn .heart:hover {
+    content: url("../img/icon-fav-hover.svg");
+  }
+  main .block-search .searchResultSection .searchContainer .searchResault-gif .divHover:hover .divHover-btn .delete:hover {
+    content: url("../img/icon-trash-hover.svg");
+  }
+  main .block-search .searchResultSection .searchContainer .searchResault-gif .divHover:hover .divHover-btn .down {
+    content: url("../img/icon-download.svg");
+  }
+  main .block-search .searchResultSection .searchContainer .searchResault-gif .divHover:hover .divHover-btn .down:hover {
+    content: url("../img/icon-download-hover.svg");
+  }
+  main .block-search .searchResultSection .searchContainer .searchResault-gif .divHover:hover .divHover-btn .max {
+    content: url("../img/icon-max-normal.svg");
+  }
+  main .block-search .searchResultSection .searchContainer .searchResault-gif .divHover:hover .divHover-btn .max:hover {
+    content: url("../img/icon-max-hover.svg");
+  }
+  main .block-search .searchResultSection .searchContainer .searchResault-gif .divHover:hover .divHover-user {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  main .block-search .block-search-bottom div {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -856,45 +908,37 @@ Fonts Config
         -ms-flex-flow: row nowrap;
             flex-flow: row nowrap;
   }
-  .block-search .block-search-bottom div p {
+  main .block-search .block-search-bottom div p {
     text-align: center;
   }
-  .block-search .searchResultSection .searchContainer {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-  .block-search .searchResultSection .searchContainer .searchResault-gif {
+  .blockTrend .trendGifos .trendGifos-Container {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 1fr 20px 1fr 20px 1fr 20px 1fr 20px;
-        grid-template-columns: 1fr 20px 1fr 20px 1fr 20px 1fr 20px;
-    -ms-grid-rows: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
+    -ms-grid-columns: 1fr 20px 1fr 20px 1fr 20px;
+        grid-template-columns: 1fr 20px 1fr 20px 1fr 20px;
+    -ms-grid-rows: 1fr;
+        grid-template-rows: 1fr;
     row-gap: 20px;
-  }
-  .block-search .searchResultSection .searchContainer .searchResault-gif img {
-    width: 15em;
-    height: 11.5em;
-  }
-  .block-search .divHover {
-    display: block;
-    position: relative;
-    opacity: 0.6;
-    background-color: transparent;
-    width: 15em;
-    height: 11.5em;
-    left: -15em;
     /*
             .divHover:hover .divHover-btn .heartActive:hover{
                 content: url('../img/icon-fav-active.svg')
             }
             */
   }
-  .block-search .divHover .divHover-btn {
+  .blockTrend .trendGifos .trendGifos-Container img {
+    width: 15em;
+    height: 11.5em;
+  }
+  .blockTrend .trendGifos .trendGifos-Container .divHover {
+    display: block;
+    position: relative;
+    opacity: 0.6;
+    background-color: transparent;
+    width: 15em;
+    height: 11.5em;
+    left: -15.6em;
+  }
+  .blockTrend .trendGifos .trendGifos-Container .divHover .divHover-btn {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -902,43 +946,43 @@ Fonts Config
         -ms-flex-pack: end;
             justify-content: flex-end;
     /*.heartActive{
-                    padding: 5px 5px;
-                    content: url('');
-                }*/
+                        padding: 5px 5px;
+                        content: url('');
+                    }*/
     /*
-                .heartActive:hover{
-                    content: url('../img/icon-fav-active.svg')
-                }*/
+                    .heartActive:hover{
+                        content: url('../img/icon-fav-active.svg')
+                    }*/
   }
-  .block-search .divHover .divHover-btn .heart {
+  .blockTrend .trendGifos .trendGifos-Container .divHover .divHover-btn .heart {
     padding: 5px 5px;
     content: url("");
   }
-  .block-search .divHover .divHover-btn .delete {
+  .blockTrend .trendGifos .trendGifos-Container .divHover .divHover-btn .delete {
     padding: 5px 5px;
     content: url("");
   }
-  .block-search .divHover .divHover-btn .heart:hover {
+  .blockTrend .trendGifos .trendGifos-Container .divHover .divHover-btn .heart:hover {
     content: url("../img/icon-fav-hover.svg");
   }
-  .block-search .divHover .divHover-btn .delete:hover {
+  .blockTrend .trendGifos .trendGifos-Container .divHover .divHover-btn .delete:hover {
     content: url("../img/icon-trash-hover.svg");
   }
-  .block-search .divHover .divHover-btn .down {
+  .blockTrend .trendGifos .trendGifos-Container .divHover .divHover-btn .down {
     padding: 5px 5px;
     content: url("");
   }
-  .block-search .divHover .divHover-btn .down:hover {
+  .blockTrend .trendGifos .trendGifos-Container .divHover .divHover-btn .down:hover {
     content: url("../img/icon-download-hover.svg");
   }
-  .block-search .divHover .divHover-btn .max {
+  .blockTrend .trendGifos .trendGifos-Container .divHover .divHover-btn .max {
     padding: 5px 5px;
     content: url("");
   }
-  .block-search .divHover .divHover-btn .max:hover {
+  .blockTrend .trendGifos .trendGifos-Container .divHover .divHover-btn .max:hover {
     content: url("../img/icon-max-hover.svg");
   }
-  .block-search .divHover .divHover-user {
+  .blockTrend .trendGifos .trendGifos-Container .divHover .divHover-user {
     display: none;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -946,61 +990,149 @@ Fonts Config
             flex-flow: column nowrap;
     padding-top: 35%;
   }
-  .block-search .divHover .divHover-user i {
+  .blockTrend .trendGifos .trendGifos-Container .divHover .divHover-user i {
     font-family: "Roboto", sans-serif;
     font-style: normal;
     color: white;
     padding: 0 10px 0;
   }
-  .block-search .divHover .divHover-user i:last-child {
+  .blockTrend .trendGifos .trendGifos-Container .divHover .divHover-user i:last-child {
     font-weight: 700;
   }
-  .block-search .divHover .divHover:hover {
+  .blockTrend .trendGifos .trendGifos-Container .divHover:hover {
     background-color: #572EE5;
   }
-  .block-search .divHover .divHover:hover .divHover-btn .heart {
+  .blockTrend .trendGifos .trendGifos-Container .divHover:hover .divHover-btn .heart {
     content: url("../img/icon-fav.svg");
   }
-  .block-search .divHover .divHover:hover .divHover-btn .delete {
+  .blockTrend .trendGifos .trendGifos-Container .divHover:hover .divHover-btn .delete {
     content: url("../img/icon-trash-normal.svg");
   }
-  .block-search .divHover .divHover:hover .divHover-btn .heartActive {
+  .blockTrend .trendGifos .trendGifos-Container .divHover:hover .divHover-btn .heartActive {
     content: url("../img/icon-fav-active.svg");
   }
-  .block-search .divHover .divHover:hover .divHover-btn .heart:hover {
+  .blockTrend .trendGifos .trendGifos-Container .divHover:hover .divHover-btn .heart:hover {
     content: url("../img/icon-fav-hover.svg");
   }
-  .block-search .divHover .divHover:hover .divHover-btn .delete:hover {
+  .blockTrend .trendGifos .trendGifos-Container .divHover:hover .divHover-btn .delete:hover {
     content: url("../img/icon-trash-hover.svg");
   }
-  .block-search .divHover .divHover:hover .divHover-btn .down {
+  .blockTrend .trendGifos .trendGifos-Container .divHover:hover .divHover-btn .down {
     content: url("../img/icon-download.svg");
   }
-  .block-search .divHover .divHover:hover .divHover-btn .down:hover {
+  .blockTrend .trendGifos .trendGifos-Container .divHover:hover .divHover-btn .down:hover {
     content: url("../img/icon-download-hover.svg");
   }
-  .block-search .divHover .divHover:hover .divHover-btn .max {
+  .blockTrend .trendGifos .trendGifos-Container .divHover:hover .divHover-btn .max {
     content: url("../img/icon-max-normal.svg");
   }
-  .block-search .divHover .divHover:hover .divHover-btn .max:hover {
+  .blockTrend .trendGifos .trendGifos-Container .divHover:hover .divHover-btn .max:hover {
     content: url("../img/icon-max-hover.svg");
   }
-  .block-search .divHover .divHover:hover .divHover-user {
+  .blockTrend .trendGifos .trendGifos-Container .divHover:hover .divHover-user {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
   }
+  .gifoMax {
+    display: none;
+    position: fixed;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vw;
+    background-color: #fff;
+  }
+  .gifoMax .closeMax {
+    position: fixed;
+    cursor: pointer;
+    padding: 0rem 0;
+    top: 20px;
+  }
+  .gifoMax .closeMax .closeX {
+    position: fixed;
+    right: 8vw;
+    top: 3vw;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+    content: url("../img/close.svg");
+  }
+  .gifoMax .gifoMaxContainer {
+    position: fixed;
+    top: 5vw;
+  }
+  .gifoMax .gifoMaxContainer .imgMax {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .gifoMax .gifoMaxContainer .imgMax img {
+    max-height: 35vw;
+  }
+  .gifoMax .gifoMaxFooter {
+    padding: 2rem 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: wrap row;
+            flex-flow: wrap row;
+  }
+  .gifoMax .gifoMaxFooter .box1 {
+    padding: 1rem 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: nowrap column;
+            flex-flow: nowrap column;
+  }
+  .gifoMax .gifoMaxFooter .box1 p {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    color: #000000;
+    padding: 0 10px 0;
+  }
+  .gifoMax .gifoMaxFooter .box1 p:last-child {
+    font-weight: 700;
+  }
+  .gifoMax .gifoMaxFooter .box2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: wrap row;
+            flex-flow: wrap row;
+  }
+  .gifoMax .gifoMaxFooter .box2 .heart {
+    padding: 5px 5px;
+    content: url("../img/icon-fav.svg");
+  }
+  .gifoMax .gifoMaxFooter .box2 .heart:hover {
+    content: url("../img/icon-fav-hover.svg");
+  }
+  .gifoMax .gifoMaxFooter .box2 .down {
+    padding: 5px 5px;
+    content: url("../img/icon-download.svg");
+  }
+  .gifoMax .gifoMaxFooter .box2 .down:hover {
+    content: url("../img/icon-download-hover.svg");
+  }
   /*end*/
 }
 
-/* .mainTitle{
-    @extend %font-title;
-    font-size: 25px;
-    color:var(--color_txt_primary);
-    padding-bottom: 31px;
-    text-align: center;
-
-} */
 .footer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1034,6 +1166,7 @@ Fonts Config
 
 .footer .footerSocialNT img {
   padding: 0 15px 0;
+  cursor: pointer;
 }
 
 .footer .footerGifos p {
@@ -1075,10 +1208,6 @@ Fonts Config
   text-align: center;
 }
 
-.displayNone {
-  display: none;
-}
-
 .favContainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1088,19 +1217,29 @@ Fonts Config
           justify-content: center;
 }
 
-#favResault-gif {
+.favContainer .favResault-gif {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 10px 1fr 10px;
-      grid-template-columns: 1fr 10px 1fr 10px;
-  -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
   row-gap: 10px;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
 }
 
-#favResault-gif img {
+.favContainer .favResault-gif img {
   width: 9.75em;
   height: 7.5em;
+}
+
+.favContainer .favResault-gif .divHover {
+  display: none;
+}
+
+.displayNone {
+  display: none;
 }
 
 .seeMore {
@@ -1119,113 +1258,17 @@ Fonts Config
   content: var(--seeMoreHover);
 }
 
-/* .divHover{
-    display: block;
-    position:relative;
-    opacity: 0.6;
-    background-color: transparent;
-    width: 9.75em;
-    height: 7.5em;
-    //top:-200px;
-    left:-9.75em;
-    .divHover-btn{
-        display: flex;
-        justify-content: flex-end;
-        .heart{
-            padding: 5px 5px;
-            content: url('');
-        }
-        .delete{
-            padding: 5px 5px;
-            content: url('');
-        }
-        .heart:hover{
-            content: url('../img/icon-fav-hover.svg')
-        }
-        .delete:hover{
-            content: url('../img/icon-trash-hover.svg')
-            }
-        .down{
-            padding: 5px 5px;
-            content: url('')
-        }
-        .down:hover{
-            content: url('../img/icon-download-hover.svg')
-        }
-        .max{
-            padding: 5px 5px;
-            content: url('');
-        }
-        .max:hover{
-            content: url('../img/icon-max-hover.svg')
-        }
-    }
-
-    .divHover-user{
-        display: none;
-        flex-flow: column nowrap;
-        padding-top: 35%;
-        i{
-            font-family: $fontSecundary;
-            font-style: normal;
-            color: white;
-            padding: 0 10px 0;
-        }
-        i:last-child{
-            font-weight: 700;
-        }
-    }
-} */
-.divHover:hover {
-  background-color: #572EE5;
-}
-
-.divHover:hover .divHover-btn .heart {
-  content: url("../img/icon-fav.svg");
-}
-
-.divHover:hover .divHover-btn .delete {
-  content: url("../img/icon-trash-normal.svg");
-}
-
-.divHover:hover .divHover-btn .heart:hover {
-  content: url("../img/icon-fav-hover.svg");
-}
-
-.divHover:hover .divHover-btn .delete:hover {
-  content: url("../img/icon-trash-hover.svg");
-}
-
-.divHover:hover .divHover-btn .down {
-  content: url("../img/icon-download.svg");
-}
-
-.divHover:hover .divHover-btn .down:hover {
-  content: url("../img/icon-download-hover.svg");
-}
-
-.divHover:hover .divHover-btn .max {
-  content: url("../img/icon-max-normal.svg");
-}
-
-.divHover:hover .divHover-btn .max:hover {
-  content: url("../img/icon-max-hover.svg");
-}
-
-.divHover:hover .divHover-user {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 /* Desktop */
 @media screen and (min-width: 740px) and (max-width: 1440px) {
-  #favResault-gif {
-    /*         display: grid;
-                grid-template-columns: 1fr 1fr 1fr 1fr ;
-                grid-template-rows: 1fr 1fr 1fr ;
-                row-gap: 1px;
-                column-gap: 10px; */
+  .favContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .favContainer .favResault-gif {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr 20px 1fr 20px 1fr 20px 1fr 20px;
@@ -1233,19 +1276,120 @@ Fonts Config
     -ms-grid-rows: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
     row-gap: 20px;
+    /*
+            .divHover:hover .divHover-btn .heartActive:hover{
+                content: url('../img/icon-fav-active.svg')
+            }
+            */
   }
-  #favResault-gif img {
-    width: 260px;
-    height: 200px;
+  .favContainer .favResault-gif img {
+    width: 15em;
+    height: 11.5em;
   }
-  .divHover {
+  .favContainer .favResault-gif .divHover {
     display: block;
     position: relative;
     opacity: 0.6;
     background-color: transparent;
-    width: 260px;
-    height: 200px;
-    left: -260px;
+    width: 15em;
+    height: 11.5em;
+    left: -15.6em;
+  }
+  .favContainer .favResault-gif .divHover .divHover-btn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    /*.heartActive{
+                        padding: 5px 5px;
+                        content: url('');
+                    }*/
+    /*
+                    .heartActive:hover{
+                        content: url('../img/icon-fav-active.svg')
+                    }*/
+  }
+  .favContainer .favResault-gif .divHover .divHover-btn .heart {
+    padding: 5px 5px;
+    content: url("");
+  }
+  .favContainer .favResault-gif .divHover .divHover-btn .delete {
+    padding: 5px 5px;
+    content: url("");
+  }
+  .favContainer .favResault-gif .divHover .divHover-btn .heart:hover {
+    content: url("../img/icon-fav-hover.svg");
+  }
+  .favContainer .favResault-gif .divHover .divHover-btn .delete:hover {
+    content: url("../img/icon-trash-hover.svg");
+  }
+  .favContainer .favResault-gif .divHover .divHover-btn .down {
+    padding: 5px 5px;
+    content: url("");
+  }
+  .favContainer .favResault-gif .divHover .divHover-btn .down:hover {
+    content: url("../img/icon-download-hover.svg");
+  }
+  .favContainer .favResault-gif .divHover .divHover-btn .max {
+    padding: 5px 5px;
+    content: url("");
+  }
+  .favContainer .favResault-gif .divHover .divHover-btn .max:hover {
+    content: url("../img/icon-max-hover.svg");
+  }
+  .favContainer .favResault-gif .divHover .divHover-user {
+    display: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    padding-top: 35%;
+  }
+  .favContainer .favResault-gif .divHover .divHover-user i {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    color: white;
+    padding: 0 10px 0;
+  }
+  .favContainer .favResault-gif .divHover .divHover-user i:last-child {
+    font-weight: 700;
+  }
+  .favContainer .favResault-gif .divHover:hover {
+    background-color: #572EE5;
+  }
+  .favContainer .favResault-gif .divHover:hover .divHover-btn .heart {
+    content: url("../img/icon-fav.svg");
+  }
+  .favContainer .favResault-gif .divHover:hover .divHover-btn .delete {
+    content: url("../img/icon-trash-normal.svg");
+  }
+  .favContainer .favResault-gif .divHover:hover .divHover-btn .heartActive {
+    content: url("../img/icon-fav-active.svg");
+  }
+  .favContainer .favResault-gif .divHover:hover .divHover-btn .heart:hover {
+    content: url("../img/icon-fav-hover.svg");
+  }
+  .favContainer .favResault-gif .divHover:hover .divHover-btn .delete:hover {
+    content: url("../img/icon-trash-hover.svg");
+  }
+  .favContainer .favResault-gif .divHover:hover .divHover-btn .down {
+    content: url("../img/icon-download.svg");
+  }
+  .favContainer .favResault-gif .divHover:hover .divHover-btn .down:hover {
+    content: url("../img/icon-download-hover.svg");
+  }
+  .favContainer .favResault-gif .divHover:hover .divHover-btn .max {
+    content: url("../img/icon-max-normal.svg");
+  }
+  .favContainer .favResault-gif .divHover:hover .divHover-btn .max:hover {
+    content: url("../img/icon-max-hover.svg");
+  }
+  .favContainer .favResault-gif .divHover:hover .divHover-user {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
   /* end */
 }
@@ -1277,12 +1421,24 @@ Fonts Config
           justify-content: center;
 }
 
+.mainSection .leftColumn .camera {
+  content: var(--camera);
+}
+
+.mainSection .leftColumn .lightCamera {
+  content: var(--lightCamera);
+}
+
 .mainSection .rightColumn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-item-align: end;
       align-self: flex-end;
+}
+
+.mainSection .rightColumn .film {
+  content: var(--film);
 }
 
 .mainSection .column {
@@ -1430,7 +1586,7 @@ Fonts Config
 }
 
 .mainCreate .videoGrid .hide {
-  display: hide;
+  display: none;
 }
 
 .mainCreate .videoGrid .video {

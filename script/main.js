@@ -1,4 +1,4 @@
-import {trendPagL,trendPagR, drawTrending, markUpSearchResults, setFavGifs, favoritesLS, autoComplete, getSearchEndP, getPopularSearchEP, download, gifoMaxBtn } from "./getapi.js";
+import {downLoadModal, close, trendPagL,trendPagR, drawTrending, markUpSearchResults, setFavGifs, favoritesLS, autoComplete, getSearchEndP, getPopularSearchEP, download, gifoMaxBtn } from "./getapi.js";
 
 
 //console.log("main.js favoritesLS => " + favoritesLS())
@@ -126,31 +126,61 @@ const getSearch = (inSearch, limitSeeMore=12) =>{
         let img = document.getElementById(`${searchArr[sF].id}`);
         //guardo en favoritos
         searchFav.addEventListener('click', function () {setFavGifs(searchArr[sF].id),
-        searchFav.classList.replace('heart','heartActive')});
+        //icono activo (TODO)
+          searchFav.classList.replace('heart','heartActive')});
         //download de un gifo
         down.addEventListener('click', function (){
           download(searchArr[sF].images.original.url, `Gifo ${searchArr[sF].title}`)
           console.log("ejecutando download...")
         })
-        //maximizar desktop
-        max.addEventListener('click', function(){
-          //agrego la clase para mostrar el modal
-          gifoMax.style.display ="flex"
-          //dibuja el html
-          gifoMax.innerHTML = gifoMaxBtn(searchArr[sF].images.fixed_height.url, searchArr[sF].username, searchArr[sF].title);
-          //quito la clase para cerrar el modal
-          const closeMax = document.getElementById('closeMax');
-          closeMax.addEventListener('click', () =>{gifoMax.style.display = "none"})
+        //maximizar desktop ---- MAX SEARCH ----
+        max.addEventListener('click', async function(){
+          await new Promise((resolve, reject) =>{
+            resolve(
+                //agrego la clase para mostrar el modal
+                gifoMax.style.display ="flex",
+                //dibuja el html
+                gifoMax.innerHTML =  gifoMaxBtn(searchArr[sF].images.fixed_height.url, searchArr[sF].username, searchArr[sF].title, searchArr[sF].id)
+
+            )
+            
+        }).then(()=>
+              document.getElementById(`heartMax-${searchArr[sF].id}`).addEventListener('click', ()=>{
+                  setFavGifs(searchArr[sF].id);
+                  console.log("favModal...")
+              }) 
+              
+          ).then(()=>{
+            downLoadModal(`downMax-${searchArr[sF].id}`,searchArr[sF].images.original.url,`Gifo ${searchArr[sF].title}`);
+
+          }).then(()=>{
+              close();
+
+          })
+        
         })
-        //maximizar mobile
-          img.addEventListener('click', function(){
-            //agrego la clase para mostrar el modal
-            gifoMax.style.display ="flex"
-            //dibuja el html
-            gifoMax.innerHTML = gifoMaxBtn(searchArr[sF].images.fixed_height.url, searchArr[sF].username, searchArr[sF].title);
-            //quito la clase para cerrar el modal
-            const closeMax = document.getElementById('closeMax');
-            closeMax.addEventListener('click', () =>{gifoMax.style.display = "none"})
+        //maximizar mobile 
+          img.addEventListener('click', async function(){
+            await new Promise((resolve, reject) =>{
+              resolve(
+                  //agrego la clase para mostrar el modal
+                  gifoMax.style.display ="flex",
+                  //dibuja el html
+                  gifoMax.innerHTML =  gifoMaxBtn(searchArr[sF].images.fixed_height.url, searchArr[sF].username, searchArr[sF].title, searchArr[sF].id)
+                ) 
+              }).then(()=>
+                document.getElementById(`heartMax-${searchArr[sF].id}`).addEventListener('click', ()=>{
+                    setFavGifs(searchArr[sF].id);
+                    console.log("favModal...")
+                }) 
+              
+              ).then(()=>{
+                downLoadModal(`downMax-${searchArr[sF].id}`,searchArr[sF].images.original.url,`Gifo ${searchArr[sF].title}`);
+
+              }).then(()=>{
+                  close();
+
+              })
           })
         }
     })
@@ -162,6 +192,7 @@ const getSearch = (inSearch, limitSeeMore=12) =>{
       seeMoreClass()
     })
     .catch(err => console.warn('Error en la petición de busqueda =>',err))
+  console.log(searchArr)
   }
 
 /**

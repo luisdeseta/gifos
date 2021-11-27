@@ -53,6 +53,9 @@ $leftBtnHover:url('../img/button-slider-left-hover.svg');
 $rigthBtnHover:url('../img/Button-Slider-right-hover.svg');
 $seeMore:url('../img/CTA-ver-mas.svg');
 $seeMoreHover: url('../img/CTA-ver-mas-hover.svg');
+$camera: url('../img/camara.svg');
+$lightCamera: url('../img/element-luz-camara.svg');
+$film: url('../img/pelicula.svg');
 /* Dark colors*/
 $color_bg_primary--dark: #37383C;
 $color_bg_secundary--dark:#222326;
@@ -72,6 +75,9 @@ $leftBtnHover--dark:url('../img/button-slider-left.svg');
 $rigthBtnHover--dark:url('../img/Button-Slider-right.svg');
 $seeMore--dark: url('../img/CTA-ver+-modo-noc.svg');
 $seeMoreHover--dark: url('../img/CTA-ver+hover-modo-noc.svg');
+$camera--dark: url('../img/camara-modo-noc.svg');
+$lightCamera--dark: url('../img/element-luz-camara.svg');
+$film--dark: url('../img/pelicula-modo-noc.svg');
 .theme{
     --color_bg_primary: #{$color_bg_primary};
     --color_bg_secundary: #{$color_bg_secundary};
@@ -95,6 +101,9 @@ $seeMoreHover--dark: url('../img/CTA-ver+hover-modo-noc.svg');
     --rigthBtnHover: #{$rigthBtnHover};
     --seeMore: #{$seeMore};
     --seeMoreHover: #{$seeMoreHover};
+    --camera: #{$camera};
+    --lightCamera: #{$lightCamera};
+    --film: #{$film};
     &--dark{
         --color_bg_primary: #{$color_bg_primary--dark};
         --color_bg_secundary: #{$color_bg_secundary--dark};
@@ -113,6 +122,9 @@ $seeMoreHover--dark: url('../img/CTA-ver+hover-modo-noc.svg');
         --leftBtnHover: #{$leftBtnHover--dark};
         --rigthBtnHover: #{$rigthBtnHover--dark};
         --seeMore: #{$seeMore--dark};
-        --seeMoreHover: #{$seeMoreHover--dark};    
+        --seeMoreHover: #{$seeMoreHover--dark};
+        --camera: #{$camera--dark};
+        --lightCamera: #{$lightCamera--dark};
+        --film: #{$film--dark};    
     }
 }

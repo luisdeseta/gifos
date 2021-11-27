@@ -33,9 +33,9 @@
         padding: 0rem 0;
         top: 20px;
         .closeX{
-            position: fixed;
-            right: 8vw;
-            top: 3vw;
+            position: relative;
+            right: -23vw;
+            top: 0vw;
             align-self: flex-start;
             content: url('../img/close.svg');
         }
@@ -196,9 +196,10 @@
 
         .searchResault-gif{
             display: grid;
-            grid-template-columns: 1fr 10px 1fr 10px ;
-            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
             row-gap: 10px;
+            column-gap: 10px;
         
             img{
                 width: 9.75em;
@@ -230,121 +231,11 @@
 
 
 //Aplica a Fav y a Search
-/* .divHover{
-    display: block;
-    position:relative;
-    opacity: 0.6;
-    background-color: transparent;
-    width: 9.75em;
-    height: 7.5em;
-    //top:-200px;
-    left:-9.75em;
-    .divHover-btn{
-        display: flex;
-        justify-content: flex-end;
-        .heart{
-            padding: 5px 5px;
-            content: url('');
-        }
-        .delete{
-            padding: 5px 5px;
-            content: url('');
-        }
-        .heart:hover{
-        content: url('../img/icon-fav-hover.svg')
-        }
-        .delete:hover{
-        content: url('../img/icon-trash-hover.svg')
-        }
-        .down{
-            padding: 5px 5px;
-            content: url('')
-        }
-        .down:hover{
-            content: url('../img/icon-download-hover.svg')
-        }
-        .max{
-            padding: 5px 5px;
-            content: url('');
-        }
-        .max:hover{
-            content: url('../img/icon-max-hover.svg')
-        }
-    }
-    .divHover-user{
-        display: none;
-        flex-flow: column nowrap;
-        padding-top: 35%;
-        i{
-            font-family: $fontSecundary;
-            font-style: normal;
-            color: white;
-            padding: 0 10px 0;
-        }
-        i:last-child{
-            font-weight: 500;
-        }
-    }
-} */
+.divHover{
+    display: none;
+}}
 
 
-    .divHover:hover{
-        background-color: #572EE5
-    }
-
-     .divHover:hover .divHover-btn .heart{
-        content: url('../img/icon-fav.svg');
-    }
-    .divHover:hover .divHover-btn .delete{
-        content: url('../img/icon-trash-normal.svg');
-    }
-    //heartActive 
-    .divHover:hover .divHover-btn .heartActive{
-        content: url('../img/icon-fav-active.svg');
-    }
-    //
-    //
-    .divHover:hover .divHover-btn .heart:hover{
-        content: url('../img/icon-fav-hover.svg');
-    }
-    .divHover:hover .divHover-btn .delete:hover{
-        content: url('../img/icon-trash-hover.svg');
-    }
-    /*
-    .divHover:hover .divHover-btn .heartActive:hover{
-        content: url('../img/icon-fav-active.svg')
-    }
-    */
-    .divHover:hover .divHover-btn .down{
-        content: url('../img/icon-download.svg')
-    }
-    .divHover:hover .divHover-btn .down:hover{
-        content: url('../img/icon-download-hover.svg')
-    }
-    .divHover:hover .divHover-btn .max{
-        content: url('../img/icon-max-normal.svg');
-    }
-    .divHover:hover .divHover-btn .max:hover{
-        content: url('../img/icon-max-hover.svg')
-    }
-    .divHover:hover .divHover-user{
-        display: flex;
-    }            
-}
-
-
-//grid favoritos
-.trendGifos-Container{
-    display: grid;
-    grid-template-columns: 1fr 20px 1fr 20px 1fr 20px;
-    grid-template-rows: 1fr;
-    row-gap: 20px;
-    img{
-        width: 260px;
-        height: 200px;
-        //object-fit: cover;
-    }
-}
 
 .blockTrend{
     padding: 0 50px 100px;
@@ -388,6 +279,22 @@
                 content: var(--leftBtnHover);
             }
         }
+        //grid favoritos
+        .trendGifos-Container{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+            row-gap: 20px;
+            column-gap: 10px;
+            img{
+                width: 15em;
+                height: 11.5em;
+                //object-fit: cover;
+            }
+            .divHover{
+                display: none;
+            } 
+        }
         .buttonSliderRight{
             display: flex;
             justify-content: center;
@@ -403,115 +310,247 @@
     }
 
 }
-
+.divHover:hover{
+    background-color: #572EE5
+}
 /* Desktop */
 @media screen and (min-width: 740px) and (max-width: 1440px){
-    .block-search{
-        .searchSection{
-            .searchBox{
-                width: 30em;
-                input{
-                    width: 75%;
-                }
-            }
-
-        }
-        .block-search-bottom{
-            div{
-                display: flex;
-                flex-flow: row nowrap;
-                p{
-                    text-align: center;
-                }
-            }
-        }
-        .searchResultSection{
-            .searchContainer{
-                display: flex;
-                justify-content: center;
-                .searchResault-gif{
-                    display: grid;
-                    grid-template-columns: 1fr 20px 1fr 20px 1fr 20px 1fr 20px;
-                    grid-template-rows: 1fr 1fr 1fr ;
-                    row-gap: 20px;
-                    img{
-                        width: 15em;
-                        height: 11.5em;
-                        //object-fit: cover;
+    main{
+        .block-search{
+            .searchSection{
+                .searchBox{
+                    width: 30em;
+                    input{
+                        width: 75%;
                     }
-                    
                 }
-            }
-        }
-        .divHover{
-            display: block;
-            position:relative;
-            opacity: 0.6;
-            background-color: transparent;
-            width: 15em;
-            height: 11.5em;
-            //top:-200px;
-            left:-15em;
-            .divHover-btn{
-                display: flex;
-                justify-content: flex-end;
-                .heart{
-                    padding: 5px 5px;
-                    content: url('');
-                }
-                .delete{
-                    padding: 5px 5px;
-                    content: url('');
-                }
-                /*.heartActive{
-                    padding: 5px 5px;
-                    content: url('');
-                }*/
-                .heart:hover{
-                content: url('../img/icon-fav-hover.svg')
-                }
-                .delete:hover{
-                content: url('../img/icon-trash-hover.svg')
-                }
-                /*
-                .heartActive:hover{
-                    content: url('../img/icon-fav-active.svg')
-                }*/
     
-                .down{
-                    padding: 5px 5px;
-                    content: url('')
-                }
-                .down:hover{
-                    content: url('../img/icon-download-hover.svg')
-                }
-                .max{
-                    padding: 5px 5px;
-                    content: url('');
-                }
-                .max:hover{
-                    content: url('../img/icon-max-hover.svg')
+            }
+            .searchResultSection{
+                .searchContainer{
+                    display: flex;
+                    justify-content: center;
+                    .searchResault-gif{
+                        display: grid;
+                        grid-template-columns: 1fr 20px 1fr 20px 1fr 20px 1fr 20px;
+                        grid-template-rows: 1fr 1fr 1fr ;
+                        row-gap: 20px;
+                        img{
+                            width: 15em;
+                            height: 11.5em;
+                            //object-fit: cover;
+                        }
+                        .divHover{
+                            display: block;
+                            position:relative;
+                            opacity: 0.6;
+                            background-color: transparent;
+                            width: 15em;
+                            height: 11.5em;
+                            //top:-200px;
+                            left: -15.6em;
+                            .divHover-btn{
+                                display: flex;
+                                justify-content: flex-end;
+                                .heart{
+                                    padding: 5px 5px;
+                                    content: url('');
+                                }
+                                .delete{
+                                    padding: 5px 5px;
+                                    content: url('');
+                                }
+                                /*.heartActive{
+                                    padding: 5px 5px;
+                                    content: url('');
+                                }*/
+                                .heart:hover{
+                                content: url('../img/icon-fav-hover.svg')
+                                }
+                                .delete:hover{
+                                content: url('../img/icon-trash-hover.svg')
+                                }
+                                /*
+                                .heartActive:hover{
+                                    content: url('../img/icon-fav-active.svg')
+                                }*/
+                    
+                                .down{
+                                    padding: 5px 5px;
+                                    content: url('')
+                                }
+                                .down:hover{
+                                    content: url('../img/icon-download-hover.svg')
+                                }
+                                .max{
+                                    padding: 5px 5px;
+                                    content: url('');
+                                }
+                                .max:hover{
+                                    content: url('../img/icon-max-hover.svg')
+                                }
+                            }
+                            .divHover-user{
+                                display: none;
+                                flex-flow: column nowrap;
+                                padding-top: 35%;
+                                i{
+                                    font-family: $fontSecundary;
+                                    font-style: normal;
+                                    color: white;
+                                    padding: 0 10px 0;
+                                }
+                                i:last-child{
+                                    font-weight: 700;
+                                }
+                            }
+                            
+                             
+                        }
+                        .divHover:hover{
+                            background-color: #572EE5
+                        }
+                    
+                         .divHover:hover .divHover-btn .heart{
+                            content: url('../img/icon-fav.svg');
+                        }
+                        .divHover:hover .divHover-btn .delete{
+                            content: url('../img/icon-trash-normal.svg');
+                        }
+                        //heartActive 
+                        .divHover:hover .divHover-btn .heartActive{
+                            content: url('../img/icon-fav-active.svg');
+                        }
+                        //
+                        //
+                        .divHover:hover .divHover-btn .heart:hover{
+                            content: url('../img/icon-fav-hover.svg');
+                        }
+                        .divHover:hover .divHover-btn .delete:hover{
+                            content: url('../img/icon-trash-hover.svg');
+                        }
+                        /*
+                        .divHover:hover .divHover-btn .heartActive:hover{
+                            content: url('../img/icon-fav-active.svg')
+                        }
+                        */
+                        .divHover:hover .divHover-btn .down{
+                            content: url('../img/icon-download.svg')
+                        }
+                        .divHover:hover .divHover-btn .down:hover{
+                            content: url('../img/icon-download-hover.svg')
+                        }
+                        .divHover:hover .divHover-btn .max{
+                            content: url('../img/icon-max-normal.svg');
+                        }
+                        .divHover:hover .divHover-btn .max:hover{
+                            content: url('../img/icon-max-hover.svg')
+                        }
+                        .divHover:hover .divHover-user{
+                            display: flex;
+                        } 
+                    }
+
                 }
             }
-            .divHover-user{
-                display: none;
-                flex-flow: column nowrap;
-                padding-top: 35%;
-                i{
-                    font-family: $fontSecundary;
-                    font-style: normal;
-                    color: white;
-                    padding: 0 10px 0;
+            .block-search-bottom{
+                div{
+                    display: flex;
+                    flex-flow: row nowrap;
+                    p{
+                        text-align: center;
+                    }
                 }
-                i:last-child{
-                    font-weight: 700;
+            }
+    
+        
+        }
+
+
+    }
+//grid favoritos
+.blockTrend{
+    
+    .trendGifos{
+        .trendGifos-Container{
+            display: grid;
+            grid-template-columns: 1fr 20px 1fr 20px 1fr 20px;
+            grid-template-rows: 1fr;
+            row-gap: 20px;
+            img{
+                width: 15em;
+                height: 11.5em;
+                //object-fit: cover;
+            }
+            .divHover{
+                display: block;
+                position:relative;
+                opacity: 0.6;
+                background-color: transparent;
+                width: 15em;
+                height: 11.5em;
+                //top:-200px;
+                left: -15.6em;
+                .divHover-btn{
+                    display: flex;
+                    justify-content: flex-end;
+                    .heart{
+                        padding: 5px 5px;
+                        content: url('');
+                    }
+                    .delete{
+                        padding: 5px 5px;
+                        content: url('');
+                    }
+                    /*.heartActive{
+                        padding: 5px 5px;
+                        content: url('');
+                    }*/
+                    .heart:hover{
+                    content: url('../img/icon-fav-hover.svg')
+                    }
+                    .delete:hover{
+                    content: url('../img/icon-trash-hover.svg')
+                    }
+                    /*
+                    .heartActive:hover{
+                        content: url('../img/icon-fav-active.svg')
+                    }*/
+        
+                    .down{
+                        padding: 5px 5px;
+                        content: url('')
+                    }
+                    .down:hover{
+                        content: url('../img/icon-download-hover.svg')
+                    }
+                    .max{
+                        padding: 5px 5px;
+                        content: url('');
+                    }
+                    .max:hover{
+                        content: url('../img/icon-max-hover.svg')
+                    }
+                }
+                .divHover-user{
+                    display: none;
+                    flex-flow: column nowrap;
+                    padding-top: 35%;
+                    i{
+                        font-family: $fontSecundary;
+                        font-style: normal;
+                        color: white;
+                        padding: 0 10px 0;
+                    }
+                    i:last-child{
+                        font-weight: 700;
+                    }
                 }
             }
             .divHover:hover{
                 background-color: #572EE5
             }
-        
-             .divHover:hover .divHover-btn .heart{
+            .divHover:hover .divHover-btn .heart{
                 content: url('../img/icon-fav.svg');
             }
             .divHover:hover .divHover-btn .delete{
@@ -548,11 +587,95 @@
             }
             .divHover:hover .divHover-user{
                 display: flex;
-            }  
-
+            }
+            //
         }
+    
     
     }
 
+    
+
+}
+//Parametros gifo maximizado
+.gifoMax{
+    display: none;
+    position:fixed;
+    justify-content: center;
+    flex-wrap: wrap;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vw;
+    background-color: #fff;
+    .closeMax{
+        //display: flex;
+        position:fixed;
+        //justify-content: flex-end;
+        cursor: pointer;
+        padding: 0rem 0;
+        top: 20px;
+        .closeX{
+            position: fixed;
+            right: 8vw;
+            top: 3vw;
+            align-self: flex-start;
+            content: url('../img/close.svg');
+        }
+    }
+    .gifoMaxContainer{
+        position: fixed;
+        top: 5vw;
+        .imgMax{
+            display: flex;
+            justify-content: center;
+            //max-height: 320px;
+            img{
+                max-height: 35vw;
+            }
+        }
+    }
+    .gifoMaxFooter{
+        padding: 2rem 0;
+        display: flex;
+        flex-flow: wrap row;
+        .box1{
+            padding: 1rem 1rem;
+            display: flex;
+            flex-flow: nowrap column;
+            p{
+                font-family: $fontSecundary;
+                font-style: normal;
+                color: $color_txt_therd;
+                padding: 0 10px 0;
+            }
+            p:last-child{
+                font-weight: 700;
+            }
+        }
+        .box2{
+            
+            display: flex;
+            flex-flow: wrap row;
+            
+            
+            .heart{
+                padding: 5px 5px;
+                content: url('../img/icon-fav.svg');
+            }
+            .heart:hover{
+                content: url('../img/icon-fav-hover.svg');
+            }
+            .down{
+                padding: 5px 5px;
+                content: url('../img/icon-download.svg');
+            }
+            .down:hover{
+                content: url('../img/icon-download-hover.svg');
+            }
+        }
+    }
+} 
 
 /*end*/}

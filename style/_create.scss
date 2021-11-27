@@ -8,12 +8,21 @@
         display: flex;
         align-content: center;
         justify-content: center;
+        .camera{
+            content: var(--camera);
+        }
+        .lightCamera{
+            content: var(--lightCamera);
+        }
     }
     .rightColumn{
        //height: auto;
         display: flex;
         align-self: flex-end;
         //justify-content: end;
+        .film{
+            content: var(--film);
+        }
     }
     .column{
         padding: 20px 0;
@@ -128,7 +137,7 @@
             text-align: center;
         }
         .hide{
-            display: hide;
+            display: none;
         }
         .video{
             display: none;

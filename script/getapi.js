@@ -242,6 +242,7 @@ return `
                 let searchfav = document.getElementById(`heart-${trendArr[t].id}`);
                 let down = document.getElementById(`down-${trendArr[t].id}`);
                 let max = document.getElementById(`max-${trendArr[t].id}`);
+                let img = document.getElementById(trendArr[t].id);
                 searchfav.addEventListener('click', function() {
                   setFavGifs(trendArr[t].id);
                 });
@@ -265,7 +266,34 @@ return `
                   const closeMax = document.getElementById('closeMax');
                   closeMax.addEventListener('click', () =>{gifoMax.style.display = "none"})
                 })
-              }
+                //maximizar mobile ---- ----
+                img.addEventListener('click', async function(){
+                    await new Promise((resolve, reject) =>{
+                        resolve(
+                            //agrego la clase para mostrar el modal
+                            gifoMax.style.display ="flex",
+                            //dibuja el html
+                            gifoMax.innerHTML =  gifoMaxBtn(trendArr[t].images.fixed_height.url, trendArr[t].username, trendArr[t].title, trendArr[t].id)
+                          ) 
+                        }).then(()=>
+                          document.getElementById(`heartMax-${trendArr[t].id}`).addEventListener('click', ()=>{
+                              setFavGifs(trendArr[t].id);
+                              console.log("favModal...")
+                          }) 
+                        
+                        ).then(()=>{
+                          downLoadModal(`downMax-${trendArr[t].id}`,trendArr[t].images.original.url,`Gifo ${trendArr[t].title}`);
+          
+                        }).then(()=>{
+                            close();
+          
+                        })
+                
+                })
+              
+            
+            
+            }
           })
   }
 
@@ -285,7 +313,6 @@ export function trendPagR (draw) {
     }
     let limit=3
     console.log(offSet)
-    //drawTrending(limit, offSet)
    draw(limit, offSet)
 }
 
@@ -303,7 +330,6 @@ export function trendPagR (draw) {
     }
      let limit=3
      console.log(offSet)
-     //drawTrending(limit, offSet)
      draw(limit, offSet)  
  }
 
@@ -338,3 +364,29 @@ export function setMyGifosLS (id) {
     let gifoLS = JSON.stringify(myGifos);
     localStorage.setItem('myGif', gifoLS);
 }
+
+/**
+ * @description cierra el modal
+ * 
+ */
+export function close () {
+    document.getElementById('closeMax').addEventListener('click', 
+        () =>{gifoMax.style.display = "none";
+        
+        console.log("close..");
+        })
+}
+
+/**
+ * @description Realiza el download desde el modal
+ * @param {} id id del icono download del gifo dibujado (hace getElementById)
+ * @param {*} url url para hacer download
+ * @param {*} title nombre del gifo
+ */
+export function downLoadModal (id, url, title){
+    document.getElementById(id).addEventListener('click', function (){
+        download(url, title)
+        console.log("ejecutando download...")
+      })
+}
+

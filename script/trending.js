@@ -20,4 +20,8 @@ function imprimir (array, callback) {
 
 } 
 
+setTimeout(() => {
+    console.log("hola")
+}, 200);
+
 btn.addEventListener('click', () => {newArraY(arrayA, 0,16)})

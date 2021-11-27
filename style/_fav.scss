@@ -1,12 +1,9 @@
-//@import "variables";
-//@import "body";
 
 .favIconHeader{
     display: flex;
     flex-flow: column wrap;
     align-content: center;
     justify-content: center;
-
 }
 .favEmpty{
     display: flex;
@@ -19,26 +16,31 @@
         text-align: center;
     }
 }
-.displayNone{
-    display:none;
-}
 .favContainer{
     display: flex;
     justify-content: center;
-
-}
- #favResault-gif{
-    display: grid;
-    grid-template-columns: 1fr 10px 1fr 10px ;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-    row-gap: 10px;
-
-    img{
-        width: 9.75em;
-        height: 7.5em;
-        //object-fit: cover;
+    .favResault-gif{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        row-gap: 10px;
+        column-gap: 10px;
+        img{
+            width: 9.75em;
+            height: 7.5em;
+            //object-fit: cover;
+        }
+        .divHover{
+            display: none;
+        }
     }
 }
+
+.displayNone{
+    display:none;
+}
+
+
 .seeMore{
     display: none;
     justify-content: center;
@@ -51,123 +53,136 @@
     } 
     
 }
-//Aplica a Fav y a Search          
-/* .divHover{
-    display: block;
-    position:relative;
-    opacity: 0.6;
-    background-color: transparent;
-    width: 9.75em;
-    height: 7.5em;
-    //top:-200px;
-    left:-9.75em;
-    .divHover-btn{
-        display: flex;
-        justify-content: flex-end;
-        .heart{
-            padding: 5px 5px;
-            content: url('');
-        }
-        .delete{
-            padding: 5px 5px;
-            content: url('');
-        }
-        .heart:hover{
-            content: url('../img/icon-fav-hover.svg')
-        }
-        .delete:hover{
-            content: url('../img/icon-trash-hover.svg')
-            }
-        .down{
-            padding: 5px 5px;
-            content: url('')
-        }
-        .down:hover{
-            content: url('../img/icon-download-hover.svg')
-        }
-        .max{
-            padding: 5px 5px;
-            content: url('');
-        }
-        .max:hover{
-            content: url('../img/icon-max-hover.svg')
-        }
-    }
 
-    .divHover-user{
-        display: none;
-        flex-flow: column nowrap;
-        padding-top: 35%;
-        i{
-            font-family: $fontSecundary;
-            font-style: normal;
-            color: white;
-            padding: 0 10px 0;
-        }
-        i:last-child{
-            font-weight: 700;
-        }
-    }
-} */
-.divHover:hover{
-    background-color: #572EE5
-}
-.divHover:hover .divHover-btn .heart{
-    content: url('../img/icon-fav.svg');
-}
-.divHover:hover .divHover-btn .delete{
-    content: url('../img/icon-trash-normal.svg');
-}
-.divHover:hover .divHover-btn .heart:hover{
-    content: url('../img/icon-fav-hover.svg')
-}
-.divHover:hover .divHover-btn .delete:hover{
-    content: url('../img/icon-trash-hover.svg');
-}   
-.divHover:hover .divHover-btn .down{
-    content: url('../img/icon-download.svg')
-}
-.divHover:hover .divHover-btn .down:hover{
-    content: url('../img/icon-download-hover.svg')
-}
-.divHover:hover .divHover-btn .max{
-    content: url('../img/icon-max-normal.svg');
-}
-.divHover:hover .divHover-btn .max:hover{
-    content: url('../img/icon-max-hover.svg')
-}
-.divHover:hover .divHover-user{
-    display: flex;
-}
+
 
 /* Desktop */
 @media screen and (min-width: 740px) and (max-width: 1440px){
-    #favResault-gif{
-        /*         display: grid;
-                grid-template-columns: 1fr 1fr 1fr 1fr ;
-                grid-template-rows: 1fr 1fr 1fr ;
-                row-gap: 1px;
-                column-gap: 10px; */
-                display: grid;
-                grid-template-columns: 1fr 20px 1fr 20px 1fr 20px 1fr 20px;
-                grid-template-rows: 1fr 1fr 1fr ;
-                row-gap: 20px;
-                img{
-                    width: 260px;
-                    height: 200px;
-                    //object-fit: cover;
+    .favContainer{
+        display: flex;
+        justify-content: center;
+        .favResault-gif{
+            display: grid;
+            grid-template-columns: 1fr 20px 1fr 20px 1fr 20px 1fr 20px;
+            grid-template-rows: 1fr 1fr 1fr ;
+            row-gap: 20px;
+            img{
+                width: 15em;
+                height: 11.5em;
+                //object-fit: cover;
+            }
+            .divHover{
+                display: block;
+                position:relative;
+                opacity: 0.6;
+                background-color: transparent;
+                width: 15em;
+                height: 11.5em;
+                //top:-200px;
+                left: -15.6em;
+                .divHover-btn{
+                    display: flex;
+                    justify-content: flex-end;
+                    .heart{
+                        padding: 5px 5px;
+                        content: url('');
+                    }
+                    .delete{
+                        padding: 5px 5px;
+                        content: url('');
+                    }
+                    /*.heartActive{
+                        padding: 5px 5px;
+                        content: url('');
+                    }*/
+                    .heart:hover{
+                    content: url('../img/icon-fav-hover.svg')
+                    }
+                    .delete:hover{
+                    content: url('../img/icon-trash-hover.svg')
+                    }
+                    /*
+                    .heartActive:hover{
+                        content: url('../img/icon-fav-active.svg')
+                    }*/
+        
+                    .down{
+                        padding: 5px 5px;
+                        content: url('')
+                    }
+                    .down:hover{
+                        content: url('../img/icon-download-hover.svg')
+                    }
+                    .max{
+                        padding: 5px 5px;
+                        content: url('');
+                    }
+                    .max:hover{
+                        content: url('../img/icon-max-hover.svg')
+                    }
                 }
+                .divHover-user{
+                    display: none;
+                    flex-flow: column nowrap;
+                    padding-top: 35%;
+                    i{
+                        font-family: $fontSecundary;
+                        font-style: normal;
+                        color: white;
+                        padding: 0 10px 0;
+                    }
+                    i:last-child{
+                        font-weight: 700;
+                    }
+                }
+                
+                 
+            }
+            .divHover:hover{
+                background-color: #572EE5
+            }
+        
+             .divHover:hover .divHover-btn .heart{
+                content: url('../img/icon-fav.svg');
+            }
+            .divHover:hover .divHover-btn .delete{
+                content: url('../img/icon-trash-normal.svg');
+            }
+            //heartActive 
+            .divHover:hover .divHover-btn .heartActive{
+                content: url('../img/icon-fav-active.svg');
+            }
+            //
+            //
+            .divHover:hover .divHover-btn .heart:hover{
+                content: url('../img/icon-fav-hover.svg');
+            }
+            .divHover:hover .divHover-btn .delete:hover{
+                content: url('../img/icon-trash-hover.svg');
+            }
+            /*
+            .divHover:hover .divHover-btn .heartActive:hover{
+                content: url('../img/icon-fav-active.svg')
+            }
+            */
+            .divHover:hover .divHover-btn .down{
+                content: url('../img/icon-download.svg')
+            }
+            .divHover:hover .divHover-btn .down:hover{
+                content: url('../img/icon-download-hover.svg')
+            }
+            .divHover:hover .divHover-btn .max{
+                content: url('../img/icon-max-normal.svg');
+            }
+            .divHover:hover .divHover-btn .max:hover{
+                content: url('../img/icon-max-hover.svg')
+            }
+            .divHover:hover .divHover-user{
+                display: flex;
+            }
         }
-    .divHover{
-        display: block;
-        position:relative;
-        opacity: 0.6;
-        background-color: transparent;
-        width: 260px;
-        height: 200px;
-        //top:-200px;
-        left:-260px;
     }
 
+ 
 
 /* end */}
