@@ -1,7 +1,7 @@
 //Boton crear Gifo
 
 const createClick = () =>{
-  window.location = "/pages/create.html"
+  window.location = "../pages/create.html"
 }
 // Logo
 const logoClick = () =>{
